@@ -46,7 +46,7 @@ namespace cs225{
     }
     void StickerSheet::changeMaxStickers(unsigned max){
         total = max;
-        if (now >= max) now = max - 1;
+        if (now >= max) now = max;
         Image* tmp = new Image[max];
         for (unsigned int i=0; i<now; i++)
             tmp[i] = list[i];
