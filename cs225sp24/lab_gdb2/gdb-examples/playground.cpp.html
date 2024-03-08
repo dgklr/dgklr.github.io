@@ -1,0 +1,72 @@
+<body style="background-color: #1E1E1E;">
+<div style="background-color:#1E1E1E;font-family:consolas"><h2> <font color="#AADAFA"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2\gdb-examples/playground.cpp </font></h2><br/>
+<font color="#9A9A9A">#include&nbsp;&lt;iostream></font> <br><font color="#CFA2DB">using</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">namespace</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">std</font><font color="#B4B4B4">;</font><br>
+<br>
+<br>
+<br>
+<font color="#6BA455">//&nbsp;pbv</font><br>
+<font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">fooval</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#BACDAB">2</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><br>
+<font color="#CC76D1">}</font><br>
+<font color="#6BA455">//&nbsp;pbp</font><br>
+<font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">fooval</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#B4B4B4">*</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#BACDAB">2</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">}</font><br>
+<br>
+<font color="#6BA455">//&nbsp;pbr</font><br>
+<font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">fooval1</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">&</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#BACDAB">2</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">}</font><br>
+<font color="#6BA455">//&nbsp;pbp</font><br>
+<font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">bar</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">z</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">" address of z: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&</font><font color="#AADAFA">z</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"z: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">z</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">z</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">new</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">int</font><font color="#CC76D1">(</font><font color="#BACDAB">5</font><font color="#CC76D1">)</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"z: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">z</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">}</font><br>
+<br>
+<font color="#6BA455">//&nbsp;pbpbp</font><br>
+<font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">bar2</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">&</font><font color="#AADAFA">z</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">x</font><font color="#B4B4B4">=</font><font color="#BACDAB">5</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">z</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">&</font><font color="#AADAFA">x</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><br>
+<font color="#CC76D1">}</font><br>
+<br>
+<font color="#6BA455">//&nbsp;pbr&nbsp;pointer</font><br>
+<br>
+<font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">main</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">(</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#AADAFA">q</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#AADAFA">NULL</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">*</font><font color="#AADAFA">q</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;int&nbsp;x=10;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;cout&lt;&lt;"x:&nbsp;"&lt;&lt;x&lt;&lt;endl;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;fooval(&x);</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;cout&lt;&lt;"x:&nbsp;"&lt;&lt;x&lt;&lt;endl;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;fooval1(x);</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#6BA455">//&nbsp;cout&lt;&lt;"x:&nbsp;"&lt;&lt;x&lt;&lt;endl;</font><br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">y</font><font color="#B4B4B4">=</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">)</font><font color="#BACDAB">1</font><font color="#BACDAB">0</font><font color="#B4B4B4">;</font><br>
+<br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"y: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">y</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">bar2</font><font color="#CC76D1">(</font><font color="#AADAFA">y</font><font color="#CC76D1">)</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"y: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">y</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<br>
+<br>
+<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#CFA2DB">delete</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">y</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#CC76D1">}</font><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div></body>

@@ -1,0 +1,24 @@
+<body style="background-color: #1E1E1E;">
+<div style="background-color:#1E1E1E;font-family:consolas"><h2> <font color="#AADAFA"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance\feedback/drawable.h </font></h2><br/>
+<font color="#0099FF">/**<br>&nbsp;*&nbsp;Copyright&nbsp;2011&nbsp;University&nbsp;of&nbsp;Illinois&nbsp;at&nbsp;Urbana-Champaign<br>&nbsp;*&nbsp;CS&nbsp;225&nbsp;Lab&nbsp;04&nbsp;C++&nbsp;Object&nbsp;Oriented&nbsp;Programming<br>&nbsp;*&nbsp;Authors:<br>&nbsp;*&nbsp;&nbsp;&nbsp;Simon&nbsp;Krueger&nbsp;&lt;skruege2@illinois.edu><br>&nbsp;*&nbsp;&nbsp;&nbsp;Modified&nbsp;(FA17):&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&lt;parisfe2@illinois.edu><br>&nbsp;*/</font><br>
+<br>
+<br>
+<font color="#9A9A9A">#ifndef&nbsp;DRAWABLE_H_</font> <br><font color="#9A9A9A">#define&nbsp;DRAWABLE_H_</font> <br><br>
+<font color="#9A9A9A">#include&nbsp;"cs225/PNG.h"</font> <br><font color="#CFA2DB">using</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">namespace</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">cs225</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#0099FF">/**<br>&nbsp;*&nbsp;@brief&nbsp;A&nbsp;pure&nbsp;virtual&nbsp;interface&nbsp;class&nbsp;that&nbsp;can&nbsp;draw&nbsp;itself&nbsp;to&nbsp;a&nbsp;canvas.<br>&nbsp;*/</font><br>
+<br>
+<font color="#CFA2DB">class</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">Drawable</font><br>
+<font color="#CC76D1">{</font><br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">public</font><font color="#B4B4B4">:</font><br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">virtual</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">~</font><font color="#AADAFA">Drawable</font><font color="#CC76D1">(</font><font color="#CC76D1">)</font><br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><font color="#CC76D1">&nbsp;</font><font color="#0099FF">/*&nbsp;Nothing&nbsp;*/</font><br>
+<br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">}</font><br>
+<br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#0099FF">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;This&nbsp;method&nbsp;will&nbsp;draw&nbsp;the&nbsp;object&nbsp;onto&nbsp;the&nbsp;canvas.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;canvas&nbsp;to&nbsp;draw&nbsp;onto.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font><br>
+<br>
+<font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">virtual</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">void</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">draw</font><font color="#CC76D1">(</font><font color="#AADAFA">PNG</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">canvas</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">const</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#BACDAB">0</font><font color="#B4B4B4">;</font><br>
+<font color="#CC76D1">}</font><font color="#B4B4B4">;</font><br>
+<br>
+<font color="#9A9A9A">#endif&nbsp;//&nbsp;DRAWABLE_H_</font> <br></div></body>
