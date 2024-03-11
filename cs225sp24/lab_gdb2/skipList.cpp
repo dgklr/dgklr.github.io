@@ -31,11 +31,11 @@ SkipList::SkipList()
     tail->key = INT_MAX;
     tail->value = HSLAPixel();
 
-    int listHeight = 1;
-    int length = 0;
+    listHeight = 1;
+    length = 0;
 
-    int probability = 50;
-    int maxLevel = 14;  // log(128 * 128)
+    probability = 50;
+    maxLevel = 14;  // log(128 * 128)
 }
 
 /**

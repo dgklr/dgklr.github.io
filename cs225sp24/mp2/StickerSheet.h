@@ -9,6 +9,7 @@ namespace cs225{
             Image* list;
             int* x_;
             int* y_;
+            int* deleted_;
             Image base;
             void copy(const StickerSheet &rhs);
             void clear();

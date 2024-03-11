@@ -15,11 +15,14 @@ namespace cs225{
         memcpy(x_, rhs.x_, rhs.total * sizeof(int));
         y_ = (int*) malloc(rhs.total * sizeof(int));
         memcpy(y_, rhs.y_, rhs.total * sizeof(int));
+        deleted_ = (int*) malloc(rhs.total * sizeof(int));
+        memcpy(deleted_, rhs.deleted_, rhs.total * sizeof(int));
     }
     void StickerSheet::clear(){
         delete[] list;
         free(x_);
         free(y_);
+        free(deleted_);
         list = nullptr;
     }
     StickerSheet::StickerSheet(const Image &picture, unsigned max){
@@ -29,6 +32,7 @@ namespace cs225{
         list = new Image[max]; //(Image*) malloc(max * sizeof(Image));
         x_ = (int*) malloc(max * sizeof(int));
         y_ = (int*) malloc(max * sizeof(int));
+        deleted_ = (int*) malloc(max * sizeof(int));
     }
     StickerSheet::~StickerSheet(){
         clear();
@@ -54,27 +58,36 @@ namespace cs225{
         list = tmp;
         x_ = (int*) realloc(x_, max * sizeof(int));
         y_ = (int*) realloc(y_, max * sizeof(int));
+        deleted_ = (int*) realloc(deleted_, max * sizeof(int));
         // If the memory exceeds, let it crash
     }
     int StickerSheet::addSticker(Image &sticker, unsigned x, unsigned y){
-        if (now == total) return -1;
-        list[now] = sticker;
-        x_[now] = x;
-        y_[now] = y;
-        now ++;
-        return now - 1;
+        int index = -1;
+        for (unsigned int i = 0; i<now; i++) {
+            if (deleted_[i] == 1) {
+                deleted_[i] = 0;
+                index = i;
+                break;
+            }
+        }
+        if (now == total && index == -1) return -1;
+        if (index == -1) index = now, now ++;
+        list[index] = sticker;
+        x_[index] = x;
+        y_[index] = y;
+        deleted_[index] = 0;
+        return index;
     }
     bool StickerSheet::translate(unsigned index, unsigned x, unsigned y){
         if (index >= now) return false;
+        if (deleted_[index] == 1) return false;
         x_[index] = x;
         y_[index] = y;
         return true;
     }
     void StickerSheet::removeSticker(unsigned index){
         if (index >= now) return;
-        for (unsigned int i=index; i+1<now; i++)
-            list[i] = list[i+1], x_[i] = x_[i+1], y_[i] = y_[i+1];
-        now --;
+        deleted_[index] = 1;
     }
     Image * StickerSheet::getSticker(unsigned index) const{
         return list + index;
@@ -84,6 +97,7 @@ namespace cs225{
         for (unsigned int t = 0; t<now; t++)
             for (unsigned int i=0; i<ret.width(); i++)
                 for (unsigned int j=0; j<ret.height(); j++) {
+                    if (deleted_[t] == 1) continue;
                     HSLAPixel* to = ret.getPixel(i, j);
                     int px = i - x_[t], py = j - y_[t];
                     if (px < 0 || py < 0 || px >= (int)list[t].width() || py >= (int)list[t].height()) continue;
