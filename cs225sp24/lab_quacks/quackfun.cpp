@@ -25,10 +25,12 @@ namespace QuackFun {
 template <typename T>
 T sum(stack<T>& s)
 {
-    // Your code here
-    return T(); // stub return value (0 for primitive types). Change this!
-                // Note: T() is the default value for objects, and 0 for
-                // primitive types
+    if (s.size() == 0) return T();
+    T top = s.top();
+    s.pop();
+    T presum = sum(s);
+    s.push(top);
+    return top + presum;
 }
 
 /**
@@ -46,10 +48,36 @@ T sum(stack<T>& s)
 template <typename T>
 void scramble(queue<T>& q)
 {
+    unsigned cnt = 0, tmp = 1, now = 0, total = q.size();
     stack<T> s;
-    // optional: queue<T> q2;
+    queue<T> q2;
+    while (now < total) {
+        now ++;
+        cnt ++;
+        if (tmp & 1) {
+            q2.push(q.front());
+        } else {
+            s.push(q.front());
+        }
+        q.pop();
 
-    // Your code here
+        if (tmp == cnt) {
+            while (s.size()) {
+                q.push(s.top()), s.pop();
+            } 
+            while (q2.size()) {
+                q.push(q2.front()), q2.pop();
+            } 
+            tmp ++;
+            cnt = 0;
+        }
+    }
+    while (s.size()) {
+        q.push(s.top()), s.pop();
+    } 
+    while (q2.size()) {
+        q.push(q2.front()), q2.pop();
+    } 
 }
 
 /**
@@ -69,10 +97,74 @@ void scramble(queue<T>& q)
 template <typename T>
 bool verifySame(stack<T>& s, queue<T>& q)
 {
+    /**
+     * This function does a very interesting job.
+     * First, we assume we are checking that stack and queue are the same, and 
+     * in this case, there must exist size of s and q is equal.
+     * but the value of the top of s and front of q is not we want to check,
+     * we need to cycle the q and let the last number to check with top of s.
+     * So I make a counter to count how many time we want to cycle. When size
+     * of s and size of q are not equal, we just continue to cycle the queue 
+     * and let the stack decrease. We need to cycle exactly size - 1 times, so
+     * when we meet size of s equal to 1, we need to return.
+     * At this time, we need to check whether q is also only have one element.
+     * if it does, we are checking stack and queue whether is same! So we need
+     * to return whether it is the same.
+     * After doing this, we finally can check whether their top or front is the
+     * same, so we just check them.
+     * Then, if they are the same, we can then check the other part of the s 
+     * and q whether they are the same. so we pop the front and the top, and 
+     * return the verifysame method.
+     * And, don't forget to cycle the queue when checking they are the same.
+     * 
+     * Overall, we can see how the function works.
+     * 
+     * At start, 
+     * s = 1 1 3 4 5;    q = 1 2 3 4 5;      s.size(), q.size() 5 5
+     * then pop the s
+     * s = 1 1 3 4;      q = 2 3 4 5 1;      s.size(), q.size() 4 5
+     * ...
+     * time to return
+     * s = 1;            q = 5 1 2 3 4;      s.size(), q.size() 1 5 
+     * And we get...
+     * s = 1 1 3 4 5;    q = 5 1 2 3 4;      s.size(), q.size() 5 5
+     * Here we check s.top() and q.front(). They are the same number, and 
+     * remove them.
+     * s = 1 1 3 4;      q = 1 2 3 4;        s.size(), q.size() 4 4
+     * ...
+     * s = 1 1 3 4;      q = 4 1 2 3;        s.size(), q.size() 4 4
+     * same, so
+     * s = 1 1 3;        q = 1 2 3;          s.size(), q.size() 3 3
+     * then
+     * s = 1 1;          q = 1 2;            s.size(), q.size() 2 2
+     * here we find they are not the same.
+     * return false;
+    */
+    if (s.size() == 0) return 1; // this value doesn't (does!) matter
+    if (s.size() == 1 && q.size() == 1) return s.top() == q.front();
+    if (s.size() == 1) return 1; // this value doesn't matter
     bool retval = true; // optional
-    //T temp1; // rename me
-    //T temp2; // rename :)
-
+    T stacktop = s.top();
+    s.pop();
+    verifySame(s, q); // cycle the q with s.size()-1 times.
+    s.push(stacktop);
+    T queuefront = q.front();
+    q.pop();
+    q.push(queuefront); // cycle the q
+    queuefront = q.front();
+    if (s.size() == q.size()) {
+        if (stacktop == queuefront) { // their front and top is same
+            s.pop();
+            q.pop();
+            retval = verifySame(s, q); // recursive method
+            s.push(stacktop);
+            q.push(queuefront); // don't forget to cycle
+        } else {
+            q.pop();
+            q.push(queuefront); // cycle
+            retval = 0;
+        }
+    }
     return retval;
 }
 

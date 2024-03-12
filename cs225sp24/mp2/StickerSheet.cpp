@@ -90,6 +90,8 @@ namespace cs225{
         deleted_[index] = 1;
     }
     Image * StickerSheet::getSticker(unsigned index) const{
+        if (index > now) return nullptr;
+        if (deleted_[index] == 1) return nullptr;
         return list + index;
     }
     Image StickerSheet::render ()const{

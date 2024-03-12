@@ -1,4 +1,5 @@
 #define CATCH_CONFIG_MAIN
+#include "../StickerSheet.h"
 #include "catch.hpp"
 
 #include "../Image.h"
@@ -141,9 +142,61 @@ TEST_CASE("Image scale(0.5) scales pixel data in a reasonable way", "[weight=1][
   REQUIRE( result.getPixel(100, 20)->h < 220 );
 }
 
+TEST_CASE("Image resize(1080, 200) scales pixel data in the correct width/height", "[weight=1][part=1]") {
+    Image img = createRainbowImage();
+
+    Image result = createRainbowImage();
+    result.scale(1080, 200);
+
+    REQUIRE( result.width() == 720 );
+}
+
 
 // Part 2 Testing:
-#include "../StickerSheet.h"
+
+TEST_CASE("My test", "[weight=1][part=1]") {
+    Image img = createRainbowImage();
+
+    Image alma;
+    alma.readFromFile("tests/alma.png");
+
+    Image I;
+    I.readFromFile("tests/i.png");
+
+    StickerSheet sheet(alma,5);
+    sheet.addSticker(I,20,200);
+    REQUIRE(*sheet.getSticker(0) == I);
+
+    sheet.addSticker(img,20,200);
+
+    REQUIRE(*sheet.getSticker(1) == img);
+
+
+    sheet.addSticker(I,40,240);
+    sheet.addSticker(I,60,280);
+    sheet.addSticker(I,80,320);
+    REQUIRE(sheet.addSticker(I,120,200) == -1);
+
+    sheet.changeMaxStickers(10);
+
+    sheet.changeMaxStickers(2);
+    REQUIRE(sheet.getSticker(3) == nullptr);
+
+    sheet.changeMaxStickers(114514);
+    sheet.addSticker(I,40,240);
+    sheet.addSticker(I,60,180);
+    sheet.addSticker(I,80,120);
+
+    sheet.removeSticker(2);
+    REQUIRE(sheet.getSticker(2) == nullptr);
+    REQUIRE(*sheet.getSticker(4) == I);
+
+    sheet.addSticker(img,120,300);
+    REQUIRE(*sheet.getSticker(2) == img);
+
+}
+
+
 
 TEST_CASE("A basic StickerSheet works", "[weight=5][part=2]") {
   Image alma;
@@ -155,8 +208,12 @@ TEST_CASE("A basic StickerSheet works", "[weight=5][part=2]") {
   StickerSheet sheet(alma, 5);
   sheet.addSticker(i, 20, 200);
 
+  sheet.changeMaxStickers(114514);
+
+    sheet.render().writeToFile("expected.png");
   Image expected;
-  expected.readFromFile("tests/expected.png");
+  expected.readFromFile("expected.png");
 
   REQUIRE( sheet.render() == expected );
 }
+
