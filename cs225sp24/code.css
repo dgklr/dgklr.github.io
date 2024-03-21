@@ -9,6 +9,13 @@ body {
     font-size: 23px;
 }
 
+@media (max-width: 1300px) {
+    body {
+        background-color: #1E1E1E;
+        font-family:"CMU typewriter";
+        font-size: 40px;
+    }
+}
 .file {
     display: inline-block;
     color: white;
