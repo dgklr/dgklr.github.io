@@ -14,54 +14,87 @@ body {
         background-color: #1E1E1E;
         font-family:"CMU typewriter";
         font-size: 40px;
+        white-space: nowrap;
+        overflow-x: auto;
     }
 }
+
 .file {
     display: inline-block;
     color: white;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .number {
     display: inline-block;
     color: #BACDAB;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .highlight {
     display: inline-block;
     color: #CFA2DB;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .word{
     display: inline-block;
     color: #AADAFA;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .definition{
     display: inline-block;
     color: #9A9A9A;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .character{
     display: inline-block;
     color: #C5947C;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .string{
     display: inline-block;
     color: #C5947C;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .symbol{
     display: inline-block;
     color: #B4B4B4;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .comment{
     display: inline-block;
     color: #6BA455;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .symbol2{
     display: inline-block;
     color: #CC76D1;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
 }
