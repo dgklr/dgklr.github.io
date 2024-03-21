@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+body {
+    background-color: #1E1E1E;
+    font-family:"CMU typewriter";
+}
+
+.file {
+    display: inline-block;
+    color: white;
+}
+
+.number {
+    display: inline-block;
+    color: #BACDAB;
+}
+
+.highlight {
+    display: inline-block;
+    color: #CFA2DB;
+}
+
+.word{
+    display: inline-block;
+    color: #AADAFA;
+}
+
+.definition{
+    display: inline-block;
+    color: #9A9A9A;
+}
+
+.character{
+    display: inline-block;
+    color: #C5947C;
+}
+
+.string{
+    display: inline-block;
+    color: #C5947C;
+}
+
+.symbol{
+    display: inline-block;
+    color: #B4B4B4;
+}
+
+.comment{
+    display: inline-block;
+    color: #6BA455;
+}
+
+.symbol2{
+    display: inline-block;
+    color: #CC76D1;
+}

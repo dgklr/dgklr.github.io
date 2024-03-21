@@ -1,26 +1,26 @@
-<body style="background-color: #1E1E1E;">
-<div style="background-color:#1E1E1E;font-family:consolas"><h2> <font color="#AADAFA"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2\gdb-examples/swap.cpp </font></h2><br/>
-<font color="#9A9A9A">#include&nbsp;&lt;iostream></font> <br><font color="#9A9A9A">#include&nbsp;&lt;cstdlib></font> <br><br>
+<head><link rel="stylesheet" href="dgklr.github.io/cs225sp24/code.css"></head> <body>
+<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2\gdb-examples/swap.cpp </div></h2><br/>
+<div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;cstdlib></div> <br><br>
 <br>
-<font color="#0099FF">/*<br>*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;should&nbsp;swap&nbsp;the&nbsp;input&nbsp;values<br>*<br>*/</font><br>
+<div class="comment">/*<br>*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;should&nbsp;swap&nbsp;the&nbsp;input&nbsp;values<br>*<br>*/</div><br>
 <br>
 <br>
 <br>
-<font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">main</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">(</font><font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">argc</font><font color="#B4B4B4">,</font><font color="#CC76D1">&nbsp;</font><font color="#CFA2DB">char</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">*</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">argv</font><font color="#CC76D1">[</font><font color="#CC76D1">]</font><font color="#CC76D1">)</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">{</font><br>
-<font color="#6BA455">//Please&nbsp;enter&nbsp;the&nbsp;numbers&nbsp;you&nbsp;want&nbsp;to&nbsp;swap</font><br>
-<font color="#CFA2DB">if</font><font color="#CC76D1">&nbsp;</font><font color="#CC76D1">(</font><font color="#AADAFA">argc</font><font color="#B4B4B4">&lt;</font><font color="#BACDAB">3</font><font color="#CC76D1">)</font><br>
-<font color="#CC76D1">{</font><br>
-<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"./swap num1 num2"</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
-<font color="#CC76D1">&nbsp;&nbsp;&nbsp;</font><font color="#CC76D1">	</font><font color="#CFA2DB">return</font><font color="#CC76D1">&nbsp;</font><font color="#BACDAB">0</font><font color="#B4B4B4">;</font><br>
-<font color="#CC76D1">}</font><br>
-<font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">i</font><font color="#B4B4B4">=</font><font color="#BACDAB">0</font><font color="#B4B4B4">;</font><br>
-<font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">a</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">atoi</font><font color="#CC76D1">(</font><font color="#AADAFA">argv</font><font color="#CC76D1">[</font><font color="#BACDAB">1</font><font color="#CC76D1">]</font><font color="#CC76D1">)</font><font color="#B4B4B4">;</font><br>
-<font color="#CFA2DB">int</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">b</font><font color="#CC76D1">&nbsp;</font><font color="#B4B4B4">=</font><font color="#CC76D1">&nbsp;</font><font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">atoi</font><font color="#CC76D1">(</font><font color="#AADAFA">argv</font><font color="#CC76D1">[</font><font color="#BACDAB">2</font><font color="#CC76D1">]</font><font color="#CC76D1">)</font><font color="#B4B4B4">;</font><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol2">[</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><br>
+<div class="comment">//Please&nbsp;enter&nbsp;the&nbsp;numbers&nbsp;you&nbsp;want&nbsp;to&nbsp;swap</div><br>
+<div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">argc</div><div class="symbol">&lt;</div><div class="number">3</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"./swap num1 num2"</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">=</div><div class="number">0</div><div class="symbol">;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">1</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">b</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">2</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><br>
 <br>
-<font color="#AADAFA">a</font><font color="#B4B4B4">=</font><font color="#AADAFA">b</font><font color="#B4B4B4">;</font><br>
-<font color="#AADAFA">b</font><font color="#B4B4B4">=</font><font color="#AADAFA">a</font><font color="#B4B4B4">;</font><br>
+<div class="word">a</div><div class="symbol">=</div><div class="word">b</div><div class="symbol">;</div><br>
+<div class="word">b</div><div class="symbol">=</div><div class="word">a</div><div class="symbol">;</div><br>
 <br>
-<font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">cout</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">"A: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">a</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#C5947C">" B: "</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">a</font><font color="#B4B4B4">&lt;</font><font color="#B4B4B4">&lt;</font><font color="#AADAFA">std</font><font color="#B4B4B4">:</font><font color="#B4B4B4">:</font><font color="#AADAFA">endl</font><font color="#B4B4B4">;</font><br>
+<div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"A: "</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">" B: "</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><br>
 <br>
-<font color="#CC76D1">}</font><br>
+<div class="symbol2">}</div><br>
 </div></body>
