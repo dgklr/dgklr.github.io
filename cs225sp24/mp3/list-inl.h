@@ -104,8 +104,9 @@ void List<T>::reverse(ListNode*& startPoint, ListNode*& endPoint) {
         swap(i->next, i->prev);
     }
     swap(tmped->next, tmped->prev);
+    auto rec = tmpst->next;
     tmpst->next = tmped->prev;
-    tmped->prev = tmpst->next;
+    tmped->prev = rec;
     endPoint = tmpst;
     startPoint = tmped;
     /// @todo Graded in MP3.1

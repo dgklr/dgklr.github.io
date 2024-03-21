@@ -1,0 +1,95 @@
+ feedback for wangyihan.22
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic cs225/PNG.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic cs225/HSLAPixel.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic cs225/lodepng/lodepng.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic Image.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic StickerSheet.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic main.cpp
+g++ -std=c++1y  -c -g -O0 -Wall -Wextra -pedantic tests/unit_tests.cpp
+g++ unit_tests.o PNG.o HSLAPixel.o lodepng.o Image.o StickerSheet.o -std=c++1y  -lpthread -lm -o test
+Filters: [weight=1]
+===============================================================================
+All tests passed (21 assertions in 8 test cases)
+
++--------------------------+
+| Pass all basic tests! +8 |
++--------------------------+
+
+Filters: [weight=4][id=provided]
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
++--------------------------------+
+| A basic StickerSheet works. +4 |
++--------------------------------+
+
+Filters: [weight=2][id=copy]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test is a Catch v2.13.9 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+copy test for StickerSheet
+-------------------------------------------------------------------------------
+tests/unit_tests.cpp:152
+...............................................................................
+
+tests/unit_tests.cpp:152: FAILED:
+due to a fatal error condition:
+  SIGSEGV - Segmentation violation signal
+
+===============================================================================
+test cases: 1 | 1 failed
+assertions: 1 | 1 failed
+
+
+Filters: [weight=2][id=range]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test is a Catch v2.13.9 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Several Stickers are out of image
+-------------------------------------------------------------------------------
+tests/unit_tests.cpp:172
+...............................................................................
+
+tests/unit_tests.cpp:186: FAILED:
+  REQUIRE( res.width() >= 1026 )
+with expansion:
+  900 (0x384) >= 1026 (0x402)
+
+===============================================================================
+test cases: 1 | 1 failed
+assertions: 1 | 1 failed
+
+
+Filters: [weight=3][id=add]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test is a Catch v2.13.9 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Add, remove and change stickers
+-------------------------------------------------------------------------------
+tests/unit_tests.cpp:197
+...............................................................................
+
+tests/unit_tests.cpp:214: FAILED:
+  REQUIRE( sheet.getSticker(3) == __null )
+with expansion:
+  0x0000563e379cb048 == 0
+
+===============================================================================
+test cases: 1 | 1 failed
+assertions: 2 | 1 passed | 1 failed
+
+
++----------------------------+
+| myImage.png looks good. +1 |
++----------------------------+
+
+Total: 13

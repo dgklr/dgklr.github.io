@@ -1,0 +1,116 @@
+<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
+<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_trees/random.h </div></h2><br/>
+<div class="definition">#ifndef&nbsp;UTIL_RANDOM_H</div> <br><div class="definition">#define&nbsp;UTIL_RANDOM_H</div> <br><br>
+<div class="definition">#include&nbsp;&lt;stdint.h></div> <br><div class="definition">#include&nbsp;&lt;sys/time.h></div> <br><div class="definition">#include&nbsp;&lt;time.h></div> <br><br>
+<div class="comment">//&nbsp;Taken&nbsp;from</div><br>
+<div class="comment">//&nbsp;http://software.intel.com/en-us/articles/fast-random-number-generator-on-the-intel-pentiumr-4-processor/</div><br>
+<br>
+<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">util</div><br>
+<div class="symbol2">{</div><br>
+<br>
+<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">internal</div><br>
+<div class="symbol2">{</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">time_seed</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">timeval</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">gettimeofday</div><div class="symbol2">(</div><div class="symbol">&</div><div class="word">tv</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">.</div><div class="word">tv_sec</div><div class="word">&nbsp;</div><div class="symbol">^</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">.</div><div class="word">tv_usec</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">setseed</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">static</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">setseed</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="symbol">-</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol2">)</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">setseed</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol2">)</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">time_seed</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">4</div><div class="number">0</div><div class="number">1</div><div class="number">3</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">5</div><div class="number">3</div><div class="number">1</div><div class="number">0</div><div class="number">1</div><div class="number">1</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">></div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="number">0</div><div class="word">x7FFF</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">urand</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol">-</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">urandn</div><div class="symbol2">(</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">urand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">usrand</div><div class="symbol2">(</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">rand</div><div class="symbol2">(</div><div class="word">seed</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Random</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">private</div><div class="symbol">:</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">static</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">setSeed</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">mySeed</div><div class="symbol">;</div><br>
+<br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">public</div><div class="symbol">:</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Random</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Random</div><div class="symbol2">(</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">srand</div><div class="symbol2">(</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><div class="symbol">;</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">setSeed</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">static</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">internalSeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">setSeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">internalSeed</div><div class="symbol">;</div><br>
+<br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">internalSeed</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">internalSeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">setSeed</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">Random</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">time_seed</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">auto_seed</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">^</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">^</div><div class="word">&nbsp;</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">time_seed</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">Random</div><div class="symbol2">(</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol2">)</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">mySeed</div><div class="symbol2">(</div><div class="word">seed</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">srand</div><div class="symbol2">(</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">seed</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">4</div><div class="number">0</div><div class="number">1</div><div class="number">3</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">5</div><div class="number">3</div><div class="number">1</div><div class="number">0</div><div class="number">1</div><div class="number">1</div><div class="symbol">;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">mySeed</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">></div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="number">0</div><div class="word">x7FFF</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">rand</div><div class="symbol2">(</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int_fast16_t</div><div class="word">&nbsp;</div><div class="word">Random</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><br>
+<div class="symbol2">{</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><br>
+<div class="symbol2">}</div><br>
+<br>
+<div class="symbol2">}</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;namespace&nbsp;util</div><br>
+<br>
+<div class="definition">#endif&nbsp;//&nbsp;UTIL_RANDOM_H</div> <br></div></body>
