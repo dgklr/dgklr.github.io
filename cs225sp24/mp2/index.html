@@ -6,10 +6,20 @@
     <title>/mp2</title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,127 +34,127 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/mp2/alma.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/alma.png">
                 <span>alma.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/expected-lighten.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/expected-lighten.png">
                 <span>expected-lighten.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/expected-saturate.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/expected-saturate.png">
                 <span>expected-saturate.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/expected-scale2x.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/expected-scale2x.png">
                 <span>expected-scale2x.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/expected.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/expected.png">
                 <span>expected.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/final.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/final.png">
                 <span>final.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/HSLAPixel.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/HSLAPixel.o">
                 <span>HSLAPixel.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/i.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/i.png">
                 <span>i.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/Image.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/Image.cpp.html">
                 <span>Image.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/Image.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/Image.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/Image.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/Image.h.html">
                 <span>Image.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/Image.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/Image.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/Image.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/Image.o">
                 <span>Image.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/lighten.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/lighten.png">
                 <span>lighten.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/lodepng.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/lodepng.o">
                 <span>lodepng.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/main.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/main.cpp.html">
                 <span>main.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/main.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/main.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/main.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/main.o">
                 <span>main.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/Makefile" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/Makefile">
                 <span>Makefile</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/mp2" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/mp2">
                 <span>mp2</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/mp2-1" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/mp2-1">
                 <span>mp2-1</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/mp2-1.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/mp2-1.cpp.html">
                 <span>mp2-1.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/mp2-1.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/mp2-1.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/mp2-1.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/mp2-1.o">
                 <span>mp2-1.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/myImage.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/myImage.png">
                 <span>myImage.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/PNG.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/PNG.o">
                 <span>PNG.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/saturate.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/saturate.png">
                 <span>saturate.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/scale2x.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/scale2x.png">
                 <span>scale2x.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.cpp.html">
                 <span>StickerSheet.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/StickerSheet.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.h.html">
                 <span>StickerSheet.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp2/StickerSheet.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/StickerSheet.o">
                 <span>StickerSheet.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/test" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/test">
                 <span>test</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp2/unit_tests.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp2/unit_tests.o">
                 <span>unit_tests.o</span>
-            </a>
+            </div>
 
         </div>
     </div>

@@ -6,10 +6,20 @@
     <title>/lab_quacks</title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,62 +34,62 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.cpp.html">
                 <span>exercises.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_quacks/exercises.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.d" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.d">
                 <span>exercises.d</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.h.html">
                 <span>exercises.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_quacks/exercises.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/exercises.o">
                 <span>exercises.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/main.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/main.cpp.html">
                 <span>main.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_quacks/main.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_quacks/main.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/Makefile" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/Makefile">
                 <span>Makefile</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun">
                 <span>quackfun</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun-asan">
                 <span>quackfun-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.cpp.html">
                 <span>quackfun.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.h.html">
                 <span>quackfun.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_quacks/quackfun.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/queue" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/queue">
                 <span>queue</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/stack" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/stack">
                 <span>stack</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_quacks/test" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_quacks/test">
                 <span>test</span>
-            </a>
+            </div>
 
         </div>
     </div>

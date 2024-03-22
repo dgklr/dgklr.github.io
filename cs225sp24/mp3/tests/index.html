@@ -6,10 +6,20 @@
     <title>/mp3/tests</title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,98 +34,98 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/alma.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/alma.png">
                 <span>alma.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/catch.hpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/catch.hpp.html">
                 <span>catch.hpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp3/tests/catch.hpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp3/tests/catch.hpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-merge.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-merge.png">
                 <span>expected-merge.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverse.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverse.png">
                 <span>expected-reverse.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverseN_1.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverseN_1.png">
                 <span>expected-reverseN_1.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverseN_2.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-reverseN_2.png">
                 <span>expected-reverseN_2.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-sort_1.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-sort_1.png">
                 <span>expected-sort_1.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-sort_2.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-sort_2.png">
                 <span>expected-sort_2.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_1.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_1.png">
                 <span>expected-split_1.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_2.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_2.png">
                 <span>expected-split_2.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_3.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-split_3.png">
                 <span>expected-split_3.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-waterfall.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/expected-waterfall.png">
                 <span>expected-waterfall.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/merge1.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/merge1.png">
                 <span>merge1.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/merge2.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/merge2.png">
                 <span>merge2.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/split.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/split.png">
                 <span>split.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/testmain.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/testmain.cpp.html">
                 <span>testmain.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp3/tests/testmain.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp3/tests/testmain.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/testmain.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/testmain.o">
                 <span>testmain.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_helper.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_helper.h.html">
                 <span>tests_helper.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp3/tests/tests_helper.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_helper.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.cpp.html">
                 <span>tests_part1.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part1.o">
                 <span>tests_part1.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.cpp.html">
                 <span>tests_part2.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp3/tests/tests_part2.o">
                 <span>tests_part2.o</span>
-            </a>
+            </div>
 
         </div>
     </div>

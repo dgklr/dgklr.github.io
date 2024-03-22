@@ -6,10 +6,20 @@
     <title></title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,73 +34,73 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/cmuntt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/cmuntt.ttf">
                 <span>cmuntt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/code.css" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/code.css">
                 <span>code.css</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Black.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Black.ttf">
                 <span>SourceCodePro-Black.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-BlackIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-BlackIt.ttf">
                 <span>SourceCodePro-BlackIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Bold.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Bold.ttf">
                 <span>SourceCodePro-Bold.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-BoldIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-BoldIt.ttf">
                 <span>SourceCodePro-BoldIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-ExtraLight.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-ExtraLight.ttf">
                 <span>SourceCodePro-ExtraLight.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-ExtraLightIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-ExtraLightIt.ttf">
                 <span>SourceCodePro-ExtraLightIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-It.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-It.ttf">
                 <span>SourceCodePro-It.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Light.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Light.ttf">
                 <span>SourceCodePro-Light.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-LightIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-LightIt.ttf">
                 <span>SourceCodePro-LightIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Medium.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Medium.ttf">
                 <span>SourceCodePro-Medium.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-MediumIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-MediumIt.ttf">
                 <span>SourceCodePro-MediumIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf">
                 <span>SourceCodePro-Regular.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-Semibold.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-Semibold.ttf">
                 <span>SourceCodePro-Semibold.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/SourceCodePro-SemiboldIt.ttf" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/SourceCodePro-SemiboldIt.ttf">
                 <span>SourceCodePro-SemiboldIt.ttf</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/style.css" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/style.css">
                 <span>style.css</span>
-            </a>
+            </div>
 
         </div>
     </div>

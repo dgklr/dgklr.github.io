@@ -6,10 +6,20 @@
     <title>/lab_gdb2</title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,115 +34,115 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/lab_gdb2" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/lab_gdb2">
                 <span>lab_gdb2</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/lab_gdb2-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/lab_gdb2-asan">
                 <span>lab_gdb2-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/list" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/list">
                 <span>list</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/loop" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/loop">
                 <span>loop</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.cpp.html">
                 <span>main.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/main.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.o">
                 <span>main.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.o-asan.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/main.o-asan.o">
                 <span>main.o-asan.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/Makefile" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/Makefile">
                 <span>Makefile</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/out-degenerate.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/out-degenerate.png">
                 <span>out-degenerate.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/out-structure.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/out-structure.png">
                 <span>out-structure.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/playground" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/playground">
                 <span>playground</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/recurse" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/recurse">
                 <span>recurse</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.cpp.html">
                 <span>skipList.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.h.html">
                 <span>skipList.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.o">
                 <span>skipList.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.o-asan.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList.o-asan.o">
                 <span>skipList.o-asan.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.cpp.html">
                 <span>skipList_given.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.o">
                 <span>skipList_given.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.o-asan.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.o-asan.o">
                 <span>skipList_given.o-asan.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.cpp.html">
                 <span>skipNode.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.h.html">
                 <span>skipNode.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.o">
                 <span>skipNode.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.o-asan.o" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/skipNode.o-asan.o">
                 <span>skipNode.o-asan.o</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/swap" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/swap">
                 <span>swap</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/switch" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/switch">
                 <span>switch</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_gdb2/test" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_gdb2/test">
                 <span>test</span>
-            </a>
+            </div>
 
         </div>
     </div>

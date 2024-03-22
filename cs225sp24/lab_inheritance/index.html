@@ -6,10 +6,20 @@
     <title>/lab_inheritance</title>
     <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
     <script>
-        function openSourceUrl(event, url) {
-            event.stopPropagation(); // Prevent triggering the parent's link
-            window.location.href = url; // Open the source URL
-        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -24,221 +34,221 @@
         </div>
         <div class="files">
             <h3>文件</h3>
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.cpp.html">
                 <span>circle.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/circle.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.h.html">
                 <span>circle.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/circle.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/circle.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/color.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/color.h.html">
                 <span>color.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/color.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/color.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/drawable.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/drawable.h.html">
                 <span>drawable.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/drawable.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/drawable.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.cpp.html">
                 <span>flower.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/flower.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.h.html">
                 <span>flower.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/flower.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/flower.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/lab_inheritance" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/lab_inheritance">
                 <span>lab_inheritance</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/lab_inheritance-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/lab_inheritance-asan">
                 <span>lab_inheritance-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.cpp.html">
                 <span>line.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/line.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.h.html">
                 <span>line.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/line.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/line.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/main.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/main.cpp.html">
                 <span>main.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/main.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/main.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/Makefile" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/Makefile">
                 <span>Makefile</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.cpp.html">
                 <span>rectangle.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.h.html">
                 <span>rectangle.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/rectangle.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.cpp.html">
                 <span>shape.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/shape.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.h.html">
                 <span>shape.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/shape.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/shape.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_out.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_out.png">
                 <span>soln_out.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_constructor.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_constructor.png">
                 <span>soln_test_constructor.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_destructor.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_destructor.png">
                 <span>soln_test_destructor.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_pure_virtual.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_pure_virtual.png">
                 <span>soln_test_pure_virtual.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_slicing.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_slicing.png">
                 <span>soln_test_slicing.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_virtual.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/soln_test_virtual.png">
                 <span>soln_test_virtual.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor">
                 <span>test_constructor</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor-asan">
                 <span>test_constructor-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.cpp.html">
                 <span>test_constructor.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_constructor.png">
                 <span>test_constructor.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor">
                 <span>test_destructor</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor-asan">
                 <span>test_destructor-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.cpp.html">
                 <span>test_destructor.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_destructor.png">
                 <span>test_destructor.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual">
                 <span>test_pure_virtual</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual-asan">
                 <span>test_pure_virtual-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.cpp.html">
                 <span>test_pure_virtual.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_pure_virtual.png">
                 <span>test_pure_virtual.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing">
                 <span>test_slicing</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing-asan">
                 <span>test_slicing-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.cpp.html">
                 <span>test_slicing.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_slicing.png">
                 <span>test_slicing.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual">
                 <span>test_virtual</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual-asan" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual-asan">
                 <span>test_virtual-asan</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.cpp.html">
                 <span>test_virtual.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.png" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/test_virtual.png">
                 <span>test_virtual.png</span>
-            </a>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.cpp.html">
                 <span>triangle.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.h.html">
                 <span>triangle.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/triangle.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.cpp.html">
                 <span>truck.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/truck.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.h.html">
                 <span>truck.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/truck.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/truck.h">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.cpp.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.cpp.html">
                 <span>vector2.cpp</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.cpp')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.cpp">源文件</span>
+            </div>
 
-            <a href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.h.html" class="file-block">
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.h.html">
                 <span>vector2.h</span>
-                <span class="source-link" onclick="openSourceUrl(event, 'https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.h')">源代码</span>
-            </a>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/lab_inheritance/vector2.h">源文件</span>
+            </div>
 
         </div>
     </div>
