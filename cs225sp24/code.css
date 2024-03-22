@@ -24,6 +24,15 @@ body {
     }
 }
 
+.placeholder {
+    display: inline-block;
+    color: #AADAFA;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    user-select: none;
+}
+
 .file {
     display: inline-block;
     color: white;

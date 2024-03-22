@@ -13,4 +13,6 @@
 
 .code-content {
     margin-left: 10px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
