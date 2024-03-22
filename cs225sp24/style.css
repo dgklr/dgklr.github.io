@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+}
+
+.header h2, .header a {
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.back-button {
+    background-color: #555;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.file-manager {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.folders, .files {
+    width: 40%;
+}
+
+.folder-link, .file-block {
+    display: block;
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.file-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-block span {
+    margin: 0;
+    padding: 0;
+}
