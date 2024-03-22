@@ -1,22 +1,77 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_quacks/exercises.cpp </div></h2><br/>
-<div class="comment">/**<br>&nbsp;*&nbsp;@file&nbsp;exercies.cpp<br>&nbsp;*&nbsp;This&nbsp;file&nbsp;contains&nbsp;the&nbsp;recursion&nbsp;exercise&nbsp;code.<br>&nbsp;*/</div><br>
-<br>
-<br>
-<div class="definition">#include&nbsp;"exercises.h"</div> <br><br>
-<div class="comment">/**<br>&nbsp;*&nbsp;Given&nbsp;a&nbsp;non-negative&nbsp;int&nbsp;n,&nbsp;return&nbsp;the&nbsp;sum&nbsp;of&nbsp;its&nbsp;digits&nbsp;recursively&nbsp;(no<br>&nbsp;*&nbsp;loops).<br>&nbsp;*<br>&nbsp;*&nbsp;@param&nbsp;n&nbsp;The&nbsp;number&nbsp;to&nbsp;sum&nbsp;the&nbsp;digits&nbsp;of<br>&nbsp;*&nbsp;@return&nbsp;The&nbsp;sum&nbsp;of&nbsp;its&nbsp;digits<br>&nbsp;*<br>&nbsp;*&nbsp;@note&nbsp;Note&nbsp;that&nbsp;mod&nbsp;(%)&nbsp;by&nbsp;10&nbsp;yields&nbsp;the&nbsp;rightmost&nbsp;digit&nbsp;(126&nbsp;%&nbsp;10&nbsp;is&nbsp;6),<br>&nbsp;*&nbsp;&nbsp;while&nbsp;divide&nbsp;(/)&nbsp;by&nbsp;10&nbsp;removes&nbsp;the&nbsp;rightmost&nbsp;digit&nbsp;(126&nbsp;/&nbsp;10&nbsp;is&nbsp;12).<br>&nbsp;*<br>&nbsp;*&nbsp;Example:<br>&nbsp;*&nbsp;&nbsp;sumDigits(126)&nbsp;==&nbsp;9<br>&nbsp;*&nbsp;&nbsp;sumDigits(49)&nbsp;==&nbsp;13<br>&nbsp;*&nbsp;&nbsp;sumDigits(12)&nbsp;==&nbsp;3<br>&nbsp;*/</div><br>
-<br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">RecursionExercises</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">sumDigits</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><br>
-<div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">sumDigits</div><div class="symbol2">(</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><br>
-<br>
-<div class="comment">/**<br>&nbsp;*&nbsp;We&nbsp;have&nbsp;triangle&nbsp;made&nbsp;of&nbsp;blocks.&nbsp;The&nbsp;topmost&nbsp;row&nbsp;has&nbsp;1&nbsp;block,&nbsp;the&nbsp;next&nbsp;row<br>&nbsp;*&nbsp;down&nbsp;has&nbsp;2&nbsp;blocks,&nbsp;the&nbsp;next&nbsp;row&nbsp;has&nbsp;3&nbsp;blocks,&nbsp;and&nbsp;so&nbsp;on.&nbsp;Compute&nbsp;recursively<br>&nbsp;*&nbsp;(no&nbsp;loops&nbsp;or&nbsp;multiplication)&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;blocks&nbsp;in&nbsp;such&nbsp;a&nbsp;triangle<br>&nbsp;*&nbsp;with&nbsp;the&nbsp;given&nbsp;number&nbsp;of&nbsp;rows.<br>&nbsp;*<br>&nbsp;*&nbsp;&nbsp;@param&nbsp;rows&nbsp;The&nbsp;number&nbsp;of&nbsp;horizontal&nbsp;rows&nbsp;in&nbsp;the&nbsp;triangle.<br>&nbsp;*&nbsp;&nbsp;@return&nbsp;The&nbsp;total&nbsp;number&nbsp;of&nbsp;blocks&nbsp;in&nbsp;the&nbsp;triangle&nbsp;pyramid.<br>&nbsp;*/</div><br>
-<br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">RecursionExercises</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">triangle</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="symbol2">)</div><br>
-<div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">triangle</div><div class="symbol2">(</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><br>
-</div></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_quacks/exercises.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;exercies.cpp</div><br/><div class="comment">&nbsp;*&nbsp;This&nbsp;file&nbsp;contains&nbsp;the&nbsp;recursion&nbsp;exercise&nbsp;code.</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"exercises.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Given&nbsp;a&nbsp;non-negative&nbsp;int&nbsp;n,&nbsp;return&nbsp;the&nbsp;sum&nbsp;of&nbsp;its&nbsp;digits&nbsp;recursively&nbsp;(no</div><br/><div class="comment">&nbsp;*&nbsp;loops).</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;n&nbsp;The&nbsp;number&nbsp;to&nbsp;sum&nbsp;the&nbsp;digits&nbsp;of</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;The&nbsp;sum&nbsp;of&nbsp;its&nbsp;digits</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@note&nbsp;Note&nbsp;that&nbsp;mod&nbsp;(%)&nbsp;by&nbsp;10&nbsp;yields&nbsp;the&nbsp;rightmost&nbsp;digit&nbsp;(126&nbsp;%&nbsp;10&nbsp;is&nbsp;6),</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;while&nbsp;divide&nbsp;(/)&nbsp;by&nbsp;10&nbsp;removes&nbsp;the&nbsp;rightmost&nbsp;digit&nbsp;(126&nbsp;/&nbsp;10&nbsp;is&nbsp;12).</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;Example:</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;sumDigits(126)&nbsp;==&nbsp;9</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;sumDigits(49)&nbsp;==&nbsp;13</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;sumDigits(12)&nbsp;==&nbsp;3</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">RecursionExercises</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">sumDigits</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">sumDigits</div><div class="symbol2">(</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;We&nbsp;have&nbsp;triangle&nbsp;made&nbsp;of&nbsp;blocks.&nbsp;The&nbsp;topmost&nbsp;row&nbsp;has&nbsp;1&nbsp;block,&nbsp;the&nbsp;next&nbsp;row</div><br/><div class="comment">&nbsp;*&nbsp;down&nbsp;has&nbsp;2&nbsp;blocks,&nbsp;the&nbsp;next&nbsp;row&nbsp;has&nbsp;3&nbsp;blocks,&nbsp;and&nbsp;so&nbsp;on.&nbsp;Compute&nbsp;recursively</div><br/><div class="comment">&nbsp;*&nbsp;(no&nbsp;loops&nbsp;or&nbsp;multiplication)&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;blocks&nbsp;in&nbsp;such&nbsp;a&nbsp;triangle</div><br/><div class="comment">&nbsp;*&nbsp;with&nbsp;the&nbsp;given&nbsp;number&nbsp;of&nbsp;rows.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;@param&nbsp;rows&nbsp;The&nbsp;number&nbsp;of&nbsp;horizontal&nbsp;rows&nbsp;in&nbsp;the&nbsp;triangle.</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;@return&nbsp;The&nbsp;total&nbsp;number&nbsp;of&nbsp;blocks&nbsp;in&nbsp;the&nbsp;triangle&nbsp;pyramid.</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">RecursionExercises</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">triangle</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">triangle</div><div class="symbol2">(</div><div class="word">rows</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>

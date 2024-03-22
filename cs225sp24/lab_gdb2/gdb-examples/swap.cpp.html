@@ -1,26 +1,66 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2\gdb-examples/swap.cpp </div></h2><br/>
-<div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;cstdlib></div> <br><br>
-<br>
-<div class="comment">/*<br>*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;should&nbsp;swap&nbsp;the&nbsp;input&nbsp;values<br>*<br>*/</div><br>
-<br>
-<br>
-<br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol2">[</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2\gdb-examples/swap.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+</div>
+    <div class="code-content"><div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;cstdlib></div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/*</div><br/><div class="comment">*&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;should&nbsp;swap&nbsp;the&nbsp;input&nbsp;values</div><br/><div class="comment">*</div><br/><div class="comment">*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol2">[</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
 <div class="comment">//Please&nbsp;enter&nbsp;the&nbsp;numbers&nbsp;you&nbsp;want&nbsp;to&nbsp;swap</div><br>
-<div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">argc</div><div class="symbol">&lt;</div><div class="number">3</div><div class="symbol2">)</div><br>
-<div class="symbol2">{</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"./swap num1 num2"</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">=</div><div class="number">0</div><div class="symbol">;</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">1</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">b</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">2</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">a</div><div class="symbol">=</div><div class="word">b</div><div class="symbol">;</div><br>
-<div class="word">b</div><div class="symbol">=</div><div class="word">a</div><div class="symbol">;</div><br>
-<br>
-<div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"A: "</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">" B: "</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><br>
-<br>
-<div class="symbol2">}</div><br>
-</div></body>
+<div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">argc</div><div class="symbol">&lt;</div><div class="number">3</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"./swap&nbsp;num1&nbsp;num2"</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">=</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">1</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">b</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">atoi</div><div class="symbol2">(</div><div class="word">argv</div><div class="symbol2">[</div><div class="number">2</div><div class="symbol2">]</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">a</div><div class="symbol">=</div><div class="word">b</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">b</div><div class="symbol">=</div><div class="word">a</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"A:&nbsp;"</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">"&nbsp;B:&nbsp;"</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">a</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>

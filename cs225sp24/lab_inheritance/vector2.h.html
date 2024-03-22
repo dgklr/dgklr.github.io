@@ -1,133 +1,412 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance/vector2.h </div></h2><br/>
-<div class="comment">/**<br>&nbsp;*&nbsp;Copyright&nbsp;2011&nbsp;University&nbsp;of&nbsp;Illinois&nbsp;at&nbsp;Urbana-Champaign<br>&nbsp;*&nbsp;CS&nbsp;225&nbsp;Lab&nbsp;04&nbsp;C++&nbsp;Object&nbsp;Oriented&nbsp;Programming<br>&nbsp;*&nbsp;Authors:<br>&nbsp;*&nbsp;&nbsp;&nbsp;Simon&nbsp;Krueger&nbsp;&lt;skruege2@illinois.edu><br>&nbsp;*&nbsp;&nbsp;&nbsp;Modified&nbsp;(FA17):&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&lt;parisfe2@illinois.edu><br>&nbsp;*/</div><br>
-<br>
-<br>
-<div class="definition">#ifndef&nbsp;VECTOR2_H_</div> <br><div class="definition">#define&nbsp;VECTOR2_H_</div> <br><br>
-<div class="comment">/**<br>&nbsp;*&nbsp;@brief&nbsp;Vector2&nbsp;is&nbsp;a&nbsp;class&nbsp;that&nbsp;represents&nbsp;a&nbsp;2&nbsp;dimensional&nbsp;vector<br>&nbsp;*/</div><br>
-<br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Vector2</div><br>
-<div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x_</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y_</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;at&nbsp;(0,&nbsp;0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;at&nbsp;(x,&nbsp;y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Subtracts&nbsp;two&nbsp;Vector2s&nbsp;and&nbsp;returns&nbsp;the&nbsp;value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;subtract&nbsp;by<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;*this&nbsp;-&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">-</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Adds&nbsp;two&nbsp;Vector2s&nbsp;together&nbsp;and&nbsp;returns&nbsp;the&nbsp;value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;add<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;*this&nbsp;+&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Multiples&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;by&nbsp;a&nbsp;scalar&nbsp;and&nbsp;returns&nbsp;a&nbsp;new<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Vector2&nbsp;with&nbsp;its&nbsp;value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;constant&nbsp;to&nbsp;multiply&nbsp;by<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;(x&nbsp;*&nbsp;constant,&nbsp;y&nbsp;*&nbsp;constant)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">*</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">constant</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Divides&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;by&nbsp;a&nbsp;scalar&nbsp;and&nbsp;returns&nbsp;a&nbsp;new&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;with&nbsp;its&nbsp;value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;constant&nbsp;to&nbsp;divide&nbsp;by<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;(x&nbsp;/&nbsp;constant,&nbsp;y&nbsp;/&nbsp;constant)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">/</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">constant</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;equals&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;check<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;equals&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol">=</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x&nbsp;the&nbsp;new&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_x</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y&nbsp;the&nbsp;new&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_y</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;distance&nbsp;from&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;to&nbsp;the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;sqrt((this->x&nbsp;-&nbsp;other.x)^2&nbsp;+&nbsp;(this-y&nbsp;-&nbsp;other.y)^2)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">distanceTo</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;dot&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;dot&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">dotProduct</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;cross&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;cross&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and&nbsp;the&nbsp;other&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">crossProduct</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;projection&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;onto&nbsp;b<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;b&nbsp;Vector2&nbsp;to&nbsp;project&nbsp;onto<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;Vector2&nbsp;representing&nbsp;the&nbsp;projection&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;onto&nbsp;b<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">projectionOn</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">b</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;length^2&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;length^2&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">length2</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Note&nbsp;this&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;length<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">magnitude</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;normalized&nbsp;form&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;normalized&nbsp;form&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">normalize</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;left&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;left&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">leftHandNormal</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;right&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;right&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">rightHandNormal</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><br>
-<br>
-<div class="definition">#endif&nbsp;//&nbsp;VECTOR2_H_</div> <br></div></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance/vector2.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+<div class="line-number">56</div><br/>
+<div class="line-number">57</div><br/>
+<div class="line-number">58</div><br/>
+<div class="line-number">59</div><br/>
+<div class="line-number">60</div><br/>
+<div class="line-number">61</div><br/>
+<div class="line-number">62</div><br/>
+<div class="line-number">63</div><br/>
+<div class="line-number">64</div><br/>
+<div class="line-number">65</div><br/>
+<div class="line-number">66</div><br/>
+<div class="line-number">67</div><br/>
+<div class="line-number">68</div><br/>
+<div class="line-number">69</div><br/>
+<div class="line-number">70</div><br/>
+<div class="line-number">71</div><br/>
+<div class="line-number">72</div><br/>
+<div class="line-number">73</div><br/>
+<div class="line-number">74</div><br/>
+<div class="line-number">75</div><br/>
+<div class="line-number">76</div><br/>
+<div class="line-number">77</div><br/>
+<div class="line-number">78</div><br/>
+<div class="line-number">79</div><br/>
+<div class="line-number">80</div><br/>
+<div class="line-number">81</div><br/>
+<div class="line-number">82</div><br/>
+<div class="line-number">83</div><br/>
+<div class="line-number">84</div><br/>
+<div class="line-number">85</div><br/>
+<div class="line-number">86</div><br/>
+<div class="line-number">87</div><br/>
+<div class="line-number">88</div><br/>
+<div class="line-number">89</div><br/>
+<div class="line-number">90</div><br/>
+<div class="line-number">91</div><br/>
+<div class="line-number">92</div><br/>
+<div class="line-number">93</div><br/>
+<div class="line-number">94</div><br/>
+<div class="line-number">95</div><br/>
+<div class="line-number">96</div><br/>
+<div class="line-number">97</div><br/>
+<div class="line-number">98</div><br/>
+<div class="line-number">99</div><br/>
+<div class="line-number">100</div><br/>
+<div class="line-number">101</div><br/>
+<div class="line-number">102</div><br/>
+<div class="line-number">103</div><br/>
+<div class="line-number">104</div><br/>
+<div class="line-number">105</div><br/>
+<div class="line-number">106</div><br/>
+<div class="line-number">107</div><br/>
+<div class="line-number">108</div><br/>
+<div class="line-number">109</div><br/>
+<div class="line-number">110</div><br/>
+<div class="line-number">111</div><br/>
+<div class="line-number">112</div><br/>
+<div class="line-number">113</div><br/>
+<div class="line-number">114</div><br/>
+<div class="line-number">115</div><br/>
+<div class="line-number">116</div><br/>
+<div class="line-number">117</div><br/>
+<div class="line-number">118</div><br/>
+<div class="line-number">119</div><br/>
+<div class="line-number">120</div><br/>
+<div class="line-number">121</div><br/>
+<div class="line-number">122</div><br/>
+<div class="line-number">123</div><br/>
+<div class="line-number">124</div><br/>
+<div class="line-number">125</div><br/>
+<div class="line-number">126</div><br/>
+<div class="line-number">127</div><br/>
+<div class="line-number">128</div><br/>
+<div class="line-number">129</div><br/>
+<div class="line-number">130</div><br/>
+<div class="line-number">131</div><br/>
+<div class="line-number">132</div><br/>
+<div class="line-number">133</div><br/>
+<div class="line-number">134</div><br/>
+<div class="line-number">135</div><br/>
+<div class="line-number">136</div><br/>
+<div class="line-number">137</div><br/>
+<div class="line-number">138</div><br/>
+<div class="line-number">139</div><br/>
+<div class="line-number">140</div><br/>
+<div class="line-number">141</div><br/>
+<div class="line-number">142</div><br/>
+<div class="line-number">143</div><br/>
+<div class="line-number">144</div><br/>
+<div class="line-number">145</div><br/>
+<div class="line-number">146</div><br/>
+<div class="line-number">147</div><br/>
+<div class="line-number">148</div><br/>
+<div class="line-number">149</div><br/>
+<div class="line-number">150</div><br/>
+<div class="line-number">151</div><br/>
+<div class="line-number">152</div><br/>
+<div class="line-number">153</div><br/>
+<div class="line-number">154</div><br/>
+<div class="line-number">155</div><br/>
+<div class="line-number">156</div><br/>
+<div class="line-number">157</div><br/>
+<div class="line-number">158</div><br/>
+<div class="line-number">159</div><br/>
+<div class="line-number">160</div><br/>
+<div class="line-number">161</div><br/>
+<div class="line-number">162</div><br/>
+<div class="line-number">163</div><br/>
+<div class="line-number">164</div><br/>
+<div class="line-number">165</div><br/>
+<div class="line-number">166</div><br/>
+<div class="line-number">167</div><br/>
+<div class="line-number">168</div><br/>
+<div class="line-number">169</div><br/>
+<div class="line-number">170</div><br/>
+<div class="line-number">171</div><br/>
+<div class="line-number">172</div><br/>
+<div class="line-number">173</div><br/>
+<div class="line-number">174</div><br/>
+<div class="line-number">175</div><br/>
+<div class="line-number">176</div><br/>
+<div class="line-number">177</div><br/>
+<div class="line-number">178</div><br/>
+<div class="line-number">179</div><br/>
+<div class="line-number">180</div><br/>
+<div class="line-number">181</div><br/>
+<div class="line-number">182</div><br/>
+<div class="line-number">183</div><br/>
+<div class="line-number">184</div><br/>
+<div class="line-number">185</div><br/>
+<div class="line-number">186</div><br/>
+<div class="line-number">187</div><br/>
+<div class="line-number">188</div><br/>
+<div class="line-number">189</div><br/>
+<div class="line-number">190</div><br/>
+<div class="line-number">191</div><br/>
+<div class="line-number">192</div><br/>
+<div class="line-number">193</div><br/>
+<div class="line-number">194</div><br/>
+<div class="line-number">195</div><br/>
+<div class="line-number">196</div><br/>
+<div class="line-number">197</div><br/>
+<div class="line-number">198</div><br/>
+<div class="line-number">199</div><br/>
+<div class="line-number">200</div><br/>
+<div class="line-number">201</div><br/>
+<div class="line-number">202</div><br/>
+<div class="line-number">203</div><br/>
+<div class="line-number">204</div><br/>
+<div class="line-number">205</div><br/>
+<div class="line-number">206</div><br/>
+<div class="line-number">207</div><br/>
+<div class="line-number">208</div><br/>
+<div class="line-number">209</div><br/>
+<div class="line-number">210</div><br/>
+<div class="line-number">211</div><br/>
+<div class="line-number">212</div><br/>
+<div class="line-number">213</div><br/>
+<div class="line-number">214</div><br/>
+<div class="line-number">215</div><br/>
+<div class="line-number">216</div><br/>
+<div class="line-number">217</div><br/>
+<div class="line-number">218</div><br/>
+<div class="line-number">219</div><br/>
+<div class="line-number">220</div><br/>
+<div class="line-number">221</div><br/>
+<div class="line-number">222</div><br/>
+<div class="line-number">223</div><br/>
+<div class="line-number">224</div><br/>
+<div class="line-number">225</div><br/>
+<div class="line-number">226</div><br/>
+<div class="line-number">227</div><br/>
+<div class="line-number">228</div><br/>
+<div class="line-number">229</div><br/>
+<div class="line-number">230</div><br/>
+<div class="line-number">231</div><br/>
+<div class="line-number">232</div><br/>
+<div class="line-number">233</div><br/>
+<div class="line-number">234</div><br/>
+<div class="line-number">235</div><br/>
+<div class="line-number">236</div><br/>
+<div class="line-number">237</div><br/>
+<div class="line-number">238</div><br/>
+<div class="line-number">239</div><br/>
+<div class="line-number">240</div><br/>
+<div class="line-number">241</div><br/>
+<div class="line-number">242</div><br/>
+<div class="line-number">243</div><br/>
+<div class="line-number">244</div><br/>
+<div class="line-number">245</div><br/>
+<div class="line-number">246</div><br/>
+<div class="line-number">247</div><br/>
+<div class="line-number">248</div><br/>
+<div class="line-number">249</div><br/>
+<div class="line-number">250</div><br/>
+<div class="line-number">251</div><br/>
+<div class="line-number">252</div><br/>
+<div class="line-number">253</div><br/>
+<div class="line-number">254</div><br/>
+<div class="line-number">255</div><br/>
+<div class="line-number">256</div><br/>
+<div class="line-number">257</div><br/>
+<div class="line-number">258</div><br/>
+<div class="line-number">259</div><br/>
+<div class="line-number">260</div><br/>
+<div class="line-number">261</div><br/>
+<div class="line-number">262</div><br/>
+<div class="line-number">263</div><br/>
+<div class="line-number">264</div><br/>
+<div class="line-number">265</div><br/>
+<div class="line-number">266</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Copyright&nbsp;2011&nbsp;University&nbsp;of&nbsp;Illinois&nbsp;at&nbsp;Urbana-Champaign</div><br/><div class="comment">&nbsp;*&nbsp;CS&nbsp;225&nbsp;Lab&nbsp;04&nbsp;C++&nbsp;Object&nbsp;Oriented&nbsp;Programming</div><br/><div class="comment">&nbsp;*&nbsp;Authors:</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;Simon&nbsp;Krueger&nbsp;&lt;skruege2@illinois.edu></div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;Modified&nbsp;(FA17):&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&lt;parisfe2@illinois.edu></div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;VECTOR2_H_</div> <br><div class="definition">#define&nbsp;VECTOR2_H_</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@brief&nbsp;Vector2&nbsp;is&nbsp;a&nbsp;class&nbsp;that&nbsp;represents&nbsp;a&nbsp;2&nbsp;dimensional&nbsp;vector</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x_</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y_</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;at&nbsp;(0,&nbsp;0)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;at&nbsp;(x,&nbsp;y)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Subtracts&nbsp;two&nbsp;Vector2s&nbsp;and&nbsp;returns&nbsp;the&nbsp;value</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;subtract&nbsp;by</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;*this&nbsp;-&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">-</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Adds&nbsp;two&nbsp;Vector2s&nbsp;together&nbsp;and&nbsp;returns&nbsp;the&nbsp;value</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;add</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;*this&nbsp;+&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Multiples&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;by&nbsp;a&nbsp;scalar&nbsp;and&nbsp;returns&nbsp;a&nbsp;new</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Vector2&nbsp;with&nbsp;its&nbsp;value</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;constant&nbsp;to&nbsp;multiply&nbsp;by</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;(x&nbsp;*&nbsp;constant,&nbsp;y&nbsp;*&nbsp;constant)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">*</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">constant</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Divides&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;by&nbsp;a&nbsp;scalar&nbsp;and&nbsp;returns&nbsp;a&nbsp;new&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;with&nbsp;its&nbsp;value</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;constant&nbsp;to&nbsp;divide&nbsp;by</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;Vector2&nbsp;that&nbsp;equals&nbsp;(x&nbsp;/&nbsp;constant,&nbsp;y&nbsp;/&nbsp;constant)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">/</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">constant</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;equals&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Vector2&nbsp;to&nbsp;check</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;equals&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol">=</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x&nbsp;the&nbsp;new&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_x</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y&nbsp;the&nbsp;new&nbsp;y&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_y</div><div class="symbol2">(</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;distance&nbsp;from&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;to&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;sqrt((this->x&nbsp;-&nbsp;other.x)^2&nbsp;+&nbsp;(this-y&nbsp;-&nbsp;other.y)^2)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">distanceTo</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;north&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isNorthEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;south&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isSouthEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;west&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isWestOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;is&nbsp;east&nbsp;of&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isEastOf</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;dot&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;dot&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">dotProduct</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;cross&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;cross&nbsp;product&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;and&nbsp;the&nbsp;other&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">crossProduct</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;projection&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2&nbsp;onto&nbsp;b</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;b&nbsp;Vector2&nbsp;to&nbsp;project&nbsp;onto</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;Vector2&nbsp;representing&nbsp;the&nbsp;projection&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;onto&nbsp;b</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">projectionOn</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">b</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;length^2&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;length^2&nbsp;of&nbsp;the&nbsp;Vector2&nbsp;from&nbsp;the&nbsp;origin</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">length2</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Note&nbsp;this&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;length</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;magnitude&nbsp;of&nbsp;the&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">magnitude</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;normalized&nbsp;form&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;normalized&nbsp;form&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">normalize</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;left&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;left&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">leftHandNormal</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;right&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;right&nbsp;hand&nbsp;normal&nbsp;of&nbsp;the&nbsp;current&nbsp;Vector2</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">rightHandNormal</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#endif&nbsp;//&nbsp;VECTOR2_H_</div> <br></div></div></body>

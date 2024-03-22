@@ -1,26 +1,68 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_intro/main.cpp </div></h2><br/>
-<div class="comment">/**<br>&nbsp;*&nbsp;@file&nbsp;main.cpp<br>&nbsp;*&nbsp;A&nbsp;simple&nbsp;C++&nbsp;program&nbsp;that&nbsp;manipulates&nbsp;an&nbsp;image.<br>&nbsp;*<br>&nbsp;*&nbsp;@author&nbsp;CS&nbsp;225:&nbsp;Data&nbsp;Structures<br>**/</div><br>
-<br>
-<br>
-<div class="definition">#include&nbsp;"lab_intro.h"</div> <br><div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"alma.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">grayscale</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-grayscale.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createSpotlight</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-spotlight.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">illinify</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-illinify.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"overlay.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">watermark</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-watermark.png"</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><br>
-</div></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_intro/main.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;main.cpp</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;simple&nbsp;C++&nbsp;program&nbsp;that&nbsp;manipulates&nbsp;an&nbsp;image.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;CS&nbsp;225:&nbsp;Data&nbsp;Structures</div><br/><div class="comment">**/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"lab_intro.h"</div> <br><div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"alma.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">grayscale</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-grayscale.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createSpotlight</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-spotlight.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">illinify</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-illinify.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"overlay.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">watermark</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">png2</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"out-watermark.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>

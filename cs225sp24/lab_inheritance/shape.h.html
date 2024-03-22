@@ -1,59 +1,165 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance/shape.h </div></h2><br/>
-<div class="comment">/**<br>&nbsp;*&nbsp;Copyright&nbsp;2011&nbsp;University&nbsp;of&nbsp;Illinois&nbsp;at&nbsp;Urbana-Champaign<br>&nbsp;*&nbsp;CS&nbsp;225&nbsp;Lab&nbsp;04&nbsp;C++&nbsp;Object&nbsp;Oriented&nbsp;Programming<br>&nbsp;*&nbsp;Authors:<br>&nbsp;*&nbsp;&nbsp;&nbsp;Simon&nbsp;Krueger&nbsp;&lt;skruege2@illinois.edu><br>&nbsp;*&nbsp;&nbsp;&nbsp;Modified&nbsp;(FA17):&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&lt;parisfe2@illinois.edu><br>&nbsp;*/</div><br>
-<br>
-<br>
-<div class="definition">#ifndef&nbsp;SHAPE_H_</div> <br><div class="definition">#define&nbsp;SHAPE_H_</div> <br><br>
-<div class="definition">#include&nbsp;"drawable.h"</div> <br><div class="definition">#include&nbsp;"vector2.h"</div> <br><br>
-<div class="comment">/**<br>&nbsp;*&nbsp;@brief&nbsp;An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;that&nbsp;represents&nbsp;a&nbsp;Shape&nbsp;which&nbsp;has&nbsp;an&nbsp;area,<br>&nbsp;*&nbsp;perimeter,&nbsp;color,&nbsp;and&nbsp;can&nbsp;contain&nbsp;Vector2s.&nbsp;&nbsp;Shapes&nbsp;are&nbsp;also&nbsp;drawable,&nbsp;so<br>&nbsp;*&nbsp;they&nbsp;are&nbsp;expected&nbsp;to&nbsp;know&nbsp;how&nbsp;to&nbsp;draw&nbsp;them&nbsp;selves&nbsp;to&nbsp;a&nbsp;PNG.<br>&nbsp;*/</div><br>
-<br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="word">&nbsp;</div><div class="word">Drawable</div><br>
-<div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">protected</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">center_</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color_</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Shape&nbsp;with&nbsp;a&nbsp;default&nbsp;color&nbsp;and&nbsp;center<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Shape&nbsp;with&nbsp;the&nbsp;given&nbsp;center&nbsp;and&nbsp;color<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;new&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;color&nbsp;of&nbsp;the&nbsp;new&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">Shape</div><div class="symbol2">(</div><div class="symbol2">)</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Nothing&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;Shape&nbsp;in&nbsp;pixels<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;area&nbsp;(in&nbsp;pixels)&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">area</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;perimeter&nbsp;of&nbsp;the&nbsp;Shape&nbsp;in&nbsp;pixels<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;perimeter&nbsp;(in&nbsp;pixels)&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">perimeter</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;Vector2&nbsp;p&nbsp;is&nbsp;contained&nbsp;inside&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;p&nbsp;Vector2&nbsp;to&nbsp;check&nbsp;if&nbsp;it&nbsp;is&nbsp;contained&nbsp;inside&nbsp;the&nbsp;Shape&nbsp;or&nbsp;not<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;Vector2&nbsp;p&nbsp;is&nbsp;inside&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">contains</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">p</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;center&nbsp;the&nbsp;new&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_center</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;HSLAPixel&nbsp;representing&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;Shape<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">draw</div><div class="symbol2">(</div><div class="word">PNG</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">canvas</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><br>
-<br>
-<div class="definition">#endif&nbsp;//&nbsp;SHAPE_H_</div> <br></div></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance/shape.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+<div class="line-number">56</div><br/>
+<div class="line-number">57</div><br/>
+<div class="line-number">58</div><br/>
+<div class="line-number">59</div><br/>
+<div class="line-number">60</div><br/>
+<div class="line-number">61</div><br/>
+<div class="line-number">62</div><br/>
+<div class="line-number">63</div><br/>
+<div class="line-number">64</div><br/>
+<div class="line-number">65</div><br/>
+<div class="line-number">66</div><br/>
+<div class="line-number">67</div><br/>
+<div class="line-number">68</div><br/>
+<div class="line-number">69</div><br/>
+<div class="line-number">70</div><br/>
+<div class="line-number">71</div><br/>
+<div class="line-number">72</div><br/>
+<div class="line-number">73</div><br/>
+<div class="line-number">74</div><br/>
+<div class="line-number">75</div><br/>
+<div class="line-number">76</div><br/>
+<div class="line-number">77</div><br/>
+<div class="line-number">78</div><br/>
+<div class="line-number">79</div><br/>
+<div class="line-number">80</div><br/>
+<div class="line-number">81</div><br/>
+<div class="line-number">82</div><br/>
+<div class="line-number">83</div><br/>
+<div class="line-number">84</div><br/>
+<div class="line-number">85</div><br/>
+<div class="line-number">86</div><br/>
+<div class="line-number">87</div><br/>
+<div class="line-number">88</div><br/>
+<div class="line-number">89</div><br/>
+<div class="line-number">90</div><br/>
+<div class="line-number">91</div><br/>
+<div class="line-number">92</div><br/>
+<div class="line-number">93</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Copyright&nbsp;2011&nbsp;University&nbsp;of&nbsp;Illinois&nbsp;at&nbsp;Urbana-Champaign</div><br/><div class="comment">&nbsp;*&nbsp;CS&nbsp;225&nbsp;Lab&nbsp;04&nbsp;C++&nbsp;Object&nbsp;Oriented&nbsp;Programming</div><br/><div class="comment">&nbsp;*&nbsp;Authors:</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;Simon&nbsp;Krueger&nbsp;&lt;skruege2@illinois.edu></div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;Modified&nbsp;(FA17):&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&lt;parisfe2@illinois.edu></div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;SHAPE_H_</div> <br><div class="definition">#define&nbsp;SHAPE_H_</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"drawable.h"</div> <br><div class="definition">#include&nbsp;"vector2.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@brief&nbsp;An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;that&nbsp;represents&nbsp;a&nbsp;Shape&nbsp;which&nbsp;has&nbsp;an&nbsp;area,</div><br/><div class="comment">&nbsp;*&nbsp;perimeter,&nbsp;color,&nbsp;and&nbsp;can&nbsp;contain&nbsp;Vector2s.&nbsp;&nbsp;Shapes&nbsp;are&nbsp;also&nbsp;drawable,&nbsp;so</div><br/><div class="comment">&nbsp;*&nbsp;they&nbsp;are&nbsp;expected&nbsp;to&nbsp;know&nbsp;how&nbsp;to&nbsp;draw&nbsp;them&nbsp;selves&nbsp;to&nbsp;a&nbsp;PNG.</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="word">&nbsp;</div><div class="word">Drawable</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">protected</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">center_</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color_</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Shape&nbsp;with&nbsp;a&nbsp;default&nbsp;color&nbsp;and&nbsp;center</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;Shape&nbsp;with&nbsp;the&nbsp;given&nbsp;center&nbsp;and&nbsp;color</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;new&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;color&nbsp;of&nbsp;the&nbsp;new&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Shape</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">Shape</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Nothing&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;Shape&nbsp;in&nbsp;pixels</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;area&nbsp;(in&nbsp;pixels)&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">area</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;perimeter&nbsp;of&nbsp;the&nbsp;Shape&nbsp;in&nbsp;pixels</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;perimeter&nbsp;(in&nbsp;pixels)&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">perimeter</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Checks&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;Vector2&nbsp;p&nbsp;is&nbsp;contained&nbsp;inside&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;p&nbsp;Vector2&nbsp;to&nbsp;check&nbsp;if&nbsp;it&nbsp;is&nbsp;contained&nbsp;inside&nbsp;the&nbsp;Shape&nbsp;or&nbsp;not</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true&nbsp;if&nbsp;Vector2&nbsp;p&nbsp;is&nbsp;inside&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">contains</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">p</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Sets&nbsp;the&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;center&nbsp;the&nbsp;new&nbsp;center&nbsp;Vector2&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">set_center</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Vector2</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@brief&nbsp;Gets&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;HSLAPixel&nbsp;representing&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;Shape</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">draw</div><div class="symbol2">(</div><div class="word">PNG</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">canvas</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#endif&nbsp;//&nbsp;SHAPE_H_</div> <br></div></div></body>

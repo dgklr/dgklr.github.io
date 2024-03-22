@@ -1,80 +1,217 @@
-<head><link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css"></head> <body>
-<h2> <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance\cs225/PNG.h </div></h2><br/>
-<div class="comment">/**<br>&nbsp;*&nbsp;@file&nbsp;PNG.h<br>&nbsp;*<br>&nbsp;*&nbsp;@author&nbsp;CS&nbsp;225:&nbsp;Data&nbsp;Structures<br>&nbsp;*/</div><br>
-<br>
-<br>
-<div class="definition">#ifndef&nbsp;CS225_PNG_H</div> <br><div class="definition">#define&nbsp;CS225_PNG_H</div> <br><br>
-<div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;"HSLAPixel.h"</div> <br><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><br>
-<br>
-<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="word">&nbsp;</div><div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="symbol2">{</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;an&nbsp;empty&nbsp;PNG&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;a&nbsp;PNG&nbsp;image&nbsp;of&nbsp;the&nbsp;specified&nbsp;dimensions.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;width&nbsp;Width&nbsp;of&nbsp;the&nbsp;new&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;height&nbsp;Height&nbsp;of&nbsp;the&nbsp;new&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copy&nbsp;constructor:&nbsp;creates&nbsp;a&nbsp;new&nbsp;PNG&nbsp;image&nbsp;that&nbsp;is&nbsp;a&nbsp;copy&nbsp;of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;another.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;PNG&nbsp;to&nbsp;be&nbsp;copied.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Destructor:&nbsp;frees&nbsp;all&nbsp;memory&nbsp;associated&nbsp;with&nbsp;a&nbsp;given&nbsp;PNG&nbsp;object.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Invoked&nbsp;by&nbsp;the&nbsp;system.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">PNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Assignment&nbsp;operator&nbsp;for&nbsp;setting&nbsp;two&nbsp;PNGs&nbsp;equal&nbsp;to&nbsp;one&nbsp;another.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;copy&nbsp;into&nbsp;the&nbsp;current&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;current&nbsp;image&nbsp;for&nbsp;assignment&nbsp;chaining.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Equality&nbsp;operator:&nbsp;checks&nbsp;if&nbsp;two&nbsp;images&nbsp;are&nbsp;the&nbsp;same.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;be&nbsp;checked.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Whether&nbsp;the&nbsp;current&nbsp;image&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;other&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Inequality&nbsp;operator:&nbsp;checks&nbsp;if&nbsp;two&nbsp;images&nbsp;are&nbsp;different.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;be&nbsp;checked.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Whether&nbsp;the&nbsp;current&nbsp;image&nbsp;differs&nbsp;from&nbsp;the&nbsp;other&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Reads&nbsp;in&nbsp;a&nbsp;PNG&nbsp;image&nbsp;from&nbsp;a&nbsp;file.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Overwrites&nbsp;any&nbsp;current&nbsp;image&nbsp;content&nbsp;in&nbsp;the&nbsp;PNG.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;fileName&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;be&nbsp;read&nbsp;from.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true,&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;successfully&nbsp;read&nbsp;and&nbsp;loaded.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">fileName</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Writes&nbsp;a&nbsp;PNG&nbsp;image&nbsp;to&nbsp;a&nbsp;file.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;fileName&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;be&nbsp;written.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true,&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;successfully&nbsp;written.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">fileName</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Pixel&nbsp;access&nbsp;operator.&nbsp;Gets&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;pixel&nbsp;at&nbsp;the&nbsp;given<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;coordinates&nbsp;in&nbsp;the&nbsp;image.&nbsp;(0,0)&nbsp;is&nbsp;the&nbsp;upper&nbsp;left&nbsp;corner.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;pointer&nbsp;allows&nbsp;the&nbsp;image&nbsp;to&nbsp;be&nbsp;changed.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x&nbsp;X-coordinate&nbsp;for&nbsp;the&nbsp;pixel&nbsp;pointer&nbsp;to&nbsp;be&nbsp;grabbed&nbsp;from.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y&nbsp;Y-coordinate&nbsp;for&nbsp;the&nbsp;pixel&nbsp;pointer&nbsp;to&nbsp;be&nbsp;grabbed&nbsp;from.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;pixel&nbsp;at&nbsp;the&nbsp;given&nbsp;coordinates.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;width&nbsp;of&nbsp;this&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Width&nbsp;of&nbsp;the&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;height&nbsp;of&nbsp;this&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Height&nbsp;of&nbsp;the&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Resizes&nbsp;the&nbsp;image&nbsp;to&nbsp;the&nbsp;given&nbsp;coordinates.&nbsp;Attempts&nbsp;to&nbsp;preserve<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;existing&nbsp;pixel&nbsp;data&nbsp;in&nbsp;the&nbsp;image&nbsp;when&nbsp;doing&nbsp;so,&nbsp;but&nbsp;will&nbsp;crop&nbsp;if<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;necessary.&nbsp;No&nbsp;pixel&nbsp;interpolation&nbsp;is&nbsp;done.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newWidth&nbsp;New&nbsp;width&nbsp;of&nbsp;the&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newHeight&nbsp;New&nbsp;height&nbsp;of&nbsp;the&nbsp;image.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">resize</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">newWidth</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">newHeight</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Width&nbsp;of&nbsp;the&nbsp;image&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Height&nbsp;of&nbsp;the&nbsp;image&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">imageData_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Array&nbsp;of&nbsp;pixels&nbsp;*/</div><br>
-<br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copeies&nbsp;the&nbsp;contents&nbsp;of&nbsp;`other`&nbsp;to&nbsp;self<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div><br>
-<br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">_copy</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><br>
-<div class="symbol2">}</div><br>
-<br>
-<div class="definition">#endif</div> <br></div></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_inheritance\cs225/PNG.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+<div class="line-number">56</div><br/>
+<div class="line-number">57</div><br/>
+<div class="line-number">58</div><br/>
+<div class="line-number">59</div><br/>
+<div class="line-number">60</div><br/>
+<div class="line-number">61</div><br/>
+<div class="line-number">62</div><br/>
+<div class="line-number">63</div><br/>
+<div class="line-number">64</div><br/>
+<div class="line-number">65</div><br/>
+<div class="line-number">66</div><br/>
+<div class="line-number">67</div><br/>
+<div class="line-number">68</div><br/>
+<div class="line-number">69</div><br/>
+<div class="line-number">70</div><br/>
+<div class="line-number">71</div><br/>
+<div class="line-number">72</div><br/>
+<div class="line-number">73</div><br/>
+<div class="line-number">74</div><br/>
+<div class="line-number">75</div><br/>
+<div class="line-number">76</div><br/>
+<div class="line-number">77</div><br/>
+<div class="line-number">78</div><br/>
+<div class="line-number">79</div><br/>
+<div class="line-number">80</div><br/>
+<div class="line-number">81</div><br/>
+<div class="line-number">82</div><br/>
+<div class="line-number">83</div><br/>
+<div class="line-number">84</div><br/>
+<div class="line-number">85</div><br/>
+<div class="line-number">86</div><br/>
+<div class="line-number">87</div><br/>
+<div class="line-number">88</div><br/>
+<div class="line-number">89</div><br/>
+<div class="line-number">90</div><br/>
+<div class="line-number">91</div><br/>
+<div class="line-number">92</div><br/>
+<div class="line-number">93</div><br/>
+<div class="line-number">94</div><br/>
+<div class="line-number">95</div><br/>
+<div class="line-number">96</div><br/>
+<div class="line-number">97</div><br/>
+<div class="line-number">98</div><br/>
+<div class="line-number">99</div><br/>
+<div class="line-number">100</div><br/>
+<div class="line-number">101</div><br/>
+<div class="line-number">102</div><br/>
+<div class="line-number">103</div><br/>
+<div class="line-number">104</div><br/>
+<div class="line-number">105</div><br/>
+<div class="line-number">106</div><br/>
+<div class="line-number">107</div><br/>
+<div class="line-number">108</div><br/>
+<div class="line-number">109</div><br/>
+<div class="line-number">110</div><br/>
+<div class="line-number">111</div><br/>
+<div class="line-number">112</div><br/>
+<div class="line-number">113</div><br/>
+<div class="line-number">114</div><br/>
+<div class="line-number">115</div><br/>
+<div class="line-number">116</div><br/>
+<div class="line-number">117</div><br/>
+<div class="line-number">118</div><br/>
+<div class="line-number">119</div><br/>
+<div class="line-number">120</div><br/>
+<div class="line-number">121</div><br/>
+<div class="line-number">122</div><br/>
+<div class="line-number">123</div><br/>
+<div class="line-number">124</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;PNG.h</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;CS&nbsp;225:&nbsp;Data&nbsp;Structures</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;CS225_PNG_H</div> <br><div class="definition">#define&nbsp;CS225_PNG_H</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;"HSLAPixel.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;an&nbsp;empty&nbsp;PNG&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;a&nbsp;PNG&nbsp;image&nbsp;of&nbsp;the&nbsp;specified&nbsp;dimensions.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;width&nbsp;Width&nbsp;of&nbsp;the&nbsp;new&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;height&nbsp;Height&nbsp;of&nbsp;the&nbsp;new&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copy&nbsp;constructor:&nbsp;creates&nbsp;a&nbsp;new&nbsp;PNG&nbsp;image&nbsp;that&nbsp;is&nbsp;a&nbsp;copy&nbsp;of</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;another.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;PNG&nbsp;to&nbsp;be&nbsp;copied.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Destructor:&nbsp;frees&nbsp;all&nbsp;memory&nbsp;associated&nbsp;with&nbsp;a&nbsp;given&nbsp;PNG&nbsp;object.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Invoked&nbsp;by&nbsp;the&nbsp;system.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">PNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Assignment&nbsp;operator&nbsp;for&nbsp;setting&nbsp;two&nbsp;PNGs&nbsp;equal&nbsp;to&nbsp;one&nbsp;another.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;copy&nbsp;into&nbsp;the&nbsp;current&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;current&nbsp;image&nbsp;for&nbsp;assignment&nbsp;chaining.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Equality&nbsp;operator:&nbsp;checks&nbsp;if&nbsp;two&nbsp;images&nbsp;are&nbsp;the&nbsp;same.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;be&nbsp;checked.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Whether&nbsp;the&nbsp;current&nbsp;image&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;other&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Inequality&nbsp;operator:&nbsp;checks&nbsp;if&nbsp;two&nbsp;images&nbsp;are&nbsp;different.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;Image&nbsp;to&nbsp;be&nbsp;checked.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Whether&nbsp;the&nbsp;current&nbsp;image&nbsp;differs&nbsp;from&nbsp;the&nbsp;other&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Reads&nbsp;in&nbsp;a&nbsp;PNG&nbsp;image&nbsp;from&nbsp;a&nbsp;file.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Overwrites&nbsp;any&nbsp;current&nbsp;image&nbsp;content&nbsp;in&nbsp;the&nbsp;PNG.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;fileName&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;be&nbsp;read&nbsp;from.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true,&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;successfully&nbsp;read&nbsp;and&nbsp;loaded.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">fileName</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Writes&nbsp;a&nbsp;PNG&nbsp;image&nbsp;to&nbsp;a&nbsp;file.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;fileName&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;be&nbsp;written.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;true,&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;successfully&nbsp;written.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">fileName</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Pixel&nbsp;access&nbsp;operator.&nbsp;Gets&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;pixel&nbsp;at&nbsp;the&nbsp;given</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;coordinates&nbsp;in&nbsp;the&nbsp;image.&nbsp;(0,0)&nbsp;is&nbsp;the&nbsp;upper&nbsp;left&nbsp;corner.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;pointer&nbsp;allows&nbsp;the&nbsp;image&nbsp;to&nbsp;be&nbsp;changed.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;x&nbsp;X-coordinate&nbsp;for&nbsp;the&nbsp;pixel&nbsp;pointer&nbsp;to&nbsp;be&nbsp;grabbed&nbsp;from.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;y&nbsp;Y-coordinate&nbsp;for&nbsp;the&nbsp;pixel&nbsp;pointer&nbsp;to&nbsp;be&nbsp;grabbed&nbsp;from.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;pixel&nbsp;at&nbsp;the&nbsp;given&nbsp;coordinates.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;width&nbsp;of&nbsp;this&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Width&nbsp;of&nbsp;the&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;height&nbsp;of&nbsp;this&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;Height&nbsp;of&nbsp;the&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Resizes&nbsp;the&nbsp;image&nbsp;to&nbsp;the&nbsp;given&nbsp;coordinates.&nbsp;Attempts&nbsp;to&nbsp;preserve</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;existing&nbsp;pixel&nbsp;data&nbsp;in&nbsp;the&nbsp;image&nbsp;when&nbsp;doing&nbsp;so,&nbsp;but&nbsp;will&nbsp;crop&nbsp;if</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;necessary.&nbsp;No&nbsp;pixel&nbsp;interpolation&nbsp;is&nbsp;done.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newWidth&nbsp;New&nbsp;width&nbsp;of&nbsp;the&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newHeight&nbsp;New&nbsp;height&nbsp;of&nbsp;the&nbsp;image.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">resize</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">newWidth</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">newHeight</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Width&nbsp;of&nbsp;the&nbsp;image&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Height&nbsp;of&nbsp;the&nbsp;image&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">imageData_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&lt;&nbsp;Array&nbsp;of&nbsp;pixels&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copeies&nbsp;the&nbsp;contents&nbsp;of&nbsp;`other`&nbsp;to&nbsp;self</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">_copy</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#endif</div> <br></div></div></body>
