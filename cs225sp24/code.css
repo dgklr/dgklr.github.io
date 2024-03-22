@@ -3,16 +3,21 @@
     src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+
 body {
     background-color: #1E1E1E;
-    font-family:"CMU typewriter";
+    font-family:"Source Code Pro";
     font-size: 23px;
 }
 
 @media (max-width: 1300px) {
     body {
         background-color: #1E1E1E;
-        font-family:"CMU typewriter";
+        font-family:"Source Code Pro";
         font-size: 40px;
         white-space: nowrap;
         overflow-x: auto;
