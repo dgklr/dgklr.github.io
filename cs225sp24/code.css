@@ -19,7 +19,6 @@ body {
         background-color: #1E1E1E;
         font-family:"Source Code Pro";
         font-size: 40px;
-        white-space: nowrap;
         overflow-x: auto;
     }
 }
@@ -44,6 +43,15 @@ body {
 .number {
     display: inline-block;
     color: #BACDAB;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+
+.line-number {
+    display: inline-block;
+    color: #4B8FAC;
     flex-wrap: nowrap;
     white-space: nowrap;
     overflow-x: auto;
