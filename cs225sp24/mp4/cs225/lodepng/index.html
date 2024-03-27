@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/mp4/cs225/lodepng</title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>/mp4/cs225/lodepng</h2>
+        <a href="https://dgklr.github.io/cs225sp24/mp4/cs225" class="back-button">返回上一页</a>
+    </div>
+    <div class="file-manager">
+        <div class="folders">
+            <h3>文件夹</h3>
+
+        </div>
+        <div class="files">
+            <h3>文件</h3>
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/cs225/lodepng/lodepng.cpp.html">
+                <span>lodepng.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/cs225/lodepng/lodepng.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/cs225/lodepng/lodepng.h.html">
+                <span>lodepng.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/cs225/lodepng/lodepng.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/cs225/lodepng/lodepng.o">
+                <span>lodepng.o</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

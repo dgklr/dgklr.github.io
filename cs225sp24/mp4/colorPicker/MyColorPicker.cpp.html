@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4\colorPicker/MyColorPicker.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+</div>
+    <div class="code-content"><div class="definition">#include&nbsp;"../cs225/HSLAPixel.h"</div> <br><div class="definition">#include&nbsp;"../Point.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"ColorPicker.h"</div> <br><div class="definition">#include&nbsp;"MyColorPicker.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;&lt;random></div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Picks&nbsp;the&nbsp;color&nbsp;for&nbsp;pixel&nbsp;(x,&nbsp;y).</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">MyColorPicker</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">getColor</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">static</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">double</div><div class="symbol2">)</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">/</div><div class="word">RAND_MAX</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">double</div><div class="symbol2">)</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">/</div><div class="word">RAND_MAX</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">%</div><div class="number">9</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">double</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">-</div><div class="word">RAND_MAX</div><div class="symbol">/</div><div class="word">RAND_MAX2</div><div class="symbol2">)</div><div class="symbol">/</div><div class="word">RAND_MAX</div><div class="symbol">/</div><div class="word">RAND_MAX100</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">double</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">-</div><div class="word">RAND_MAX</div><div class="symbol">/</div><div class="word">RAND_MAX2</div><div class="symbol2">)</div><div class="symbol">/</div><div class="word">RAND_MAX</div><div class="symbol">/</div><div class="word">RAND_MAX100</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s&nbsp;>=&nbsp;0.5)&nbsp;s&nbsp;*=&nbsp;(1&nbsp;-&nbsp;(double)(rand())/RAND_MAX/100);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s&nbsp;&lt;=&nbsp;0.5)&nbsp;s&nbsp;*=&nbsp;(1&nbsp;+&nbsp;(double)(rand())/RAND_MAX/100);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(l&nbsp;>=&nbsp;0.5)&nbsp;l&nbsp;*=&nbsp;(1&nbsp;-&nbsp;(double)(rand())/RAND_MAX/100);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(l&nbsp;&lt;=&nbsp;0.5)&nbsp;l&nbsp;*=&nbsp;(1&nbsp;+&nbsp;(double)(rand())/RAND_MAX/100);*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="symbol2">(</div><div class="word">h</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">s</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">l</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>

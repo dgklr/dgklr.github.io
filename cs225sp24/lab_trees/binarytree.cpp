@@ -81,6 +81,7 @@ void BinaryTree<T>::printLeftToRight(const Node* subRoot) const
 template <typename T>
 void BinaryTree<T>::mirror()
 {
+    if (root == nullptr) return;
     stack <Node*> s;
     s.push(root);
     while (s.size()){
@@ -100,6 +101,7 @@ void BinaryTree<T>::mirror()
 template <typename T>
 bool BinaryTree<T>::isOrdered() const
 {
+    if (root == nullptr) return true;
     stack <tuple<Node*, T, T, bool, bool> > s;
     s.push(make_tuple(root, T(), T(), 0, 0));
     while (s.size()) {
@@ -126,6 +128,10 @@ bool BinaryTree<T>::isOrdered() const
 template <typename T>
 void BinaryTree<T>::printPaths(vector<vector<T> > &paths) const
 {
+    if (root == nullptr) {
+        paths.clear();
+        return;
+    }
     helper_printPaths(paths, vector<T>(), root);
 }
 template <typename T>
@@ -151,6 +157,7 @@ void BinaryTree<T>::helper_printPaths(vector<vector<T> > &paths, vector <T> path
 template <typename T>
 int BinaryTree<T>::sumDistances() const
 {
+    if (root == nullptr) return 0;
     return helper_sumDistances(root, 0);
 }
 

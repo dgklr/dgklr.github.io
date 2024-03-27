@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/mp4/colorPicker</title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>/mp4/colorPicker</h2>
+        <a href="https://dgklr.github.io/cs225sp24/mp4" class="back-button">返回上一页</a>
+    </div>
+    <div class="file-manager">
+        <div class="folders">
+            <h3>文件夹</h3>
+
+        </div>
+        <div class="files">
+            <h3>文件</h3>
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/ColorPicker.h.html">
+                <span>ColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/ColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GradientColorPicker.cpp.html">
+                <span>GradientColorPicker.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GradientColorPicker.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GradientColorPicker.h.html">
+                <span>GradientColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GradientColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GradientColorPicker.o">
+                <span>GradientColorPicker.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GridColorPicker.cpp.html">
+                <span>GridColorPicker.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GridColorPicker.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GridColorPicker.h.html">
+                <span>GridColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GridColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/GridColorPicker.o">
+                <span>GridColorPicker.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/MyColorPicker.cpp.html">
+                <span>MyColorPicker.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/MyColorPicker.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/MyColorPicker.h.html">
+                <span>MyColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/MyColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/MyColorPicker.o">
+                <span>MyColorPicker.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/RainbowColorPicker.cpp.html">
+                <span>RainbowColorPicker.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/RainbowColorPicker.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/RainbowColorPicker.h.html">
+                <span>RainbowColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/RainbowColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/RainbowColorPicker.o">
+                <span>RainbowColorPicker.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.cpp.html">
+                <span>SolidColorPicker.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.h.html">
+                <span>SolidColorPicker.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.o">
+                <span>SolidColorPicker.o</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

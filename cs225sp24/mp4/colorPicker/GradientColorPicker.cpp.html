@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4\colorPicker/GradientColorPicker.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+</div>
+    <div class="code-content"><div class="definition">#include&nbsp;&lt;cmath></div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"../cs225/HSLAPixel.h"</div> <br><div class="definition">#include&nbsp;"../Point.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"ColorPicker.h"</div> <br><div class="definition">#include&nbsp;"GradientColorPicker.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="word">GradientColorPicker</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">GradientColorPicker</div><div class="symbol2">(</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">Point</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">radius</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">color1</div><div class="symbol2">(</div><div class="word">color1</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">color2</div><div class="symbol2">(</div><div class="word">color2</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol2">(</div><div class="word">center</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">radius</div><div class="symbol2">(</div><div class="word">radius</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Picks&nbsp;the&nbsp;color&nbsp;for&nbsp;pixel&nbsp;(x,&nbsp;y).</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;first&nbsp;color&nbsp;fades&nbsp;into&nbsp;the&nbsp;second&nbsp;color&nbsp;as&nbsp;you&nbsp;move&nbsp;from&nbsp;the&nbsp;initial</div><br/><div class="comment">&nbsp;*&nbsp;fill&nbsp;point,&nbsp;the&nbsp;center,&nbsp;to&nbsp;the&nbsp;radius.&nbsp;Beyond&nbsp;the&nbsp;radius,&nbsp;all&nbsp;pixels</div><br/><div class="comment">&nbsp;*&nbsp;should&nbsp;be&nbsp;just&nbsp;color2.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;You&nbsp;should&nbsp;calculate&nbsp;the&nbsp;distance&nbsp;between&nbsp;two&nbsp;points&nbsp;using&nbsp;the&nbsp;standard</div><br/><div class="comment">&nbsp;*&nbsp;euclidean&nbsp;distance&nbsp;formula.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;Then,&nbsp;scale&nbsp;each&nbsp;of&nbsp;the&nbsp;three&nbsp;channels&nbsp;(H,&nbsp;S,&nbsp;and&nbsp;L)&nbsp;from&nbsp;color1&nbsp;to</div><br/><div class="comment">&nbsp;*&nbsp;color2&nbsp;linearly&nbsp;from&nbsp;d&nbsp;=&nbsp;0&nbsp;to&nbsp;d&nbsp;=&nbsp;radius.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;x&nbsp;The&nbsp;x&nbsp;coordinate&nbsp;to&nbsp;pick&nbsp;a&nbsp;color&nbsp;for.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;y&nbsp;The&nbsp;y&nbsp;coordinate&nbsp;to&nbsp;pick&nbsp;a&nbsp;color&nbsp;for.</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;The&nbsp;color&nbsp;selected&nbsp;for&nbsp;(x,&nbsp;y).</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">GradientColorPicker</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">getColor</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">dx</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol">.</div><div class="word">x</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">dy</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">center</div><div class="symbol">.</div><div class="word">y</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">d</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">sqrt</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">dx</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">dx</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">dy</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">dy</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">d</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="word">radius</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">pct</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">color2</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">color1</div><div class="symbol">.</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color1</div><div class="symbol">.</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color2</div><div class="symbol">.</div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">color1</div><div class="symbol">.</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color1</div><div class="symbol">.</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color2</div><div class="symbol">.</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">double</div><div class="word">&nbsp;</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">color1</div><div class="symbol">.</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color1</div><div class="symbol">.</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">color2</div><div class="symbol">.</div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pct</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="symbol2">(</div><div class="word">h</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">s</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">l</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>

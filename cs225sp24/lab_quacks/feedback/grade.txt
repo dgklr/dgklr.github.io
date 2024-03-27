@@ -11,5 +11,5 @@ Expected:        4 6 5 7 8 9 12 11 10
 All tests passed (16 assertions in 7 test cases)
 
 
-Total: 10
+Total: 13
 If you get negative points, the only reason is that you use the std queue or std stack, which is not allowed. 

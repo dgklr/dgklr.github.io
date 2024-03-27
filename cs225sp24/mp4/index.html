@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/mp4</title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>/mp4</h2>
+        <a href="https://dgklr.github.io/cs225sp24" class="back-button">返回上一页</a>
+    </div>
+    <div class="file-manager">
+        <div class="folders">
+            <h3>文件夹</h3>
+            <a href="https://dgklr.github.io/cs225sp24/mp4/colorPicker" class="folder-link">colorPicker</a>            <a href="https://dgklr.github.io/cs225sp24/mp4/cs225" class="folder-link">cs225</a>            <a href="https://dgklr.github.io/cs225sp24/mp4/frames" class="folder-link">frames</a>            <a href="https://dgklr.github.io/cs225sp24/mp4/imageTraversal" class="folder-link">imageTraversal</a>            <a href="https://dgklr.github.io/cs225sp24/mp4/tests" class="folder-link">tests</a>
+        </div>
+        <div class="files">
+            <h3>文件</h3>
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Animation.cpp.html">
+                <span>Animation.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/Animation.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Animation.h.html">
+                <span>Animation.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/Animation.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Animation.o">
+                <span>Animation.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.cpp.html">
+                <span>FloodFilledImage.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.h.html">
+                <span>FloodFilledImage.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.o">
+                <span>FloodFilledImage.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/garfield-rainbow-bfs-2.png">
+                <span>garfield-rainbow-bfs-2.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/garfield-rainbow-bfs.png">
+                <span>garfield-rainbow-bfs.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-bfs-2.png">
+                <span>i-rainbow-bfs-2.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-bfs.gif.mp4">
+                <span>i-rainbow-bfs.gif.mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-bfs.png">
+                <span>i-rainbow-bfs.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-dfs-2.png">
+                <span>i-rainbow-dfs-2.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-dfs.gif.mp4">
+                <span>i-rainbow-dfs.gif.mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/i-rainbow-dfs.png">
+                <span>i-rainbow-dfs.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/main.cpp.html">
+                <span>main.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/main.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/main.o">
+                <span>main.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Makefile">
+                <span>Makefile</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/mp4">
+                <span>mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/myFloodFill.gif.mp4">
+                <span>myFloodFill.gif.mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/myFloodFill.png">
+                <span>myFloodFill.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-bfs-2.png">
+                <span>pacman-solid-bfs-2.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-bfs.gif.mp4">
+                <span>pacman-solid-bfs.gif.mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-bfs.png">
+                <span>pacman-solid-bfs.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-dfs-2.png">
+                <span>pacman-solid-dfs-2.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-dfs.gif.mp4">
+                <span>pacman-solid-dfs.gif.mp4</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/pacman-solid-dfs.png">
+                <span>pacman-solid-dfs.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Point.cpp.html">
+                <span>Point.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/Point.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Point.h.html">
+                <span>Point.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp4/Point.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/Point.o">
+                <span>Point.o</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp4/test">
+                <span>test</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
