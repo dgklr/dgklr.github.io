@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_avl/avltree.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+<div class="line-number">56</div><br/>
+<div class="line-number">57</div><br/>
+<div class="line-number">58</div><br/>
+<div class="line-number">59</div><br/>
+<div class="line-number">60</div><br/>
+<div class="line-number">61</div><br/>
+<div class="line-number">62</div><br/>
+<div class="line-number">63</div><br/>
+<div class="line-number">64</div><br/>
+<div class="line-number">65</div><br/>
+<div class="line-number">66</div><br/>
+<div class="line-number">67</div><br/>
+<div class="line-number">68</div><br/>
+<div class="line-number">69</div><br/>
+<div class="line-number">70</div><br/>
+<div class="line-number">71</div><br/>
+<div class="line-number">72</div><br/>
+<div class="line-number">73</div><br/>
+<div class="line-number">74</div><br/>
+<div class="line-number">75</div><br/>
+<div class="line-number">76</div><br/>
+<div class="line-number">77</div><br/>
+<div class="line-number">78</div><br/>
+<div class="line-number">79</div><br/>
+<div class="line-number">80</div><br/>
+<div class="line-number">81</div><br/>
+<div class="line-number">82</div><br/>
+<div class="line-number">83</div><br/>
+<div class="line-number">84</div><br/>
+<div class="line-number">85</div><br/>
+<div class="line-number">86</div><br/>
+<div class="line-number">87</div><br/>
+<div class="line-number">88</div><br/>
+<div class="line-number">89</div><br/>
+<div class="line-number">90</div><br/>
+<div class="line-number">91</div><br/>
+<div class="line-number">92</div><br/>
+<div class="line-number">93</div><br/>
+<div class="line-number">94</div><br/>
+<div class="line-number">95</div><br/>
+<div class="line-number">96</div><br/>
+<div class="line-number">97</div><br/>
+<div class="line-number">98</div><br/>
+<div class="line-number">99</div><br/>
+<div class="line-number">100</div><br/>
+<div class="line-number">101</div><br/>
+<div class="line-number">102</div><br/>
+<div class="line-number">103</div><br/>
+<div class="line-number">104</div><br/>
+<div class="line-number">105</div><br/>
+<div class="line-number">106</div><br/>
+<div class="line-number">107</div><br/>
+<div class="line-number">108</div><br/>
+<div class="line-number">109</div><br/>
+<div class="line-number">110</div><br/>
+<div class="line-number">111</div><br/>
+<div class="line-number">112</div><br/>
+<div class="line-number">113</div><br/>
+<div class="line-number">114</div><br/>
+<div class="line-number">115</div><br/>
+<div class="line-number">116</div><br/>
+<div class="line-number">117</div><br/>
+<div class="line-number">118</div><br/>
+<div class="line-number">119</div><br/>
+<div class="line-number">120</div><br/>
+<div class="line-number">121</div><br/>
+<div class="line-number">122</div><br/>
+<div class="line-number">123</div><br/>
+<div class="line-number">124</div><br/>
+<div class="line-number">125</div><br/>
+<div class="line-number">126</div><br/>
+<div class="line-number">127</div><br/>
+<div class="line-number">128</div><br/>
+<div class="line-number">129</div><br/>
+<div class="line-number">130</div><br/>
+<div class="line-number">131</div><br/>
+<div class="line-number">132</div><br/>
+<div class="line-number">133</div><br/>
+<div class="line-number">134</div><br/>
+<div class="line-number">135</div><br/>
+<div class="line-number">136</div><br/>
+<div class="line-number">137</div><br/>
+<div class="line-number">138</div><br/>
+<div class="line-number">139</div><br/>
+<div class="line-number">140</div><br/>
+<div class="line-number">141</div><br/>
+<div class="line-number">142</div><br/>
+<div class="line-number">143</div><br/>
+<div class="line-number">144</div><br/>
+<div class="line-number">145</div><br/>
+<div class="line-number">146</div><br/>
+<div class="line-number">147</div><br/>
+<div class="line-number">148</div><br/>
+<div class="line-number">149</div><br/>
+<div class="line-number">150</div><br/>
+<div class="line-number">151</div><br/>
+<div class="line-number">152</div><br/>
+<div class="line-number">153</div><br/>
+<div class="line-number">154</div><br/>
+<div class="line-number">155</div><br/>
+<div class="line-number">156</div><br/>
+<div class="line-number">157</div><br/>
+<div class="line-number">158</div><br/>
+<div class="line-number">159</div><br/>
+<div class="line-number">160</div><br/>
+<div class="line-number">161</div><br/>
+<div class="line-number">162</div><br/>
+<div class="line-number">163</div><br/>
+<div class="line-number">164</div><br/>
+<div class="line-number">165</div><br/>
+<div class="line-number">166</div><br/>
+<div class="line-number">167</div><br/>
+<div class="line-number">168</div><br/>
+<div class="line-number">169</div><br/>
+<div class="line-number">170</div><br/>
+<div class="line-number">171</div><br/>
+<div class="line-number">172</div><br/>
+<div class="line-number">173</div><br/>
+<div class="line-number">174</div><br/>
+<div class="line-number">175</div><br/>
+<div class="line-number">176</div><br/>
+<div class="line-number">177</div><br/>
+<div class="line-number">178</div><br/>
+<div class="line-number">179</div><br/>
+<div class="line-number">180</div><br/>
+<div class="line-number">181</div><br/>
+<div class="line-number">182</div><br/>
+<div class="line-number">183</div><br/>
+<div class="line-number">184</div><br/>
+<div class="line-number">185</div><br/>
+<div class="line-number">186</div><br/>
+<div class="line-number">187</div><br/>
+<div class="line-number">188</div><br/>
+<div class="line-number">189</div><br/>
+<div class="line-number">190</div><br/>
+<div class="line-number">191</div><br/>
+<div class="line-number">192</div><br/>
+<div class="line-number">193</div><br/>
+<div class="line-number">194</div><br/>
+<div class="line-number">195</div><br/>
+<div class="line-number">196</div><br/>
+<div class="line-number">197</div><br/>
+<div class="line-number">198</div><br/>
+<div class="line-number">199</div><br/>
+<div class="line-number">200</div><br/>
+<div class="line-number">201</div><br/>
+<div class="line-number">202</div><br/>
+<div class="line-number">203</div><br/>
+<div class="line-number">204</div><br/>
+<div class="line-number">205</div><br/>
+<div class="line-number">206</div><br/>
+<div class="line-number">207</div><br/>
+<div class="line-number">208</div><br/>
+<div class="line-number">209</div><br/>
+<div class="line-number">210</div><br/>
+<div class="line-number">211</div><br/>
+<div class="line-number">212</div><br/>
+<div class="line-number">213</div><br/>
+<div class="line-number">214</div><br/>
+<div class="line-number">215</div><br/>
+<div class="line-number">216</div><br/>
+<div class="line-number">217</div><br/>
+<div class="line-number">218</div><br/>
+<div class="line-number">219</div><br/>
+<div class="line-number">220</div><br/>
+<div class="line-number">221</div><br/>
+<div class="line-number">222</div><br/>
+<div class="line-number">223</div><br/>
+<div class="line-number">224</div><br/>
+<div class="line-number">225</div><br/>
+<div class="line-number">226</div><br/>
+<div class="line-number">227</div><br/>
+<div class="line-number">228</div><br/>
+<div class="line-number">229</div><br/>
+<div class="line-number">230</div><br/>
+<div class="line-number">231</div><br/>
+<div class="line-number">232</div><br/>
+<div class="line-number">233</div><br/>
+<div class="line-number">234</div><br/>
+<div class="line-number">235</div><br/>
+<div class="line-number">236</div><br/>
+<div class="line-number">237</div><br/>
+<div class="line-number">238</div><br/>
+<div class="line-number">239</div><br/>
+<div class="line-number">240</div><br/>
+<div class="line-number">241</div><br/>
+<div class="line-number">242</div><br/>
+<div class="line-number">243</div><br/>
+<div class="line-number">244</div><br/>
+<div class="line-number">245</div><br/>
+<div class="line-number">246</div><br/>
+<div class="line-number">247</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;avltree.h</div><br/><div class="comment">&nbsp;*&nbsp;Declaraction&nbsp;of&nbsp;the&nbsp;AVLTree&nbsp;class.&nbsp;You&nbsp;will&nbsp;probably&nbsp;need&nbsp;to&nbsp;modify&nbsp;this</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;file&nbsp;to&nbsp;add&nbsp;helper&nbsp;functions.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Daniel&nbsp;Hoodin&nbsp;in&nbsp;Spring&nbsp;2008.</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Modified&nbsp;by&nbsp;Kyle&nbsp;Johnson&nbsp;in&nbsp;Fall&nbsp;2010.</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Modified&nbsp;by&nbsp;Sean&nbsp;Massung&nbsp;in&nbsp;Summer&nbsp;2012:</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;-&nbsp;added&nbsp;templates</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;-&nbsp;CRTP&nbsp;tree&nbsp;printing</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;-&nbsp;doxygen</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Modified&nbsp;by&nbsp;Ziwei&nbsp;Ba&nbsp;in&nbsp;Fall&nbsp;2017.</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;-&nbsp;added&nbsp;inorder&nbsp;printing</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;AVLTREE_H</div> <br><div class="definition">#define&nbsp;AVLTREE_H</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;&lt;sstream></div> <br><div class="definition">#include&nbsp;&lt;string></div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;AVLTree&nbsp;class&nbsp;represents&nbsp;a&nbsp;linked-memory&nbsp;AVL&nbsp;Tree.</div><br/><div class="comment">&nbsp;*&nbsp;@tparam&nbsp;K&nbsp;the&nbsp;type&nbsp;of&nbsp;key&nbsp;stored&nbsp;in&nbsp;the&nbsp;tree</div><br/><div class="comment">&nbsp;*&nbsp;@tparam&nbsp;V&nbsp;the&nbsp;type&nbsp;of&nbsp;value&nbsp;stored&nbsp;in&nbsp;the&nbsp;tree</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Node&nbsp;represents&nbsp;a&nbsp;tree&nbsp;node;&nbsp;that&nbsp;is,&nbsp;an&nbsp;element&nbsp;in&nbsp;a&nbsp;AVLTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;stores&nbsp;a&nbsp;key,&nbsp;value,&nbsp;and&nbsp;pointers&nbsp;to&nbsp;its&nbsp;left&nbsp;and&nbsp;right&nbsp;children.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">K</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">V</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Node&nbsp;constructor;&nbsp;sets&nbsp;children&nbsp;to&nbsp;point&nbsp;to&nbsp;`NULL`.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newKey&nbsp;The&nbsp;object&nbsp;to&nbsp;use&nbsp;as&nbsp;a&nbsp;key</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newValue&nbsp;The&nbsp;templated&nbsp;data&nbsp;element&nbsp;that&nbsp;the&nbsp;constructed</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;node&nbsp;will&nbsp;hold.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">newKey</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">newValue</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">(</div><div class="word">newKey</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">(</div><div class="word">newValue</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor&nbsp;to&nbsp;create&nbsp;an&nbsp;empty&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copy&nbsp;constructor.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;The&nbsp;tree&nbsp;to&nbsp;copy</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Destructor;&nbsp;frees&nbsp;all&nbsp;nodes&nbsp;associated&nbsp;with&nbsp;this&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">AVLTree</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Assignment&nbsp;operator.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;rhs&nbsp;The&nbsp;tree&nbsp;to&nbsp;copy</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;tree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">AVLTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Frees&nbsp;all&nbsp;nodes&nbsp;associated&nbsp;with&nbsp;this&nbsp;tree&nbsp;and&nbsp;sets&nbsp;it&nbsp;to&nbsp;be&nbsp;empty.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Inserts&nbsp;a&nbsp;key&nbsp;and&nbsp;value&nbsp;into&nbsp;the&nbsp;AVLTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;insert</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;value&nbsp;The&nbsp;value&nbsp;associated&nbsp;with&nbsp;the&nbsp;key</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Removes&nbsp;a&nbsp;key&nbsp;from&nbsp;the&nbsp;AVLTree.&nbsp;The&nbsp;key&nbsp;is&nbsp;assumed&nbsp;to&nbsp;exist&nbsp;in&nbsp;the&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;remove</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">remove</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Finds&nbsp;an&nbsp;element&nbsp;in&nbsp;the&nbsp;AVL&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;element&nbsp;to&nbsp;search&nbsp;for</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;value&nbsp;stored&nbsp;for&nbsp;that&nbsp;key</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">V</div><div class="word">&nbsp;</div><div class="word">find</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;the&nbsp;function&nbsp;calls&nbsp;to&nbsp;a&nbsp;stream.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;out&nbsp;The&nbsp;stream&nbsp;to&nbsp;print&nbsp;to&nbsp;(default&nbsp;is&nbsp;stdout)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printFunctionOrder</div><div class="symbol2">(</div><div class="word">ostream</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">out</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;the&nbsp;AVLTree&nbsp;to&nbsp;a&nbsp;stream.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;out&nbsp;The&nbsp;stream&nbsp;to&nbsp;print&nbsp;to&nbsp;(default&nbsp;is&nbsp;stdout)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">print</div><div class="symbol2">(</div><div class="word">ostream</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">out</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol">=</div><div class="highlight">true</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;is&nbsp;used&nbsp;for&nbsp;grading.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;newOut&nbsp;The&nbsp;stream&nbsp;to&nbsp;print&nbsp;to</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">setOutput</div><div class="symbol2">(</div><div class="word">ostream</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">newOut</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;inorder&nbsp;traversal&nbsp;of&nbsp;an&nbsp;AVL&nbsp;tree's&nbsp;keys.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;inorder&nbsp;The&nbsp;vector&nbsp;in&nbsp;which&nbsp;to&nbsp;save&nbsp;the&nbsp;traversal</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">getInorderTraversal</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;vector&nbsp;of&nbsp;function&nbsp;calls.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">getFunctionOrder</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">typedef</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">nodeptr</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;root&nbsp;of&nbsp;the&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">root</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;#insert&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;insert</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;value&nbsp;The&nbsp;value&nbsp;associated&nbsp;with&nbsp;the&nbsp;key</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;#remove&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;remove</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">remove</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">getHeight</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">t</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Finds&nbsp;a&nbsp;value&nbsp;(by&nbsp;key)&nbsp;in&nbsp;the&nbsp;AVL&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;search&nbsp;from&nbsp;(current&nbsp;subroot)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;search&nbsp;for</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;value&nbsp;stored&nbsp;for&nbsp;that&nbsp;key</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">V</div><div class="word">&nbsp;</div><div class="word">find</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Rotate&nbsp;the&nbsp;tree&nbsp;right&nbsp;(there&nbsp;is&nbsp;an&nbsp;imbalance&nbsp;on&nbsp;the&nbsp;left&nbsp;side).</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;rotate</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rotateRight</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Rotates&nbsp;the&nbsp;tree&nbsp;left&nbsp;(there&nbsp;is&nbsp;an&nbsp;imbalance&nbsp;on&nbsp;the&nbsp;right&nbsp;side).</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;rotate</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rotateLeft</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;A&nbsp;right-left&nbsp;rotation.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;should&nbsp;simply&nbsp;call&nbsp;rotateRight&nbsp;and&nbsp;rotateLeft.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;rotate</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rotateRightLeft</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;A&nbsp;left-right&nbsp;rotation.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;should&nbsp;simply&nbsp;call&nbsp;rotateLeft&nbsp;and&nbsp;rotateRight.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;rotate</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rotateLeftRight</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Rebalance&nbsp;a&nbsp;node&nbsp;by&nbsp;performing&nbsp;rotations.&nbsp;You&nbsp;can&nbsp;assume&nbsp;that&nbsp;node->left</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;node->right&nbsp;are&nbsp;both&nbsp;balanced.&nbsp;Even&nbsp;if&nbsp;no&nbsp;rotations&nbsp;are&nbsp;required,</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;you&nbsp;should&nbsp;update&nbsp;the&nbsp;node's&nbsp;height.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;balance.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rebalance</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node's&nbsp;height&nbsp;to&nbsp;check</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;height&nbsp;of&nbsp;the&nbsp;node&nbsp;if&nbsp;it's&nbsp;non-`NULL`&nbsp;or&nbsp;-1&nbsp;if&nbsp;it&nbsp;is&nbsp;`NULL`</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">heightOrNeg1</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Swap&nbsp;the&nbsp;keys&nbsp;and&nbsp;values&nbsp;of&nbsp;two&nbsp;nodes.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;first&nbsp;The&nbsp;first&nbsp;node&nbsp;to&nbsp;swap</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;second&nbsp;The&nbsp;node&nbsp;to&nbsp;swap&nbsp;with</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">swap</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">first</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">second</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;for&nbsp;#operator=&nbsp;and&nbsp;AVLTree(const&nbsp;AVLTree&nbsp;&).</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">copy</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;clear&nbsp;that&nbsp;clears&nbsp;beneath&nbsp;the&nbsp;parameter&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rightestNode</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">subtree</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;inorder&nbsp;traversal&nbsp;of&nbsp;an&nbsp;AVL&nbsp;tree's&nbsp;keys.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">getInorderTraversal</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**&nbsp;This&nbsp;variable&nbsp;is&nbsp;used&nbsp;for&nbsp;grading.&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">ostream</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">_out</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**&nbsp;This&nbsp;variable&nbsp;tests&nbsp;the&nbsp;order&nbsp;of&nbsp;function&nbsp;calls&nbsp;**/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">functionCalls</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**&nbsp;This&nbsp;variable&nbsp;gets&nbsp;the&nbsp;inorder&nbsp;traversal&nbsp;of&nbsp;the&nbsp;AVL&nbsp;tree.&nbsp;**/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">inorder</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"avltree_given.cpp"</div> <br><div class="definition">#include&nbsp;"avltree.cpp"</div> <br><div class="definition">#endif</div> <br></div></div></body>

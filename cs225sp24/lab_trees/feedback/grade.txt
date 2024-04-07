@@ -1,0 +1,63 @@
+lab_trees feedback for wangyihan.22
+g++ -std=c++11 -g -O0 -pedantic -Wall -Werror -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -c main.cpp -o .objs/main.o
+g++ -std=c++11 -g -O0 -pedantic -Wall -Werror -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -c coloredout.cpp -o .objs/coloredout.o
+g++ .objs/main.o .objs/coloredout.o -std=c++11 -lpthread -o treefun
+g++ -std=c++11 -g -O0 -pedantic -Wall -Werror -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -c -fsanitize=address -fno-omit-frame-pointer main.cpp -o .objs/main-asan.o
+g++ .objs/main-asan.o .objs/coloredout.o -std=c++11 -lpthread -fsanitize=address -fno-omit-frame-pointer -o treefun-asan
+g++ -std=c++11 -g -O0 -pedantic -Wall -Werror -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -c tests/basic.cpp
+g++ basic.o -std=c++11 -lpthread -o test
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test is a Catch v2.13.9 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+test_isOrdered
+-------------------------------------------------------------------------------
+tests/basic.cpp:54
+...............................................................................
+
+tests/basic.cpp:78: FAILED:
+  REQUIRE( tree2.isOrdered() == true )
+with expansion:
+  false == true
+
+-------------------------------------------------------------------------------
+test_mirror
+-------------------------------------------------------------------------------
+tests/basic.cpp:81
+...............................................................................
+
+tests/basic.cpp:30: FAILED:
+  REQUIRE( a[i] == b[b.size()-1-i] )
+with expansion:
+  0 == 93
+
+-------------------------------------------------------------------------------
+test_printPaths
+-------------------------------------------------------------------------------
+tests/basic.cpp:111
+...............................................................................
+
+tests/basic.cpp:36: FAILED:
+  REQUIRE( a.size() == b.size() )
+with expansion:
+  5 == 0
+
+-------------------------------------------------------------------------------
+test_sumDistances
+-------------------------------------------------------------------------------
+tests/basic.cpp:147
+...............................................................................
+
+tests/basic.cpp:160: FAILED:
+  REQUIRE( 10 == tree.sumDistances() )
+with expansion:
+  10 == -1
+
+===============================================================================
+test cases: 5 | 1 passed | 4 failed
+assertions: 7 | 3 passed | 4 failed
+
+
+Total: 0

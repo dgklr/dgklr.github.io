@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_huffman\feedback/huffman_tree.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+<div class="line-number">56</div><br/>
+<div class="line-number">57</div><br/>
+<div class="line-number">58</div><br/>
+<div class="line-number">59</div><br/>
+<div class="line-number">60</div><br/>
+<div class="line-number">61</div><br/>
+<div class="line-number">62</div><br/>
+<div class="line-number">63</div><br/>
+<div class="line-number">64</div><br/>
+<div class="line-number">65</div><br/>
+<div class="line-number">66</div><br/>
+<div class="line-number">67</div><br/>
+<div class="line-number">68</div><br/>
+<div class="line-number">69</div><br/>
+<div class="line-number">70</div><br/>
+<div class="line-number">71</div><br/>
+<div class="line-number">72</div><br/>
+<div class="line-number">73</div><br/>
+<div class="line-number">74</div><br/>
+<div class="line-number">75</div><br/>
+<div class="line-number">76</div><br/>
+<div class="line-number">77</div><br/>
+<div class="line-number">78</div><br/>
+<div class="line-number">79</div><br/>
+<div class="line-number">80</div><br/>
+<div class="line-number">81</div><br/>
+<div class="line-number">82</div><br/>
+<div class="line-number">83</div><br/>
+<div class="line-number">84</div><br/>
+<div class="line-number">85</div><br/>
+<div class="line-number">86</div><br/>
+<div class="line-number">87</div><br/>
+<div class="line-number">88</div><br/>
+<div class="line-number">89</div><br/>
+<div class="line-number">90</div><br/>
+<div class="line-number">91</div><br/>
+<div class="line-number">92</div><br/>
+<div class="line-number">93</div><br/>
+<div class="line-number">94</div><br/>
+<div class="line-number">95</div><br/>
+<div class="line-number">96</div><br/>
+<div class="line-number">97</div><br/>
+<div class="line-number">98</div><br/>
+<div class="line-number">99</div><br/>
+<div class="line-number">100</div><br/>
+<div class="line-number">101</div><br/>
+<div class="line-number">102</div><br/>
+<div class="line-number">103</div><br/>
+<div class="line-number">104</div><br/>
+<div class="line-number">105</div><br/>
+<div class="line-number">106</div><br/>
+<div class="line-number">107</div><br/>
+<div class="line-number">108</div><br/>
+<div class="line-number">109</div><br/>
+<div class="line-number">110</div><br/>
+<div class="line-number">111</div><br/>
+<div class="line-number">112</div><br/>
+<div class="line-number">113</div><br/>
+<div class="line-number">114</div><br/>
+<div class="line-number">115</div><br/>
+<div class="line-number">116</div><br/>
+<div class="line-number">117</div><br/>
+<div class="line-number">118</div><br/>
+<div class="line-number">119</div><br/>
+<div class="line-number">120</div><br/>
+<div class="line-number">121</div><br/>
+<div class="line-number">122</div><br/>
+<div class="line-number">123</div><br/>
+<div class="line-number">124</div><br/>
+<div class="line-number">125</div><br/>
+<div class="line-number">126</div><br/>
+<div class="line-number">127</div><br/>
+<div class="line-number">128</div><br/>
+<div class="line-number">129</div><br/>
+<div class="line-number">130</div><br/>
+<div class="line-number">131</div><br/>
+<div class="line-number">132</div><br/>
+<div class="line-number">133</div><br/>
+<div class="line-number">134</div><br/>
+<div class="line-number">135</div><br/>
+<div class="line-number">136</div><br/>
+<div class="line-number">137</div><br/>
+<div class="line-number">138</div><br/>
+<div class="line-number">139</div><br/>
+<div class="line-number">140</div><br/>
+<div class="line-number">141</div><br/>
+<div class="line-number">142</div><br/>
+<div class="line-number">143</div><br/>
+<div class="line-number">144</div><br/>
+<div class="line-number">145</div><br/>
+<div class="line-number">146</div><br/>
+<div class="line-number">147</div><br/>
+<div class="line-number">148</div><br/>
+<div class="line-number">149</div><br/>
+<div class="line-number">150</div><br/>
+<div class="line-number">151</div><br/>
+<div class="line-number">152</div><br/>
+<div class="line-number">153</div><br/>
+<div class="line-number">154</div><br/>
+<div class="line-number">155</div><br/>
+<div class="line-number">156</div><br/>
+<div class="line-number">157</div><br/>
+<div class="line-number">158</div><br/>
+<div class="line-number">159</div><br/>
+<div class="line-number">160</div><br/>
+<div class="line-number">161</div><br/>
+<div class="line-number">162</div><br/>
+<div class="line-number">163</div><br/>
+<div class="line-number">164</div><br/>
+<div class="line-number">165</div><br/>
+<div class="line-number">166</div><br/>
+<div class="line-number">167</div><br/>
+<div class="line-number">168</div><br/>
+<div class="line-number">169</div><br/>
+<div class="line-number">170</div><br/>
+<div class="line-number">171</div><br/>
+<div class="line-number">172</div><br/>
+<div class="line-number">173</div><br/>
+<div class="line-number">174</div><br/>
+<div class="line-number">175</div><br/>
+<div class="line-number">176</div><br/>
+<div class="line-number">177</div><br/>
+<div class="line-number">178</div><br/>
+<div class="line-number">179</div><br/>
+<div class="line-number">180</div><br/>
+<div class="line-number">181</div><br/>
+<div class="line-number">182</div><br/>
+<div class="line-number">183</div><br/>
+<div class="line-number">184</div><br/>
+<div class="line-number">185</div><br/>
+<div class="line-number">186</div><br/>
+<div class="line-number">187</div><br/>
+<div class="line-number">188</div><br/>
+<div class="line-number">189</div><br/>
+<div class="line-number">190</div><br/>
+<div class="line-number">191</div><br/>
+<div class="line-number">192</div><br/>
+<div class="line-number">193</div><br/>
+<div class="line-number">194</div><br/>
+<div class="line-number">195</div><br/>
+<div class="line-number">196</div><br/>
+<div class="line-number">197</div><br/>
+<div class="line-number">198</div><br/>
+<div class="line-number">199</div><br/>
+<div class="line-number">200</div><br/>
+<div class="line-number">201</div><br/>
+<div class="line-number">202</div><br/>
+<div class="line-number">203</div><br/>
+<div class="line-number">204</div><br/>
+<div class="line-number">205</div><br/>
+<div class="line-number">206</div><br/>
+<div class="line-number">207</div><br/>
+<div class="line-number">208</div><br/>
+<div class="line-number">209</div><br/>
+<div class="line-number">210</div><br/>
+<div class="line-number">211</div><br/>
+<div class="line-number">212</div><br/>
+<div class="line-number">213</div><br/>
+<div class="line-number">214</div><br/>
+<div class="line-number">215</div><br/>
+<div class="line-number">216</div><br/>
+<div class="line-number">217</div><br/>
+<div class="line-number">218</div><br/>
+<div class="line-number">219</div><br/>
+<div class="line-number">220</div><br/>
+<div class="line-number">221</div><br/>
+<div class="line-number">222</div><br/>
+<div class="line-number">223</div><br/>
+<div class="line-number">224</div><br/>
+<div class="line-number">225</div><br/>
+<div class="line-number">226</div><br/>
+<div class="line-number">227</div><br/>
+<div class="line-number">228</div><br/>
+<div class="line-number">229</div><br/>
+<div class="line-number">230</div><br/>
+<div class="line-number">231</div><br/>
+<div class="line-number">232</div><br/>
+<div class="line-number">233</div><br/>
+<div class="line-number">234</div><br/>
+<div class="line-number">235</div><br/>
+<div class="line-number">236</div><br/>
+<div class="line-number">237</div><br/>
+<div class="line-number">238</div><br/>
+<div class="line-number">239</div><br/>
+<div class="line-number">240</div><br/>
+<div class="line-number">241</div><br/>
+<div class="line-number">242</div><br/>
+<div class="line-number">243</div><br/>
+<div class="line-number">244</div><br/>
+<div class="line-number">245</div><br/>
+<div class="line-number">246</div><br/>
+<div class="line-number">247</div><br/>
+<div class="line-number">248</div><br/>
+<div class="line-number">249</div><br/>
+<div class="line-number">250</div><br/>
+<div class="line-number">251</div><br/>
+<div class="line-number">252</div><br/>
+<div class="line-number">253</div><br/>
+<div class="line-number">254</div><br/>
+<div class="line-number">255</div><br/>
+<div class="line-number">256</div><br/>
+<div class="line-number">257</div><br/>
+<div class="line-number">258</div><br/>
+<div class="line-number">259</div><br/>
+<div class="line-number">260</div><br/>
+<div class="line-number">261</div><br/>
+<div class="line-number">262</div><br/>
+<div class="line-number">263</div><br/>
+<div class="line-number">264</div><br/>
+<div class="line-number">265</div><br/>
+<div class="line-number">266</div><br/>
+<div class="line-number">267</div><br/>
+<div class="line-number">268</div><br/>
+<div class="line-number">269</div><br/>
+<div class="line-number">270</div><br/>
+<div class="line-number">271</div><br/>
+<div class="line-number">272</div><br/>
+<div class="line-number">273</div><br/>
+<div class="line-number">274</div><br/>
+<div class="line-number">275</div><br/>
+<div class="line-number">276</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;huffman_tree.h</div><br/><div class="comment">&nbsp;*&nbsp;Definition&nbsp;of&nbsp;a&nbsp;Huffman&nbsp;Tree&nbsp;class.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Chase&nbsp;Geigle&nbsp;-&nbsp;Created</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Nathan&nbsp;Walters&nbsp;-&nbsp;Modified</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Summer&nbsp;2012</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Fall&nbsp;2017</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;_HUFFMAN_TREE_H_</div> <br><div class="definition">#define&nbsp;_HUFFMAN_TREE_H_</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;&lt;cstddef></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;&lt;queue></div> <br><div class="definition">#include&nbsp;&lt;utility></div> <br><div class="definition">#include&nbsp;&lt;sstream></div> <br><div class="definition">#include&nbsp;&lt;map></div> <br><div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;&lt;ostream></div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"printtree.h"</div> <br><div class="definition">#include&nbsp;"frequency.h"</div> <br><div class="definition">#include&nbsp;"binary_file_reader.h"</div> <br><div class="definition">#include&nbsp;"binary_file_writer.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;HuffmanTree:&nbsp;class&nbsp;that&nbsp;represents&nbsp;a&nbsp;Huffman&nbsp;tree&nbsp;for&nbsp;encoding&nbsp;and</div><br/><div class="comment">&nbsp;*&nbsp;decoding&nbsp;files&nbsp;with&nbsp;Huffman&nbsp;coding.</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;a&nbsp;HuffmanTree&nbsp;from&nbsp;a&nbsp;given&nbsp;set&nbsp;of&nbsp;Frequency&nbsp;objects.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;frequencies&nbsp;The&nbsp;Frequency&nbsp;objects&nbsp;for&nbsp;this&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol2">(</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">Frequency</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">frequencies</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;a&nbsp;HuffmanTree&nbsp;from&nbsp;a&nbsp;binary&nbsp;file&nbsp;that&nbsp;has&nbsp;been&nbsp;written</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;to&nbsp;compress&nbsp;the&nbsp;tree&nbsp;information.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;to&nbsp;read&nbsp;our&nbsp;compressed&nbsp;tree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;from</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol2">(</div><div class="word">BinaryFileReader</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copy&nbsp;constructor&nbsp;for&nbsp;Huffman&nbsp;Trees.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;The&nbsp;HuffmanTree&nbsp;to&nbsp;copy.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Destructor&nbsp;for&nbsp;Huffman&nbsp;Trees.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">HuffmanTree</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Assignment&nbsp;operator&nbsp;for&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;rhs&nbsp;The&nbsp;right&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;assignment&nbsp;statement.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;reference&nbsp;for&nbsp;performing&nbsp;chained&nbsp;assignments.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Decodes&nbsp;a&nbsp;given&nbsp;file&nbsp;into&nbsp;its&nbsp;string&nbsp;contents.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;BinaryFileReader&nbsp;to&nbsp;read&nbsp;bits&nbsp;from.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;decoded&nbsp;contents&nbsp;of&nbsp;the&nbsp;file.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">decodeFile</div><div class="symbol2">(</div><div class="word">BinaryFileReader</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Writes&nbsp;a&nbsp;string&nbsp;of&nbsp;data&nbsp;to&nbsp;the&nbsp;binary&nbsp;file&nbsp;using&nbsp;Huffman&nbsp;coding.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;data&nbsp;The&nbsp;string&nbsp;to&nbsp;be&nbsp;written.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;to&nbsp;write&nbsp;the&nbsp;string&nbsp;to.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">data</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">BinaryFileWriter</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Writes&nbsp;a&nbsp;signle&nbsp;character&nbsp;to&nbsp;the&nbsp;binary&nbsp;file&nbsp;using&nbsp;Huffman</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;coding.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;c&nbsp;The&nbsp;character&nbsp;to&nbsp;be&nbsp;written.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;to&nbsp;write&nbsp;the&nbsp;character&nbsp;to.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">c</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">BinaryFileWriter</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Writes&nbsp;a&nbsp;compressed&nbsp;version&nbsp;of&nbsp;the&nbsp;tree&nbsp;to&nbsp;the&nbsp;file.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;to&nbsp;be&nbsp;written&nbsp;to.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">writeTree</div><div class="symbol2">(</div><div class="word">BinaryFileWriter</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;each&nbsp;element&nbsp;in&nbsp;the&nbsp;tree&nbsp;in&nbsp;an&nbsp;in-order&nbsp;traversal.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printInOrder</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;the&nbsp;tree&nbsp;to&nbsp;a&nbsp;stream.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;out&nbsp;The&nbsp;stream&nbsp;to&nbsp;print&nbsp;to</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">print</div><div class="symbol2">(</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">ostream</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">out</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;TreeNode&nbsp;class:&nbsp;internal&nbsp;representation&nbsp;of&nbsp;the&nbsp;Huffman&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Done&nbsp;using&nbsp;linked&nbsp;memory.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Frequency</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">freq</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**&lt;&nbsp;Data&nbsp;for&nbsp;this&nbsp;TreeNode:&nbsp;contains&nbsp;a</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;and&nbsp;a&nbsp;frquency&nbsp;count.&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**&lt;&nbsp;Left&nbsp;child&nbsp;of&nbsp;this&nbsp;TreeNode.&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">/**&lt;&nbsp;Right&nbsp;child&nbsp;of&nbsp;this&nbsp;TreeNode.&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Builds&nbsp;a&nbsp;new&nbsp;TreeNode&nbsp;with&nbsp;the&nbsp;given&nbsp;frequency&nbsp;as&nbsp;data.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;theFreq&nbsp;The&nbsp;Frequency&nbsp;to&nbsp;build&nbsp;this&nbsp;TreeNode</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;with.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol2">(</div><div class="word">Frequency</div><div class="word">&nbsp;</div><div class="word">theFreq</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">freq</div><div class="symbol2">(</div><div class="word">theFreq</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;nothing</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Builds&nbsp;a&nbsp;new&nbsp;TreeNode&nbsp;with&nbsp;the&nbsp;given&nbsp;integer&nbsp;as&nbsp;its</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;frequency&nbsp;counter,&nbsp;used&nbsp;for&nbsp;building&nbsp;internal&nbsp;nodes.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;frequency&nbsp;The&nbsp;frequency&nbsp;for&nbsp;this&nbsp;internal&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">frequency</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">freq</div><div class="symbol2">(</div><div class="word">frequency</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;nothing</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;that&nbsp;copies&nbsp;another&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;other&nbsp;The&nbsp;HuffmanTree&nbsp;to&nbsp;be&nbsp;copied.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">copy</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">HuffmanTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Recursive,&nbsp;private&nbsp;helper&nbsp;function&nbsp;that&nbsp;copies&nbsp;a&nbsp;given&nbsp;subtree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;of&nbsp;another&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;current&nbsp;The&nbsp;root&nbsp;of&nbsp;the&nbsp;subtree&nbsp;in&nbsp;the&nbsp;other&nbsp;HuffmanTree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;copied.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;new,&nbsp;copied&nbsp;subtree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">copy</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">current</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Recursive,&nbsp;private&nbsp;helper&nbsp;function&nbsp;that&nbsp;frees&nbsp;all&nbsp;memory</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;associated&nbsp;with&nbsp;a&nbsp;subtree&nbsp;of&nbsp;the&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;current&nbsp;The&nbsp;root&nbsp;of&nbsp;the&nbsp;subtree&nbsp;to&nbsp;free&nbsp;data&nbsp;from.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">current</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;used&nbsp;by&nbsp;the&nbsp;constructor&nbsp;to&nbsp;build&nbsp;a&nbsp;HuffmanTree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;for&nbsp;a&nbsp;collection&nbsp;of&nbsp;Frequency&nbsp;data.&nbsp;Each&nbsp;Frequency&nbsp;object</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;represents&nbsp;a&nbsp;character&nbsp;and&nbsp;how&nbsp;often&nbsp;it&nbsp;appears&nbsp;in&nbsp;the&nbsp;data&nbsp;to</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;be&nbsp;encoded.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;frequencies&nbsp;The&nbsp;set&nbsp;of&nbsp;Frequency&nbsp;objects&nbsp;to&nbsp;build&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;tree&nbsp;with.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">buildTree</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">Frequency</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">frequencies</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;used&nbsp;by&nbsp;the&nbsp;constructor&nbsp;to&nbsp;build&nbsp;a&nbsp;HuffmanTree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;from&nbsp;a&nbsp;compressed&nbsp;version&nbsp;of&nbsp;the&nbsp;tree&nbsp;written&nbsp;in&nbsp;a&nbsp;binary&nbsp;file.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;we&nbsp;are&nbsp;reading.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;subtree&nbsp;built.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">readTree</div><div class="symbol2">(</div><div class="word">BinaryFileReader</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Recursive&nbsp;helper&nbsp;function&nbsp;used&nbsp;by&nbsp;the&nbsp;constructor&nbsp;to&nbsp;build&nbsp;a&nbsp;map</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;of&nbsp;characters&nbsp;to&nbsp;their&nbsp;encoded&nbsp;values&nbsp;based&nbsp;on&nbsp;the&nbsp;tree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;structure&nbsp;built.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;current&nbsp;The&nbsp;current&nbsp;node&nbsp;we&nbsp;are&nbsp;visiting.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;path&nbsp;The&nbsp;current&nbsp;path&nbsp;we&nbsp;have&nbsp;taken&nbsp;to&nbsp;get&nbsp;to&nbsp;this&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;to&nbsp;store&nbsp;the&nbsp;encoded&nbsp;value&nbsp;for&nbsp;the&nbsp;characters&nbsp;of&nbsp;the&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">buildMap</div><div class="symbol2">(</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">current</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">bool</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;for&nbsp;printing&nbsp;a&nbsp;tree&nbsp;in&nbsp;order.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;current&nbsp;The&nbsp;current&nbsp;subRoot</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printInOrder</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">current</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function:&nbsp;finds&nbsp;the&nbsp;smallest&nbsp;element&nbsp;on&nbsp;the&nbsp;two&nbsp;queues</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;removes&nbsp;it.&nbsp;In&nbsp;the&nbsp;event&nbsp;that&nbsp;there&nbsp;is&nbsp;a&nbsp;tie,&nbsp;it&nbsp;should</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;remove&nbsp;the&nbsp;front&nbsp;of&nbsp;the&nbsp;**singleQueue**.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;singleQueue&nbsp;The&nbsp;first&nbsp;queue&nbsp;to&nbsp;inspect.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;mergeQueue&nbsp;The&nbsp;second&nbsp;queue&nbsp;to&nbsp;inspect.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;the&nbsp;smallest&nbsp;TreeNode&nbsp;that&nbsp;used&nbsp;to&nbsp;be&nbsp;at</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;front&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;queues.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">removeSmallest</div><div class="symbol2">(</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">queue</div><div class="symbol">&lt;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">singleQueue</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">queue</div><div class="symbol">&lt;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">mergeQueue</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Determines&nbsp;the&nbsp;encoded&nbsp;value&nbsp;for&nbsp;a&nbsp;given&nbsp;character.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;c&nbsp;The&nbsp;character&nbsp;to&nbsp;find&nbsp;the&nbsp;encoded&nbsp;value&nbsp;for.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;encoded&nbsp;value&nbsp;for&nbsp;that&nbsp;character.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">bool</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">getBitsForChar</div><div class="symbol2">(</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">c</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;that&nbsp;decodes&nbsp;a&nbsp;file&nbsp;by&nbsp;traversing&nbsp;the&nbsp;tree&nbsp;based&nbsp;on</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;bits&nbsp;read.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;ss&nbsp;The&nbsp;stringstream&nbsp;being&nbsp;used&nbsp;to&nbsp;build&nbsp;the&nbsp;decoded</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;string.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;binary&nbsp;file&nbsp;we&nbsp;are&nbsp;decoding.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">decode</div><div class="symbol2">(</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">stringstream</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">BinaryFileReader</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;to&nbsp;write&nbsp;the&nbsp;tree&nbsp;out&nbsp;to&nbsp;a&nbsp;binary&nbsp;file&nbsp;in&nbsp;a</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;compressed&nbsp;way.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;current&nbsp;The&nbsp;root&nbsp;of&nbsp;the&nbsp;subtree&nbsp;we&nbsp;are&nbsp;currently&nbsp;writing.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;bfile&nbsp;The&nbsp;fiel&nbsp;we&nbsp;are&nbsp;writing&nbsp;to.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">writeTree</div><div class="symbol2">(</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">current</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">BinaryFileWriter</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">bfile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;to&nbsp;get&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;Where&nbsp;we're&nbsp;currently&nbsp;at.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;tree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Maximum&nbsp;height&nbsp;of&nbsp;trees&nbsp;to&nbsp;enable&nbsp;printing&nbsp;for</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;(chosen&nbsp;by&nbsp;fair&nbsp;dice&nbsp;roll)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">static</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">_max_print_height</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">9</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Root&nbsp;of&nbsp;the&nbsp;HuffmanTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">TreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">root_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Standard&nbsp;map&nbsp;that&nbsp;maps&nbsp;characters&nbsp;to&nbsp;their&nbsp;encoded&nbsp;values.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">map</div><div class="symbol">&lt;</div><div class="highlight">char</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">bool</div><div class="symbol">></div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">bitsMap_</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#endif</div> <br></div></div></body>
