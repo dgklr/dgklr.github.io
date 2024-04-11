@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/mp5</title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>/mp5</h2>
+        <a href="https://dgklr.github.io/cs225sp24" class="back-button">返回上一页</a>
+    </div>
+    <div class="file-manager">
+        <div class="folders">
+            <h3>文件夹</h3>
+            <a href="https://dgklr.github.io/cs225sp24/mp5/cs225" class="folder-link">cs225</a>            <a href="https://dgklr.github.io/cs225sp24/mp5/tests" class="folder-link">tests</a>            <a href="https://dgklr.github.io/cs225sp24/mp5/util" class="folder-link">util</a>
+        </div>
+        <div class="files">
+            <h3>文件</h3>
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/kdtree.cpp.html">
+                <span>kdtree.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/kdtree.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/kdtree.h.html">
+                <span>kdtree.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/kdtree.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/kdtree_extras.cpp.html">
+                <span>kdtree_extras.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/kdtree_extras.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/main.cpp.html">
+                <span>main.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/main.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/Makefile">
+                <span>Makefile</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/maptiles.cpp.html">
+                <span>maptiles.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/maptiles.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/maptiles.h.html">
+                <span>maptiles.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/maptiles.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/mosaiccanvas.cpp.html">
+                <span>mosaiccanvas.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/mosaiccanvas.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/mosaiccanvas.h.html">
+                <span>mosaiccanvas.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/mosaiccanvas.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/mymosaic.png">
+                <span>mymosaic.png</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/partners.txt">
+                <span>partners.txt</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/point.cpp.html">
+                <span>point.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/point.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/point.h.html">
+                <span>point.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/point.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/sourceimage.cpp.html">
+                <span>sourceimage.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/sourceimage.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/sourceimage.h.html">
+                <span>sourceimage.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/sourceimage.h">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/tileimage.cpp.html">
+                <span>tileimage.cpp</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/tileimage.cpp">源文件</span>
+            </div>
+
+            <div class="file-block" data-href="https://dgklr.github.io/cs225sp24/mp5/tileimage.h.html">
+                <span>tileimage.h</span>
+                <span class="source-link" data-source-href="https://dgklr.github.io/cs225sp24/mp5/tileimage.h">源文件</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

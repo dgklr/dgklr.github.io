@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp5/maptiles.h </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+<div class="line-number">45</div><br/>
+<div class="line-number">46</div><br/>
+<div class="line-number">47</div><br/>
+<div class="line-number">48</div><br/>
+<div class="line-number">49</div><br/>
+<div class="line-number">50</div><br/>
+<div class="line-number">51</div><br/>
+<div class="line-number">52</div><br/>
+<div class="line-number">53</div><br/>
+<div class="line-number">54</div><br/>
+<div class="line-number">55</div><br/>
+</div>
+    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;maptiles.h</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;mapTiles()&nbsp;function.</div><br/><div class="comment">&nbsp;*&nbsp;Developed&nbsp;for&nbsp;CS225&nbsp;PhotoMosaic&nbsp;MP</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Jack&nbsp;Toole</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Fall&nbsp;2011</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="definition">#ifndef&nbsp;MAPTILES_H</div> <br><div class="definition">#define&nbsp;MAPTILES_H</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;&lt;map></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="definition">#include&nbsp;"kdtree.h"</div> <br><div class="definition">#include&nbsp;"mosaiccanvas.h"</div> <br><div class="definition">#include&nbsp;"sourceimage.h"</div> <br><div class="definition">#include&nbsp;"tileimage.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Map&nbsp;the&nbsp;image&nbsp;tiles&nbsp;into&nbsp;a&nbsp;mosaic&nbsp;canvas&nbsp;which&nbsp;closely</div><br/><div class="comment">&nbsp;*&nbsp;matches&nbsp;the&nbsp;input&nbsp;image.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@todo&nbsp;This&nbsp;function&nbsp;is&nbsp;required&nbsp;for&nbsp;MP&nbsp;5.2.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;theSource&nbsp;The&nbsp;input&nbsp;image&nbsp;to&nbsp;construct&nbsp;a&nbsp;photomosaic&nbsp;of</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;theTiles&nbsp;The&nbsp;tiles&nbsp;image&nbsp;to&nbsp;use&nbsp;in&nbsp;the&nbsp;mosaic</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">MosaicCanvas</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">mapTiles</div><div class="symbol2">(</div><div class="word">SourceImage</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">theSource</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">TileImage</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">theTiles</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Find&nbsp;the&nbsp;closest&nbsp;TileImage&nbsp;for&nbsp;a&nbsp;particular&nbsp;row&nbsp;and&nbsp;column.</div><br/><div class="comment">&nbsp;*&nbsp;This&nbsp;involves&nbsp;creating&nbsp;a&nbsp;representative&nbsp;TileImage&nbsp;to&nbsp;search</div><br/><div class="comment">&nbsp;*&nbsp;for,&nbsp;and&nbsp;querying&nbsp;the&nbsp;KDTree&nbsp;for&nbsp;the&nbsp;nearest&nbsp;neighbor</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;tree&nbsp;The&nbsp;KDTree&nbsp;to&nbsp;search&nbsp;in</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;tile_avg_map&nbsp;Maps&nbsp;points&nbsp;to&nbsp;indices&nbsp;in&nbsp;the&nbsp;TileImage&nbsp;vector</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;theTiles&nbsp;Tiles&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;Photomosaic</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;theSource&nbsp;The&nbsp;image&nbsp;to&nbsp;make&nbsp;a&nbsp;Photomosaic&nbsp;of</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;row&nbsp;The&nbsp;row&nbsp;of&nbsp;the&nbsp;source&nbsp;image</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;col&nbsp;The&nbsp;column&nbsp;of&nbsp;the&nbsp;source&nbsp;image</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@returns&nbsp;the&nbsp;"nearest&nbsp;neighbor"&nbsp;tile</div><br/><div class="comment">&nbsp;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">TileImage</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">get_match_at_idx</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">KDTree</div><div class="symbol">&lt;</div><div class="number">3</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">tree</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">map</div><div class="symbol">&lt;</div><div class="word">Point</div><div class="symbol">&lt;</div><div class="number">3</div><div class="symbol">></div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">tile_avg_map</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">TileImage</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">theTiles</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">SourceImage</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">theSource</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">row</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">col</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#endif&nbsp;//&nbsp;MAPTILES_H</div> <br></div></div></body>

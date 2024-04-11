@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+</head>
+<body>
+
+ <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4\feedback/main.cpp </div><br/><br/>
+ <div class="code-container">
+    <div class="line-numbers">
+<div class="line-number">1</div><br/>
+<div class="line-number">2</div><br/>
+<div class="line-number">3</div><br/>
+<div class="line-number">4</div><br/>
+<div class="line-number">5</div><br/>
+<div class="line-number">6</div><br/>
+<div class="line-number">7</div><br/>
+<div class="line-number">8</div><br/>
+<div class="line-number">9</div><br/>
+<div class="line-number">10</div><br/>
+<div class="line-number">11</div><br/>
+<div class="line-number">12</div><br/>
+<div class="line-number">13</div><br/>
+<div class="line-number">14</div><br/>
+<div class="line-number">15</div><br/>
+<div class="line-number">16</div><br/>
+<div class="line-number">17</div><br/>
+<div class="line-number">18</div><br/>
+<div class="line-number">19</div><br/>
+<div class="line-number">20</div><br/>
+<div class="line-number">21</div><br/>
+<div class="line-number">22</div><br/>
+<div class="line-number">23</div><br/>
+<div class="line-number">24</div><br/>
+<div class="line-number">25</div><br/>
+<div class="line-number">26</div><br/>
+<div class="line-number">27</div><br/>
+<div class="line-number">28</div><br/>
+<div class="line-number">29</div><br/>
+<div class="line-number">30</div><br/>
+<div class="line-number">31</div><br/>
+<div class="line-number">32</div><br/>
+<div class="line-number">33</div><br/>
+<div class="line-number">34</div><br/>
+<div class="line-number">35</div><br/>
+<div class="line-number">36</div><br/>
+<div class="line-number">37</div><br/>
+<div class="line-number">38</div><br/>
+<div class="line-number">39</div><br/>
+<div class="line-number">40</div><br/>
+<div class="line-number">41</div><br/>
+<div class="line-number">42</div><br/>
+<div class="line-number">43</div><br/>
+<div class="line-number">44</div><br/>
+</div>
+    <div class="code-content"><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="definition">#include&nbsp;"FloodFilledImage.h"</div> <br><div class="definition">#include&nbsp;"Animation.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"imageTraversal/DFS.h"</div> <br><div class="definition">#include&nbsp;"imageTraversal/BFS.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="definition">#include&nbsp;"colorPicker/RainbowColorPicker.h"</div> <br><div class="definition">#include&nbsp;"colorPicker/GradientColorPicker.h"</div> <br><div class="definition">#include&nbsp;"colorPicker/GridColorPicker.h"</div> <br><div class="definition">#include&nbsp;"colorPicker/SolidColorPicker.h"</div> <br><div class="definition">#include&nbsp;"colorPicker/MyColorPicker.h"</div> <br><div class="placeholder">&nbsp;</div><br>
+<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"tests/i.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">expected</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">expected</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"tests/i-rainbow-bfs.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">expected2</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">expected2</div><div class="symbol">.</div><div class="word">readFromFile</div><div class="symbol2">(</div><div class="string">"tests/i-rainbow-bfs-2.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">FloodFilledImage</div><div class="word">&nbsp;</div><div class="word">image</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BFS</div><div class="word">&nbsp;</div><div class="word">bfs</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">Point</div><div class="symbol2">(</div><div class="number">1</div><div class="number">3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">3</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">0</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">veryGoodRandomNumbers</div><div class="symbol2">[</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="number">1</div><div class="number">7</div><div class="number">1</div><div class="number">1</div><div class="number">5</div><div class="number">2</div><div class="number">4</div><div class="number">9</div><div class="number">3</div><div class="number">7</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">7</div><div class="number">1</div><div class="number">1</div><div class="number">5</div><div class="number">2</div><div class="number">5</div><div class="number">0</div><div class="number">1</div><div class="number">6</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">7</div><div class="number">1</div><div class="number">1</div><div class="number">5</div><div class="number">2</div><div class="number">5</div><div class="number">0</div><div class="number">3</div><div class="number">7</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">7</div><div class="number">1</div><div class="number">1</div><div class="number">5</div><div class="number">2</div><div class="number">5</div><div class="number">2</div><div class="number">8</div><div class="number">7</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">size</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="comment">//&nbsp;MyColorPicker&nbsp;my(veryGoodRandomNumbers[time(0)&nbsp;%&nbsp;size],&nbsp;306,&nbsp;.7,&nbsp;.88);</div><br>
+<div class="word">&nbsp;</div><div class="comment">//&nbsp;MyColorPicker&nbsp;my(time(0),&nbsp;306,&nbsp;.7,&nbsp;.88);</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">MyColorPicker</div><div class="word">&nbsp;</div><div class="word">my</div><div class="symbol2">(</div><div class="word">time</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">.</div><div class="number">6</div><div class="number">6</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">.</div><div class="number">5</div><div class="number">3</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">MyColorPicker</div><div class="word">&nbsp;</div><div class="word">my2</div><div class="symbol2">(</div><div class="word">time</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">2</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">.</div><div class="number">5</div><div class="number">1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">.</div><div class="number">1</div><div class="number">9</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">image</div><div class="symbol">.</div><div class="word">addFloodFill</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">bfs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">my</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">image</div><div class="symbol">.</div><div class="word">animate</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">lastFrame</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">.</div><div class="word">getFrame</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">.</div><div class="word">frameCount</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">DFS</div><div class="word">&nbsp;</div><div class="word">dfs</div><div class="symbol2">(</div><div class="word">lastFrame</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">Point</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">0</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">FloodFilledImage</div><div class="word">&nbsp;</div><div class="word">image2</div><div class="symbol2">(</div><div class="word">lastFrame</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">image2</div><div class="symbol">.</div><div class="word">addFloodFill</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">dfs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">my2</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="word">&nbsp;</div><div class="word">animation2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">image2</div><div class="symbol">.</div><div class="word">animate</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">lastFrame2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">animation2</div><div class="symbol">.</div><div class="word">getFrame</div><div class="symbol2">(</div><div class="word">animation2</div><div class="symbol">.</div><div class="word">frameCount</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">lastFrame2</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="string">"myFloodFill.png"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
+</div></div></body>
