@@ -23,7 +23,20 @@ namespace opts
 }
 
 int main(int argc, const char** argv)
-{
+{/*
+    srand(time(0));
+    vector <Point<2> > plist;//({Point<2>(1,2), Point<2>(2,3), Point<2>(4,5), Point<2>(6,7), Point<2>(8,9), Point<2>(10,20)});
+    for (int i = 1; i <= 20; i ++) plist.push_back(Point<2>(i, 21 - i));
+    KDTree<2> kdt(plist);
+    auto query = Point<2>(3, 5);
+    auto res = kdt.findNearestNeighbor(query);
+    auto ans = plist[0];
+    for (auto i : plist) {
+        if (kdt.shouldReplace(query, ans, i)) ans = i;
+    }
+    std::cout << res[0] << ' ' << res[1] << std::endl;
+    std::cout << ans[0] << ' ' << ans[1] << std::endl;*/
+    
     string inFile = "";
     string tileDir = "mp5_pngs/";
     string numTilesStr = "100";
@@ -60,6 +73,7 @@ int main(int argc, const char** argv)
                     lexical_cast<int>(pixelsPerTileStr), outFile);
 
     return 0;
+
 }
 
 void makePhotoMosaic(const string& inFile, const string& tileDir, int numTiles,

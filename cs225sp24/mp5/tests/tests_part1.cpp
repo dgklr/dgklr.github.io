@@ -260,7 +260,7 @@ TEST_CASE("KDTree::findNearestNeighbor (2D), testing correct path", "[weight=1][
 /*
 
 */
-TEST_CASE("KDTree::findNearestNeighbor (2D), testing correct path with fence jumping", "[weight=1][part=1]") {
+TEST_CASE("test", "[weight=1][part=1]") {
   double coords[20][2] = {{84, 44},  // mine
                           {74, 0},   // mine
                           {54, 62},  // mine

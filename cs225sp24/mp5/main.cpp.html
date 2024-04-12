@@ -171,6 +171,20 @@
 <div class="line-number">157</div><br/>
 <div class="line-number">158</div><br/>
 <div class="line-number">159</div><br/>
+<div class="line-number">160</div><br/>
+<div class="line-number">161</div><br/>
+<div class="line-number">162</div><br/>
+<div class="line-number">163</div><br/>
+<div class="line-number">164</div><br/>
+<div class="line-number">165</div><br/>
+<div class="line-number">166</div><br/>
+<div class="line-number">167</div><br/>
+<div class="line-number">168</div><br/>
+<div class="line-number">169</div><br/>
+<div class="line-number">170</div><br/>
+<div class="line-number">171</div><br/>
+<div class="line-number">172</div><br/>
+<div class="line-number">173</div><br/>
 </div>
     <div class="code-content"><div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;set></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="placeholder">&nbsp;</div><br>
 <div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="definition">#include&nbsp;"maptiles.h"</div> <br><div class="definition">#include&nbsp;"mosaiccanvas.h"</div> <br><div class="definition">#include&nbsp;"sourceimage.h"</div> <br><div class="definition">#include&nbsp;"util/util.h"</div> <br><div class="placeholder">&nbsp;</div><br>
@@ -189,7 +203,9 @@
 <div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
 <div class="placeholder">&nbsp;</div><br>
 <div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">main</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="symbol">*</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
+<div class="symbol2">{</div><div class="comment">/*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;srand(time(0));</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;vector&nbsp;&lt;Point&lt;2>&nbsp;>&nbsp;plist;//({Point&lt;2>(1,2),&nbsp;Point&lt;2>(2,3),&nbsp;Point&lt;2>(4,5),&nbsp;Point&lt;2>(6,7),&nbsp;Point&lt;2>(8,9),&nbsp;Point&lt;2>(10,20)});</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;20;&nbsp;i&nbsp;++)&nbsp;plist.push_back(Point&lt;2>(i,&nbsp;21&nbsp;-&nbsp;i));</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;KDTree&lt;2>&nbsp;kdt(plist);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;auto&nbsp;query&nbsp;=&nbsp;Point&lt;2>(3,&nbsp;5);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;auto&nbsp;res&nbsp;=&nbsp;kdt.findNearestNeighbor(query);</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;auto&nbsp;ans&nbsp;=&nbsp;plist[0];</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(auto&nbsp;i&nbsp;:&nbsp;plist)&nbsp;{</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(kdt.shouldReplace(query,&nbsp;ans,&nbsp;i))&nbsp;ans&nbsp;=&nbsp;i;</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;}</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;std::cout&nbsp;&lt;&lt;&nbsp;res[0]&nbsp;&lt;&lt;&nbsp;'&nbsp;'&nbsp;&lt;&lt;&nbsp;res[1]&nbsp;&lt;&lt;&nbsp;std::endl;</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;std::cout&nbsp;&lt;&lt;&nbsp;ans[0]&nbsp;&lt;&lt;&nbsp;'&nbsp;'&nbsp;&lt;&lt;&nbsp;ans[1]&nbsp;&lt;&lt;&nbsp;std::endl;*/</div>
+<div class="placeholder">&nbsp;</div><br>
+<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
 <div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">inFile</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="string">""</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
 <div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">tileDir</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="string">"mp5_pngs/"</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
 <div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">numTilesStr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="string">"100"</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
@@ -226,6 +242,7 @@
 <div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">lexical_cast</div><div class="symbol">&lt;</div><div class="highlight">int</div><div class="symbol">></div><div class="symbol2">(</div><div class="word">pixelsPerTileStr</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">outFile</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
 <div class="placeholder">&nbsp;</div><br>
 <div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
+<div class="placeholder">&nbsp;</div><br>
 <div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
 <div class="placeholder">&nbsp;</div><br>
 <div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">makePhotoMosaic</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">inFile</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">tileDir</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">numTiles</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>

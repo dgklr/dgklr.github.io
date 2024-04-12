@@ -257,9 +257,13 @@ class KDTree
     void printTree(KDTreeNode * subroot, std::vector<std::string>& output,
                    int left, int top, int width, int currd) const;
 
-    /**
-     * @todo Add your helper functions here.
-     */
+    template <class T>
+    void getKthElem(T begin, T end, size_t place, size_t dim);
+    
+    template <class T>
+    void buildKDTree(KDTreeNode *&now, T begin, T end, size_t dim);
+
+    Point<Dim> findNearest(KDTreeNode *now, Point<Dim> best, Point<Dim> query, size_t dim, bool recursive) const;
 };
 
 #include "kdtree.cpp"

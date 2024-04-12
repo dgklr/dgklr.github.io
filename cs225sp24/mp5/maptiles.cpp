@@ -14,14 +14,31 @@ Point<3> convertToLAB(HSLAPixel pixel) {
     return result;
 }
 
+Point<3> convert(HSLAPixel pixel) {
+    return Point<3>(pixel.h / 360, pixel.s, pixel.l);
+}
+
 MosaicCanvas* mapTiles(SourceImage const& theSource,
                        vector<TileImage>& theTiles)
 {
-    /**
-     * @todo Implement this function!
-     */
+    vector < Point<3> > pt;
+    map <Point<3>, vector<TileImage>::iterator> m;
+    for (auto i = theTiles.begin(); i != theTiles.end(); i ++) {
+        pt.push_back(convert(i->getAverageColor()));
+        m[convert(i->getAverageColor())] = i;
+    }
+    
+    KDTree<3> tree(pt);
 
-    return NULL;
+    auto ret = new MosaicCanvas(theSource.getRows(), theSource.getColumns());
+
+    for (int i = 0; i < theSource.getRows(); i ++) {
+        for (int j = 0; j < theSource.getColumns(); j ++) {
+            ret -> setTile(i, j, &*m[tree.findNearestNeighbor(convert(theSource.getRegionColor(i, j)))]);
+        }
+    }
+
+    return ret;
 }
 
 TileImage* get_match_at_idx(const KDTree<3>& tree,
