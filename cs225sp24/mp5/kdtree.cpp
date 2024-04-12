@@ -96,29 +96,29 @@ void KDTree<Dim>::buildKDTree(KDTreeNode*& now, T begin, T end, size_t dim)
     buildKDTree(now->left, begin, mid, (dim + 1) % Dim);
     buildKDTree(now->right, mid + 1, end, (dim + 1) % Dim);
 }
-
 template <int Dim>
 KDTree<Dim>::KDTree(const KDTree& other)
 {
-    if (other->root == nullptr) {
+    using namespace std;
+    if (other.root == nullptr) {
         root = nullptr;
         return;
     }
 
     stack<pair<decltype(root), decltype(root)>> s;
-    s.push(make_pair(root, other->root));
-    root = new decltype(root)(other->root->point);
+    root = new KDTreeNode(other.root->point);
+    s.push(make_pair(root, other.root));
     while (s.size()) {
         auto now = s.top().first, ref = s.top().second;
         s.pop();
         if (ref->left != nullptr)
-            now->left = new decltype(ref)(ref->left->point),
+            now->left = new KDTreeNode(ref->left->point),
             s.push(make_pair(now->left, ref->left));
         else
             now->left = nullptr;
 
         if (ref->right != nullptr)
-            now->right = new decltype(ref)(ref->right->point),
+            now->right = new KDTreeNode(ref->right->point),
             s.push(make_pair(now->right, ref->right));
         else
             now->right = nullptr;
@@ -130,27 +130,29 @@ const KDTree<Dim>& KDTree<Dim>::operator=(const KDTree& rhs)
 {
     if (&rhs == this) {
         return *this;
+    } else {
+        freemem(root);
     }
     auto& other = rhs;
 
-    if (other->root == nullptr) {
+    if (other.root == nullptr) {
         root = nullptr;
         return *this;
     }
     stack<pair<decltype(root), decltype(root)>> s;
-    s.push(make_pair(root, other->root));
-    root = new decltype(root)(other->root->point);
+    root = new KDTreeNode(other.root->point);
+    s.push(make_pair(root, other.root));
     while (s.size()) {
         auto now = s.top().first, ref = s.top().second;
         s.pop();
         if (ref->left != nullptr)
-            now->left = new decltype(ref)(ref->left->point),
+            now->left = new KDTreeNode(ref->left->point),
             s.push(make_pair(now->left, ref->left));
         else
             now->left = nullptr;
 
         if (ref->right != nullptr)
-            now->right = new decltype(ref)(ref->right->point),
+            now->right = new KDTreeNode(ref->right->point),
             s.push(make_pair(now->right, ref->right));
         else
             now->right = nullptr;
@@ -162,25 +164,15 @@ const KDTree<Dim>& KDTree<Dim>::operator=(const KDTree& rhs)
 template <int Dim>
 KDTree<Dim>::~KDTree()
 {
-    if (root == nullptr)
-        return;
-    stack<decltype(root)> s;
-    s.push(root);
-    while (s.size() < 0) {
-        auto now = s.top();
-        if (now->left != nullptr)
-            s.push(now->left);
-        if (now->right != nullptr)
-            s.push(now->right);
-
-        now = s.top();
-        if (now->left != nullptr)
-            delete now->left;
-        if (now->right != nullptr)
-            delete now->right;
-        s.pop();
+    freemem(root);
+}
+template<int Dim>
+void KDTree<Dim>::freemem(KDTreeNode *now) {
+    if (now != nullptr) {
+        if (now -> left != nullptr) freemem(now -> left);
+        if (now -> right != nullptr) freemem(now -> right);
+        delete now;
     }
-    delete root;
 }
 
 template <int Dim>

@@ -264,6 +264,8 @@ class KDTree
     void buildKDTree(KDTreeNode *&now, T begin, T end, size_t dim);
 
     Point<Dim> findNearest(KDTreeNode *now, Point<Dim> best, Point<Dim> query, size_t dim, bool recursive) const;
+
+    void freemem(KDTreeNode *now);
 };
 
 #include "kdtree.cpp"

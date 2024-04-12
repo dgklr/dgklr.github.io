@@ -246,14 +246,15 @@ TEST_CASE("KDTree::findNearestNeighbor (2D), testing correct path", "[weight=1][
     Point<2> expected(expectedCoords);
 
     KDTree<2> tree(points);
-
+    KDTree<2> tree2(tree);
+    tree2 = tree;
     stringstream s;
-    tree.printTree(s, colored_out::enable_t::DISABLE);
+    tree2.printTree(s, colored_out::enable_t::DISABLE);
     INFO(s.str());
 
     action.trigger = true;
 
-    REQUIRE( tree.findNearestNeighbor(target) == expected );
+    REQUIRE( tree2.findNearestNeighbor(target) == expected );
 }
 
 
