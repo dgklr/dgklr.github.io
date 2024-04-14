@@ -1,192 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4/Animation.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-</div>
-    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;animation.cpp</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;Implementation&nbsp;of&nbsp;the&nbsp;animation&nbsp;class.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Wade&nbsp;Fagen-Ulmschneider</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Fall&nbsp;2017</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Jack&nbsp;Toole</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Fall&nbsp;2011</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;&lt;stdlib.h></div> <br><div class="definition">#include&nbsp;&lt;sys/stat.h></div> <br><div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;sstream></div> <br><div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;"Animation.h"</div> <br><div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">to_string</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">stringstream</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">.</div><div class="word">str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">getString</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">padToSameLengthAs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">istr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">padstr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">padToSameLengthAs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol2">(</div><div class="word">padstr</div><div class="symbol">.</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">istr</div><div class="symbol">.</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="character">'0'</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">istr</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">exists</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Try&nbsp;stat-ing&nbsp;it</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">stat</div><div class="word">&nbsp;</div><div class="word">st</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">stat</div><div class="symbol2">(</div><div class="word">path</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">st</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="highlight">false</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Check&nbsp;for&nbsp;read&nbsp;permission</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">st</div><div class="symbol">.</div><div class="word">st_mode</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">S_IRUSR</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="highlight">false</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Check&nbsp;for&nbsp;correct&nbsp;file/directory&nbsp;nature</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">path</div><div class="symbol2">[</div><div class="word">path</div><div class="symbol">.</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="character">'/'</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">S_ISREG</div><div class="symbol2">(</div><div class="word">st</div><div class="symbol">.</div><div class="word">st_mode</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Otherwise&nbsp;we&nbsp;want&nbsp;a&nbsp;directory</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">st</div><div class="symbol">.</div><div class="word">st_mode</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">S_IXUSR</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="highlight">false</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">S_ISDIR</div><div class="symbol2">(</div><div class="word">st</div><div class="symbol">.</div><div class="word">st_mode</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">addFrame</div><div class="symbol2">(</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">img</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">img</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">getFrame</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">index</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol2">[</div><div class="word">index</div><div class="symbol2">]</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">frameCount</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">frames</div><div class="symbol">.</div><div class="word">empty</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">"Animation&nbsp;Warning:&nbsp;No&nbsp;frames&nbsp;added!"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">filestart</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol">.</div><div class="word">find_last_of</div><div class="symbol2">(</div><div class="string">"/"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">filestart</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">filestart</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">npos</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">filestart</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">extstart</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol">.</div><div class="word">find_last_of</div><div class="symbol2">(</div><div class="string">"."</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">name</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol">.</div><div class="word">substr</div><div class="symbol2">(</div><div class="word">filestart</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">extstart</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">filestart</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Create&nbsp;the&nbsp;frames/&nbsp;directory&nbsp;if&nbsp;it&nbsp;does&nbsp;not&nbsp;exist</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol">!</div><div class="word">exists</div><div class="symbol2">(</div><div class="string">"frames/"</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">mkdir</div><div class="symbol2">(</div><div class="string">"frames"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="number">7</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Remove&nbsp;all&nbsp;previous&nbsp;frames&nbsp;from&nbsp;this&nbsp;image</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">system</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="string">"ls&nbsp;frames&nbsp;|&nbsp;grep&nbsp;'^"</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">name</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="string">".*\\.png$'&nbsp;|&nbsp;xargs&nbsp;-I%&nbsp;rm&nbsp;-f&nbsp;frames/%"</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Generate&nbsp;Frames</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol2">[</div><div class="word">i</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">writeToFile</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="string">"frames/"</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">name</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">getString</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">frames</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="string">".png"</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;Combine&nbsp;frames</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//system(("convert&nbsp;frames/"&nbsp;+&nbsp;name&nbsp;+&nbsp;"*.png&nbsp;"&nbsp;+&nbsp;filename).c_str());</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;To&nbsp;.mp4</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//system(("ffmpeg&nbsp;-f&nbsp;1&nbsp;-i&nbsp;frames/"&nbsp;+&nbsp;name&nbsp;+&nbsp;"%02d.png&nbsp;-vcodec&nbsp;libx264&nbsp;-r&nbsp;30&nbsp;-pix_fmt&nbsp;yuv420p&nbsp;"&nbsp;+&nbsp;filename&nbsp;+&nbsp;".mp4").c_str());</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">system</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="string">"ffmpeg&nbsp;-i&nbsp;frames/"</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">name</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="string">"%02d.png&nbsp;-vcodec&nbsp;libx264&nbsp;-r&nbsp;30&nbsp;-pix_fmt&nbsp;yuv420p&nbsp;-vf&nbsp;\"scale=trunc(iw/2)*2:trunc(ih/2)*2\"&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="string">".mp4"</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/mp4/Animation.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

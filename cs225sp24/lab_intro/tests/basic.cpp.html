@@ -1,233 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_intro\tests/basic.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-<div class="line-number">97</div><br/>
-<div class="line-number">98</div><br/>
-<div class="line-number">99</div><br/>
-<div class="line-number">100</div><br/>
-<div class="line-number">101</div><br/>
-<div class="line-number">102</div><br/>
-<div class="line-number">103</div><br/>
-<div class="line-number">104</div><br/>
-<div class="line-number">105</div><br/>
-<div class="line-number">106</div><br/>
-<div class="line-number">107</div><br/>
-<div class="line-number">108</div><br/>
-<div class="line-number">109</div><br/>
-<div class="line-number">110</div><br/>
-<div class="line-number">111</div><br/>
-</div>
-    <div class="code-content"><div class="definition">#define&nbsp;CATCH_CONFIG_MAIN</div> <br><div class="definition">#include&nbsp;"catch.hpp"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"../lab_intro.h"</div> <br><div class="definition">#include&nbsp;"../cs225/PNG.h"</div> <br><div class="definition">#include&nbsp;"../cs225/HSLAPixel.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">createRainbowPNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol2">(</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">width</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="symbol">-</div><div class="symbol">></div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">.</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">5</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">createWatermark</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol2">(</div><div class="number">3</div><div class="number">6</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">width</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">3</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">else</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="word">pixel</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">TEST_CASE</div><div class="symbol2">(</div><div class="string">"createSpotlight"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"[weight=1]"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createRainbowPNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createSpotlight</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Spotlight&nbsp;does&nbsp;not&nbsp;modify&nbsp;the&nbsp;center&nbsp;pixel"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Spotlight&nbsp;creates&nbsp;a&nbsp;completely&nbsp;dark&nbsp;pixel&nbsp;>200&nbsp;pixels&nbsp;away"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">3</div><div class="number">2</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Spotlight&nbsp;is&nbsp;correct&nbsp;at&nbsp;20&nbsp;pixels&nbsp;away&nbsp;from&nbsp;center"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">9</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Spotlight&nbsp;is&nbsp;correct&nbsp;at&nbsp;5&nbsp;pixels&nbsp;away&nbsp;from&nbsp;center"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">9</div><div class="number">7</div><div class="number">5</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">TEST_CASE</div><div class="symbol2">(</div><div class="string">"illinify"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"[weight=1]"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createRainbowPNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">illinify</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"After&nbsp;illinify,&nbsp;image&nbsp;contains&nbsp;only&nbsp;orange&nbsp;and&nbsp;blue&nbsp;hues"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">width</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">FAIL</div><div class="symbol2">(</div><div class="string">"The&nbsp;hue&nbsp;of&nbsp;("</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">","</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="string">")&nbsp;is&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">",&nbsp;not&nbsp;Illini&nbsp;orange&nbsp;or&nbsp;blue."</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Pixels&nbsp;closest&nbsp;to&nbsp;blue&nbsp;become&nbsp;blue"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">6</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">1</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">6</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">2</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">3</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">6</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">3</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">4</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">1</div><div class="number">6</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Pixels&nbsp;closest&nbsp;to&nbsp;orange&nbsp;become&nbsp;orange"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">3</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">4</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">3</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">4</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">4</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Hue&nbsp;wrap-arounds&nbsp;are&nbsp;correct&nbsp;(ex:&nbsp;h=359&nbsp;is&nbsp;closer&nbsp;to&nbsp;orange&nbsp;than&nbsp;blue)"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">3</div><div class="number">3</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">4</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">3</div><div class="number">4</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">3</div><div class="number">5</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">3</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">h</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">1</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">TEST_CASE</div><div class="symbol2">(</div><div class="string">"watermark"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"[weight=1]"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">png</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createRainbowPNG</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">wm</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">createWatermark</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">result</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">watermark</div><div class="symbol2">(</div><div class="word">png</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">wm</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Pixels&nbsp;without&nbsp;watermark&nbsp;are&nbsp;unchanged"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">8</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">8</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SECTION</div><div class="symbol2">(</div><div class="string">"Pixels&nbsp;with&nbsp;watermark&nbsp;are&nbsp;changed"</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">REQUIRE</div><div class="symbol2">(</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">.</div><div class="number">2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">result</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="number">2</div><div class="number">0</div><div class="number">0</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">5</div><div class="symbol2">)</div><div class="symbol">-</div><div class="symbol">></div><div class="word">l</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/lab_intro/tests/basic.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

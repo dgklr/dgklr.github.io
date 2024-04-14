@@ -1,38 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4\colorPicker/SolidColorPicker.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-</div>
-    <div class="code-content"><div class="definition">#include&nbsp;"../cs225/HSLAPixel.h"</div> <br><div class="definition">#include&nbsp;"../Point.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"ColorPicker.h"</div> <br><div class="definition">#include&nbsp;"SolidColorPicker.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SolidColorPicker</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">SolidColorPicker</div><div class="symbol2">(</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol2">(</div><div class="word">color</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">SolidColorPicker</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">getColor</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/mp4/colorPicker/SolidColorPicker.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

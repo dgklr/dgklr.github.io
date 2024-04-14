@@ -1,113 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp4/FloodFilledImage.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-</div>
-    <div class="code-content"><div class="definition">#include&nbsp;"cs225/PNG.h"</div> <br><div class="definition">#include&nbsp;&lt;list></div> <br><div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"colorPicker/ColorPicker.h"</div> <br><div class="definition">#include&nbsp;"imageTraversal/ImageTraversal.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"Point.h"</div> <br><div class="definition">#include&nbsp;"Animation.h"</div> <br><div class="definition">#include&nbsp;"FloodFilledImage.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">cs225</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Constructs&nbsp;a&nbsp;new&nbsp;instance&nbsp;of&nbsp;a&nbsp;FloodFilledImage&nbsp;with&nbsp;a&nbsp;image&nbsp;`png`.</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;png&nbsp;The&nbsp;starting&nbsp;image&nbsp;of&nbsp;a&nbsp;FloodFilledImage</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">FloodFilledImage</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">FloodFilledImage</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">_png</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">png</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Adds&nbsp;a&nbsp;flood&nbsp;fill&nbsp;operation&nbsp;to&nbsp;the&nbsp;FloodFillImage.&nbsp;&nbsp;This&nbsp;function&nbsp;must&nbsp;store&nbsp;the&nbsp;operation,</div><br/><div class="comment">&nbsp;*&nbsp;which&nbsp;will&nbsp;be&nbsp;used&nbsp;by&nbsp;`animate`.</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;traversal&nbsp;ImageTraversal&nbsp;used&nbsp;for&nbsp;this&nbsp;FloodFill&nbsp;operation.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;colorPicker&nbsp;ColorPicker&nbsp;used&nbsp;for&nbsp;this&nbsp;FloodFill&nbsp;operation.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">FloodFilledImage</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">addFloodFill</div><div class="symbol2">(</div><div class="word">ImageTraversal</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">traversal</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">ColorPicker</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">colorPicker</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">_traversal</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">traversal</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">_colorPicker</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">colorPicker</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Creates&nbsp;an&nbsp;Animation&nbsp;of&nbsp;frames&nbsp;from&nbsp;the&nbsp;FloodFill&nbsp;operations&nbsp;added&nbsp;to&nbsp;this&nbsp;object.</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;Each&nbsp;FloodFill&nbsp;operation&nbsp;added&nbsp;by&nbsp;`addFloodFill`&nbsp;is&nbsp;executed&nbsp;based&nbsp;on&nbsp;the&nbsp;order</div><br/><div class="comment">&nbsp;*&nbsp;the&nbsp;operation&nbsp;was&nbsp;added.&nbsp;&nbsp;This&nbsp;is&nbsp;done&nbsp;by:</div><br/><div class="comment">&nbsp;*&nbsp;1.&nbsp;Visiting&nbsp;pixels&nbsp;within&nbsp;the&nbsp;image&nbsp;based&nbsp;on&nbsp;the&nbsp;order&nbsp;provided&nbsp;by&nbsp;the&nbsp;ImageTraversal&nbsp;iterator&nbsp;and</div><br/><div class="comment">&nbsp;*&nbsp;2.&nbsp;Updating&nbsp;each&nbsp;pixel&nbsp;to&nbsp;a&nbsp;new&nbsp;color&nbsp;based&nbsp;on&nbsp;the&nbsp;ColorPicker</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;While&nbsp;applying&nbsp;the&nbsp;FloodFill&nbsp;to&nbsp;the&nbsp;image,&nbsp;an&nbsp;Animation&nbsp;is&nbsp;created&nbsp;by&nbsp;saving&nbsp;the&nbsp;image</div><br/><div class="comment">&nbsp;*&nbsp;after&nbsp;every&nbsp;`frameInterval`&nbsp;pixels&nbsp;are&nbsp;filled.&nbsp;&nbsp;To&nbsp;ensure&nbsp;a&nbsp;smooth&nbsp;Animation,&nbsp;the&nbsp;first</div><br/><div class="comment">&nbsp;*&nbsp;frame&nbsp;is&nbsp;always&nbsp;the&nbsp;starting&nbsp;image&nbsp;and&nbsp;the&nbsp;final&nbsp;frame&nbsp;is&nbsp;always&nbsp;the&nbsp;finished&nbsp;image.</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;(For&nbsp;example,&nbsp;if&nbsp;`frameInterval`&nbsp;is&nbsp;`4`&nbsp;the&nbsp;frames&nbsp;are:</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;initial&nbsp;frame</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;Then&nbsp;after&nbsp;the&nbsp;4th&nbsp;pixel&nbsp;has&nbsp;been&nbsp;filled</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;Then&nbsp;after&nbsp;the&nbsp;8th&nbsp;pixel&nbsp;has&nbsp;been&nbsp;filled</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;...</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;final&nbsp;frame,&nbsp;after&nbsp;all&nbsp;pixels&nbsp;have&nbsp;been&nbsp;filed)</div><br/><div class="comment">&nbsp;*/</div>
-<div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">Animation</div><div class="word">&nbsp;</div><div class="word">FloodFilledImage</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">animate</div><div class="symbol2">(</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="word">frameInterval</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Animation</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">base</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">_png</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">cnt</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol">*</div><div class="word">_traversal</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">cnt</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="word">frameInterval</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">.</div><div class="word">addFrame</div><div class="symbol2">(</div><div class="word">base</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cnt</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">base</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol">.</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">.</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">_colorPicker</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">getColor</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol">.</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">.</div><div class="word">y</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">.</div><div class="word">addFrame</div><div class="symbol2">(</div><div class="word">base</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">animation</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/mp4/FloodFilledImage.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

@@ -1,847 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\mp5\util/util.h </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-<div class="line-number">97</div><br/>
-<div class="line-number">98</div><br/>
-<div class="line-number">99</div><br/>
-<div class="line-number">100</div><br/>
-<div class="line-number">101</div><br/>
-<div class="line-number">102</div><br/>
-<div class="line-number">103</div><br/>
-<div class="line-number">104</div><br/>
-<div class="line-number">105</div><br/>
-<div class="line-number">106</div><br/>
-<div class="line-number">107</div><br/>
-<div class="line-number">108</div><br/>
-<div class="line-number">109</div><br/>
-<div class="line-number">110</div><br/>
-<div class="line-number">111</div><br/>
-<div class="line-number">112</div><br/>
-<div class="line-number">113</div><br/>
-<div class="line-number">114</div><br/>
-<div class="line-number">115</div><br/>
-<div class="line-number">116</div><br/>
-<div class="line-number">117</div><br/>
-<div class="line-number">118</div><br/>
-<div class="line-number">119</div><br/>
-<div class="line-number">120</div><br/>
-<div class="line-number">121</div><br/>
-<div class="line-number">122</div><br/>
-<div class="line-number">123</div><br/>
-<div class="line-number">124</div><br/>
-<div class="line-number">125</div><br/>
-<div class="line-number">126</div><br/>
-<div class="line-number">127</div><br/>
-<div class="line-number">128</div><br/>
-<div class="line-number">129</div><br/>
-<div class="line-number">130</div><br/>
-<div class="line-number">131</div><br/>
-<div class="line-number">132</div><br/>
-<div class="line-number">133</div><br/>
-<div class="line-number">134</div><br/>
-<div class="line-number">135</div><br/>
-<div class="line-number">136</div><br/>
-<div class="line-number">137</div><br/>
-<div class="line-number">138</div><br/>
-<div class="line-number">139</div><br/>
-<div class="line-number">140</div><br/>
-<div class="line-number">141</div><br/>
-<div class="line-number">142</div><br/>
-<div class="line-number">143</div><br/>
-<div class="line-number">144</div><br/>
-<div class="line-number">145</div><br/>
-<div class="line-number">146</div><br/>
-<div class="line-number">147</div><br/>
-<div class="line-number">148</div><br/>
-<div class="line-number">149</div><br/>
-<div class="line-number">150</div><br/>
-<div class="line-number">151</div><br/>
-<div class="line-number">152</div><br/>
-<div class="line-number">153</div><br/>
-<div class="line-number">154</div><br/>
-<div class="line-number">155</div><br/>
-<div class="line-number">156</div><br/>
-<div class="line-number">157</div><br/>
-<div class="line-number">158</div><br/>
-<div class="line-number">159</div><br/>
-<div class="line-number">160</div><br/>
-<div class="line-number">161</div><br/>
-<div class="line-number">162</div><br/>
-<div class="line-number">163</div><br/>
-<div class="line-number">164</div><br/>
-<div class="line-number">165</div><br/>
-<div class="line-number">166</div><br/>
-<div class="line-number">167</div><br/>
-<div class="line-number">168</div><br/>
-<div class="line-number">169</div><br/>
-<div class="line-number">170</div><br/>
-<div class="line-number">171</div><br/>
-<div class="line-number">172</div><br/>
-<div class="line-number">173</div><br/>
-<div class="line-number">174</div><br/>
-<div class="line-number">175</div><br/>
-<div class="line-number">176</div><br/>
-<div class="line-number">177</div><br/>
-<div class="line-number">178</div><br/>
-<div class="line-number">179</div><br/>
-<div class="line-number">180</div><br/>
-<div class="line-number">181</div><br/>
-<div class="line-number">182</div><br/>
-<div class="line-number">183</div><br/>
-<div class="line-number">184</div><br/>
-<div class="line-number">185</div><br/>
-<div class="line-number">186</div><br/>
-<div class="line-number">187</div><br/>
-<div class="line-number">188</div><br/>
-<div class="line-number">189</div><br/>
-<div class="line-number">190</div><br/>
-<div class="line-number">191</div><br/>
-<div class="line-number">192</div><br/>
-<div class="line-number">193</div><br/>
-<div class="line-number">194</div><br/>
-<div class="line-number">195</div><br/>
-<div class="line-number">196</div><br/>
-<div class="line-number">197</div><br/>
-<div class="line-number">198</div><br/>
-<div class="line-number">199</div><br/>
-<div class="line-number">200</div><br/>
-<div class="line-number">201</div><br/>
-<div class="line-number">202</div><br/>
-<div class="line-number">203</div><br/>
-<div class="line-number">204</div><br/>
-<div class="line-number">205</div><br/>
-<div class="line-number">206</div><br/>
-<div class="line-number">207</div><br/>
-<div class="line-number">208</div><br/>
-<div class="line-number">209</div><br/>
-<div class="line-number">210</div><br/>
-<div class="line-number">211</div><br/>
-<div class="line-number">212</div><br/>
-<div class="line-number">213</div><br/>
-<div class="line-number">214</div><br/>
-<div class="line-number">215</div><br/>
-<div class="line-number">216</div><br/>
-<div class="line-number">217</div><br/>
-<div class="line-number">218</div><br/>
-<div class="line-number">219</div><br/>
-<div class="line-number">220</div><br/>
-<div class="line-number">221</div><br/>
-<div class="line-number">222</div><br/>
-<div class="line-number">223</div><br/>
-<div class="line-number">224</div><br/>
-<div class="line-number">225</div><br/>
-<div class="line-number">226</div><br/>
-<div class="line-number">227</div><br/>
-<div class="line-number">228</div><br/>
-<div class="line-number">229</div><br/>
-<div class="line-number">230</div><br/>
-<div class="line-number">231</div><br/>
-<div class="line-number">232</div><br/>
-<div class="line-number">233</div><br/>
-<div class="line-number">234</div><br/>
-<div class="line-number">235</div><br/>
-<div class="line-number">236</div><br/>
-<div class="line-number">237</div><br/>
-<div class="line-number">238</div><br/>
-<div class="line-number">239</div><br/>
-<div class="line-number">240</div><br/>
-<div class="line-number">241</div><br/>
-<div class="line-number">242</div><br/>
-<div class="line-number">243</div><br/>
-<div class="line-number">244</div><br/>
-<div class="line-number">245</div><br/>
-<div class="line-number">246</div><br/>
-<div class="line-number">247</div><br/>
-<div class="line-number">248</div><br/>
-<div class="line-number">249</div><br/>
-<div class="line-number">250</div><br/>
-<div class="line-number">251</div><br/>
-<div class="line-number">252</div><br/>
-<div class="line-number">253</div><br/>
-<div class="line-number">254</div><br/>
-<div class="line-number">255</div><br/>
-<div class="line-number">256</div><br/>
-<div class="line-number">257</div><br/>
-<div class="line-number">258</div><br/>
-<div class="line-number">259</div><br/>
-<div class="line-number">260</div><br/>
-<div class="line-number">261</div><br/>
-<div class="line-number">262</div><br/>
-<div class="line-number">263</div><br/>
-<div class="line-number">264</div><br/>
-<div class="line-number">265</div><br/>
-<div class="line-number">266</div><br/>
-<div class="line-number">267</div><br/>
-<div class="line-number">268</div><br/>
-<div class="line-number">269</div><br/>
-<div class="line-number">270</div><br/>
-<div class="line-number">271</div><br/>
-<div class="line-number">272</div><br/>
-<div class="line-number">273</div><br/>
-<div class="line-number">274</div><br/>
-<div class="line-number">275</div><br/>
-<div class="line-number">276</div><br/>
-<div class="line-number">277</div><br/>
-<div class="line-number">278</div><br/>
-<div class="line-number">279</div><br/>
-<div class="line-number">280</div><br/>
-<div class="line-number">281</div><br/>
-<div class="line-number">282</div><br/>
-<div class="line-number">283</div><br/>
-<div class="line-number">284</div><br/>
-<div class="line-number">285</div><br/>
-<div class="line-number">286</div><br/>
-<div class="line-number">287</div><br/>
-<div class="line-number">288</div><br/>
-<div class="line-number">289</div><br/>
-<div class="line-number">290</div><br/>
-<div class="line-number">291</div><br/>
-<div class="line-number">292</div><br/>
-<div class="line-number">293</div><br/>
-<div class="line-number">294</div><br/>
-<div class="line-number">295</div><br/>
-<div class="line-number">296</div><br/>
-<div class="line-number">297</div><br/>
-<div class="line-number">298</div><br/>
-<div class="line-number">299</div><br/>
-<div class="line-number">300</div><br/>
-<div class="line-number">301</div><br/>
-<div class="line-number">302</div><br/>
-<div class="line-number">303</div><br/>
-<div class="line-number">304</div><br/>
-<div class="line-number">305</div><br/>
-<div class="line-number">306</div><br/>
-<div class="line-number">307</div><br/>
-<div class="line-number">308</div><br/>
-<div class="line-number">309</div><br/>
-<div class="line-number">310</div><br/>
-<div class="line-number">311</div><br/>
-<div class="line-number">312</div><br/>
-<div class="line-number">313</div><br/>
-<div class="line-number">314</div><br/>
-<div class="line-number">315</div><br/>
-<div class="line-number">316</div><br/>
-<div class="line-number">317</div><br/>
-<div class="line-number">318</div><br/>
-<div class="line-number">319</div><br/>
-<div class="line-number">320</div><br/>
-<div class="line-number">321</div><br/>
-<div class="line-number">322</div><br/>
-<div class="line-number">323</div><br/>
-<div class="line-number">324</div><br/>
-<div class="line-number">325</div><br/>
-<div class="line-number">326</div><br/>
-<div class="line-number">327</div><br/>
-<div class="line-number">328</div><br/>
-<div class="line-number">329</div><br/>
-<div class="line-number">330</div><br/>
-<div class="line-number">331</div><br/>
-<div class="line-number">332</div><br/>
-<div class="line-number">333</div><br/>
-<div class="line-number">334</div><br/>
-<div class="line-number">335</div><br/>
-<div class="line-number">336</div><br/>
-<div class="line-number">337</div><br/>
-<div class="line-number">338</div><br/>
-<div class="line-number">339</div><br/>
-<div class="line-number">340</div><br/>
-<div class="line-number">341</div><br/>
-<div class="line-number">342</div><br/>
-<div class="line-number">343</div><br/>
-<div class="line-number">344</div><br/>
-<div class="line-number">345</div><br/>
-<div class="line-number">346</div><br/>
-<div class="line-number">347</div><br/>
-<div class="line-number">348</div><br/>
-<div class="line-number">349</div><br/>
-<div class="line-number">350</div><br/>
-<div class="line-number">351</div><br/>
-<div class="line-number">352</div><br/>
-<div class="line-number">353</div><br/>
-<div class="line-number">354</div><br/>
-<div class="line-number">355</div><br/>
-<div class="line-number">356</div><br/>
-<div class="line-number">357</div><br/>
-<div class="line-number">358</div><br/>
-<div class="line-number">359</div><br/>
-<div class="line-number">360</div><br/>
-<div class="line-number">361</div><br/>
-<div class="line-number">362</div><br/>
-<div class="line-number">363</div><br/>
-<div class="line-number">364</div><br/>
-<div class="line-number">365</div><br/>
-<div class="line-number">366</div><br/>
-<div class="line-number">367</div><br/>
-<div class="line-number">368</div><br/>
-<div class="line-number">369</div><br/>
-<div class="line-number">370</div><br/>
-<div class="line-number">371</div><br/>
-<div class="line-number">372</div><br/>
-<div class="line-number">373</div><br/>
-<div class="line-number">374</div><br/>
-<div class="line-number">375</div><br/>
-<div class="line-number">376</div><br/>
-<div class="line-number">377</div><br/>
-<div class="line-number">378</div><br/>
-<div class="line-number">379</div><br/>
-<div class="line-number">380</div><br/>
-<div class="line-number">381</div><br/>
-<div class="line-number">382</div><br/>
-<div class="line-number">383</div><br/>
-<div class="line-number">384</div><br/>
-<div class="line-number">385</div><br/>
-<div class="line-number">386</div><br/>
-<div class="line-number">387</div><br/>
-<div class="line-number">388</div><br/>
-<div class="line-number">389</div><br/>
-<div class="line-number">390</div><br/>
-<div class="line-number">391</div><br/>
-<div class="line-number">392</div><br/>
-<div class="line-number">393</div><br/>
-<div class="line-number">394</div><br/>
-<div class="line-number">395</div><br/>
-<div class="line-number">396</div><br/>
-<div class="line-number">397</div><br/>
-<div class="line-number">398</div><br/>
-<div class="line-number">399</div><br/>
-<div class="line-number">400</div><br/>
-<div class="line-number">401</div><br/>
-<div class="line-number">402</div><br/>
-<div class="line-number">403</div><br/>
-<div class="line-number">404</div><br/>
-<div class="line-number">405</div><br/>
-<div class="line-number">406</div><br/>
-<div class="line-number">407</div><br/>
-<div class="line-number">408</div><br/>
-<div class="line-number">409</div><br/>
-<div class="line-number">410</div><br/>
-<div class="line-number">411</div><br/>
-<div class="line-number">412</div><br/>
-<div class="line-number">413</div><br/>
-<div class="line-number">414</div><br/>
-<div class="line-number">415</div><br/>
-<div class="line-number">416</div><br/>
-<div class="line-number">417</div><br/>
-<div class="line-number">418</div><br/>
-<div class="line-number">419</div><br/>
-<div class="line-number">420</div><br/>
-<div class="line-number">421</div><br/>
-<div class="line-number">422</div><br/>
-<div class="line-number">423</div><br/>
-<div class="line-number">424</div><br/>
-<div class="line-number">425</div><br/>
-<div class="line-number">426</div><br/>
-<div class="line-number">427</div><br/>
-<div class="line-number">428</div><br/>
-<div class="line-number">429</div><br/>
-<div class="line-number">430</div><br/>
-<div class="line-number">431</div><br/>
-<div class="line-number">432</div><br/>
-<div class="line-number">433</div><br/>
-<div class="line-number">434</div><br/>
-<div class="line-number">435</div><br/>
-<div class="line-number">436</div><br/>
-</div>
-    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;util.cpp</div><br/><div class="comment">&nbsp;*&nbsp;CS&nbsp;225&nbsp;Util&nbsp;Library</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Jack&nbsp;Toole</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#ifndef&nbsp;UTIL_H</div> <br><div class="definition">#define&nbsp;UTIL_H</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;__STDC_LIMIT_MACROS</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;&lt;errno.h></div> <br><div class="definition">#include&nbsp;&lt;limits.h></div> <br><div class="definition">#include&nbsp;&lt;stdio.h></div> <br><div class="definition">#include&nbsp;&lt;stdint.h></div> <br><div class="definition">#include&nbsp;&lt;stdlib.h></div> <br><div class="definition">#include&nbsp;&lt;string.h></div> <br><div class="definition">#include&nbsp;&lt;sys/stat.h></div> <br><div class="definition">#include&nbsp;&lt;sys/time.h></div> <br><div class="definition">#include&nbsp;&lt;sys/types.h></div> <br><div class="definition">#include&nbsp;&lt;time.h></div> <br><div class="definition">#include&nbsp;&lt;unistd.h></div> <br><div class="definition">#include&nbsp;&lt;fstream></div> <br><div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;map></div> <br><div class="definition">#include&nbsp;&lt;sstream></div> <br><div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">util</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">internal</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">extern</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">error_prefix</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Comparator&nbsp;for&nbsp;case-insensitive&nbsp;comparison&nbsp;in&nbsp;STL&nbsp;assosiative&nbsp;containers.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;From&nbsp;Abhay:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@see&nbsp;http://stackoverflow.com/questions/1801892/making-mapfind-operation-case-insensitive&nbsp;</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">ci_less</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;case-independent&nbsp;(ci)&nbsp;compare_less&nbsp;binary&nbsp;function</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">nocase_compare</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">c1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">c2</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">tolower</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">c1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">tolower</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">c2</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">s1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">s2</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">lexicographical_compare</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">(</div><div class="word">s1</div><div class="symbol">.</div><div class="word">begin</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">s1</div><div class="symbol">.</div><div class="word">end</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;source&nbsp;range</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;</div><div class="word">s2</div><div class="symbol">.</div><div class="word">begin</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">s2</div><div class="symbol">.</div><div class="word">end</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;dest&nbsp;range</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;</div><div class="word">nocase_compare</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;comparison</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;http://stackoverflow.com/questions/5300602/template-return-type-with-default-value</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">Initializer</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Initializer</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol">:</div><div class="word">value</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;====>&nbsp;default&nbsp;construction,&nbsp;works&nbsp;for&nbsp;classes&nbsp;_and_&nbsp;built-in</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Signal</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">signum</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Signal</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">signal_number</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">signum</div><div class="symbol2">(</div><div class="word">signal_number</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">number</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">signum</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">what</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">*&nbsp;&nbsp;Here&nbsp;we&nbsp;create&nbsp;a&nbsp;useful&nbsp;and&nbsp;easily&nbsp;understanable&nbsp;alias&nbsp;for&nbsp;the&nbsp;map.</div><br/><div class="comment">**/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">typedef</div><div class="word">&nbsp;</div><div class="word">map</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">ci_less</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">OptionsMap</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">OptionsParser</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">typedef</div><div class="word">&nbsp;</div><div class="word">map</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="symbol">*</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">optsMap_t</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">typedef</div><div class="word">&nbsp;</div><div class="word">map</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">valueMap_t</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">valueMap_t</div><div class="word">&nbsp;</div><div class="word">valueMap</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;not&nbsp;static&nbsp;to&nbsp;prevent&nbsp;still&nbsp;reachable&nbsp;memory</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">optsMap_t</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">optsMap</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">OptionsParser</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">addOption</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">name</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">setValue</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="word">optsMap</div><div class="symbol2">[</div><div class="word">name</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">setValue</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">addArg</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">setValue</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="symbol">&</div><div class="word">setValue</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">parse</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">parse</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rawArgs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;this&nbsp;usage&nbsp;of&nbsp;macro&nbsp;is&nbsp;an&nbsp;ugly&nbsp;hack;</div><br>
-<div class="comment">//&nbsp;this&nbsp;allows&nbsp;replacing&nbsp;system()&nbsp;calls&nbsp;in&nbsp;dependent&nbsp;code&nbsp;without</div><br>
-<div class="comment">//&nbsp;ambiguity&nbsp;conflicts.</div><br>
-<div class="comment">//&nbsp;TODO(roh7):&nbsp;consider&nbsp;removing&nbsp;this&nbsp;hack&nbsp;if&nbsp;feasible</div><br>
-<div class="definition">#undef&nbsp;system</div> <br><div class="comment">//&nbsp;system()&nbsp;replacement</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">monad_system</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;system&nbsp;util::monad_system</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;EXEC()</div><br>
-<div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">,</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">STDOUT_FILENO</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg1</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg2</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg3</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg4</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg5</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">arg6</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">redirect_fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">ostream</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">output</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">int8_t</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">exec</div><div class="symbol2">(</div><div class="word">command</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">cout</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;FILESYSTEM&nbsp;FUNCTIONS</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">assertExists</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">exit_code</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">exists</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">mode_t</div><div class="word">&nbsp;</div><div class="word">permissions</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">forceRemoveDir</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">dir</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">getcwdstr</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">chdir</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dir</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">stripTrailingSlash</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">getBaseDir</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">copyFile</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">source</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dest</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">copyFileOrDir</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">source</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dest</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">copyFiles</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">sourceFolder</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">destFolder</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">files</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">protectFiles</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">folder</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">files</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">protectDir</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dir</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">linkDirs</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">sourceFolder</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">destFolder</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dirs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">get_files_in_dir</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">dir</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">concatdir</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">true</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">is_symlink</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">file</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">get_symlink_target</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">symlink</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;STRING&nbsp;REPLACEMENT</div><br>
-<div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">replaceFirst</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">toreplace</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">with</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">replaceAll</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">toreplace</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">with</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">replaceAllInternal</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">toreplace</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">with</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">findNthLast</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">c</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">tokenize</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">delim</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">tokenize</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">delims</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;IO&nbsp;OPERATIONS</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">read_string_from_FILE</div><div class="symbol2">(</div><div class="word">FILE</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">file</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">max_length</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">write_string_to_FILE</div><div class="symbol2">(</div><div class="word">FILE</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">file</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">writeBytesToFile</div><div class="symbol2">(</div><div class="highlight">signed</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fileDescriptor</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">buffer</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">unsigned</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">bufferLength</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">writen</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">vptr</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">long</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">readn</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">vptr</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">read</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">read</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">long</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;STRING&nbsp;TYPE&nbsp;OPERATIONS</div><br>
-<div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">intlen</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">a</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">makeLower</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">toLower</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;String&nbsp;concatenation</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">T</div><div class="word">&nbsp;</div><div class="word">from_string</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">s</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">F</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">T</div><div class="word">&nbsp;</div><div class="word">lexical_cast</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">F</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">from</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;These&nbsp;5&nbsp;functions&nbsp;are&nbsp;to&nbsp;disambiguate</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;operator+&nbsp;so&nbsp;that&nbsp;the&nbsp;following</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;templates&nbsp;may&nbsp;exist</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol">=</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;CLOCK&nbsp;/&nbsp;TIMING</div><br>
-<div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">process_clock</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">system_clock</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;CONFIGURATION</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">readFile</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">readFile</div><div class="symbol2">(</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">filename</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lines</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">processOptions</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">argc</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">argv</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">OptionsMap</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">opts</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">string</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">args</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;Exceptions</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">Exception</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">exception</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Exception</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">_message</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol2">(</div><div class="word">_message</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">what</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">throw</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">virtual</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">Exception</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">throw</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">condition</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">enable_if</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">typedef</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">type</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">enable_if</div><div class="symbol">&lt;</div><div class="highlight">false</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;No&nbsp;::type&nbsp;here</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;AUTOGRADER</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;STUDENT&nbsp;CODE&nbsp;COMPILATION&nbsp;FUNCTIONS</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">rename_main</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">file</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">newname</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;MACROS</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SET_ERROR_MESSAGE</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;STRINGIFY1(p)&nbsp;&nbsp;&nbsp;#p</div> <br><div class="definition">#define&nbsp;STR(p)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STRINGIFY1(p)</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">internal</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">StrType</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">exit_if_error_output</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">file</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">int32_t</div><div class="word">&nbsp;</div><div class="word">line</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">StrType</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">util</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">error_prefix</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">util</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">error_prefix</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">file</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">":"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">line</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">":&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">errno</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">":&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">strerror</div><div class="symbol2">(</div><div class="word">errno</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">exit</div><div class="symbol2">(</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;EXIT_IF_ERROR2(statement_check,&nbsp;message)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div> <br><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">do</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">errno</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">statement_check</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">|</div><div class="symbol2">|</div><div class="word">&nbsp;</div><div class="word">errno</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">util</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">internal</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">exit_if_error_output</div><div class="symbol2">(</div><div class="word">__FILE__</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">__LINE__</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">message</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;EXIT_IF_ERROR1(statement_check)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div> <br><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">EXIT_IF_ERROR2</div><div class="symbol2">(</div><div class="word">statement_check</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="definition">#statement_check)</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;Crazy&nbsp;hack&nbsp;for&nbsp;overloading!</div><br>
-<div class="comment">//&nbsp;Arg&nbsp;counting&nbsp;from:</div><br>
-<div class="comment">//&nbsp;http://cplusplus.co.il/2010/07/17/variadic-macro-to-count-number-of-arguments/</div><br>
-<div class="comment">//&nbsp;Overloading&nbsp;tips:</div><br>
-<div class="comment">//&nbsp;http://stackoverflow.com/questions/3046889/optional-parameters-with-c-macros</div><br>
-<div class="definition">#define&nbsp;EXIT_IF_ERROR_THIRD_ARG(a,&nbsp;b,&nbsp;c,&nbsp;...)&nbsp;c</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#define&nbsp;EXIT_IF_ERROR(...)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div> <br><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">EXIT_IF_ERROR_THIRD_ARG</div><div class="symbol2">(</div><div class="word">__VA_ARGS__</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">EXIT_IF_ERROR2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">\</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">EXIT_IF_ERROR1</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">__VA_ARGS__</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;Colorization</div><br>
-<div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">colorize</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">extern</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">BLACK</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">extern</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">GREEN</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">extern</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">RED</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">extern</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">is_color_enabled</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">make_color</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">color</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">is_color_enabled</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="word">color</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">str</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">BLACK</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;namespace&nbsp;colorize</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;INLINE&nbsp;IMPLEMENTATIONS</div><br>
-<div class="comment">//&nbsp;Originally&nbsp;by&nbsp;radu</div><br>
-<div class="comment">//&nbsp;http://notfaq.wordpress.com/2006/08/30/c-convert-int-to-string/</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">stringstream</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">.</div><div class="word">str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;http://stackoverflow.com/questions/5017001/like-atoi-but-to-float</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">from_string</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">s</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">stringstream</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">F</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">lexical_cast</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">F</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">from</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">Initializer</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">to</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">stringstream</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol">!</div><div class="symbol2">(</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">from</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">"ERROR:&nbsp;Could&nbsp;not&nbsp;convert&nbsp;types"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">to</div><div class="symbol">.</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol">!</div><div class="symbol2">(</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">to</div><div class="symbol">.</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">cerr</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">"ERROR:&nbsp;Could&nbsp;not&nbsp;convert&nbsp;types"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">to</div><div class="symbol">.</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">to</div><div class="symbol">.</div><div class="word">value</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;TODO&nbsp;(toole1):&nbsp;Not&nbsp;sure&nbsp;if&nbsp;this&nbsp;forces&nbsp;a&nbsp;copy</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">intlen</div><div class="symbol2">(</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">a</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">uint32_t</div><div class="word">&nbsp;</div><div class="word">len</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">a</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">a</div><div class="symbol">/</div><div class="number">1</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">len</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">len</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">writen</div><div class="symbol2">(</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">.</div><div class="word">length</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">+</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">writen</div><div class="symbol2">(</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">val</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">sizeof</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">write</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">long</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">writen</div><div class="symbol2">(</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">val</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">sizeof</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">read</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">readn</div><div class="symbol2">(</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">val</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">sizeof</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">ssize_t</div><div class="word">&nbsp;</div><div class="word">read</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">long</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">readn</div><div class="symbol2">(</div><div class="word">fd</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">val</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">sizeof</div><div class="word">&nbsp;</div><div class="word">val</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="word">lhs</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol">=</div><div class="symbol2">(</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">str</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">util</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">+</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">string</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">str</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">stringstream</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">ss</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">str</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ss</div><div class="symbol">.</div><div class="word">str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">process_clock</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#ifdef&nbsp;CLOCK_PROCESS_CPUTIME_ID</div> <br><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">timespec</div><div class="word">&nbsp;</div><div class="word">ts</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">clock_gettime</div><div class="symbol2">(</div><div class="word">CLOCK_PROCESS_CPUTIME_ID</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">ts</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ts</div><div class="symbol">.</div><div class="word">tv_sec</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">ts</div><div class="symbol">.</div><div class="word">tv_nsec</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">5</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#else</div> <br><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">clock</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#endif</div> <br><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">inline</div><div class="word">&nbsp;</div><div class="word">uint64_t</div><div class="word">&nbsp;</div><div class="word">system_clock</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">timeval</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="word">gettimeofday</div><div class="symbol2">(</div><div class="symbol">&</div><div class="word">tv</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">.</div><div class="word">tv_sec</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="number">0</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">tv</div><div class="symbol">.</div><div class="word">tv_usec</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;namespace&nbsp;util</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#endif&nbsp;//&nbsp;UTIL_H</div> <br></div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/mp5/util/util.h"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

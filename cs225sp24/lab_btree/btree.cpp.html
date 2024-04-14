@@ -1,360 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_btree/btree.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-<div class="line-number">97</div><br/>
-<div class="line-number">98</div><br/>
-<div class="line-number">99</div><br/>
-<div class="line-number">100</div><br/>
-<div class="line-number">101</div><br/>
-<div class="line-number">102</div><br/>
-<div class="line-number">103</div><br/>
-<div class="line-number">104</div><br/>
-<div class="line-number">105</div><br/>
-<div class="line-number">106</div><br/>
-<div class="line-number">107</div><br/>
-<div class="line-number">108</div><br/>
-<div class="line-number">109</div><br/>
-<div class="line-number">110</div><br/>
-<div class="line-number">111</div><br/>
-<div class="line-number">112</div><br/>
-<div class="line-number">113</div><br/>
-<div class="line-number">114</div><br/>
-<div class="line-number">115</div><br/>
-<div class="line-number">116</div><br/>
-<div class="line-number">117</div><br/>
-<div class="line-number">118</div><br/>
-<div class="line-number">119</div><br/>
-<div class="line-number">120</div><br/>
-<div class="line-number">121</div><br/>
-<div class="line-number">122</div><br/>
-<div class="line-number">123</div><br/>
-<div class="line-number">124</div><br/>
-<div class="line-number">125</div><br/>
-<div class="line-number">126</div><br/>
-<div class="line-number">127</div><br/>
-<div class="line-number">128</div><br/>
-<div class="line-number">129</div><br/>
-<div class="line-number">130</div><br/>
-<div class="line-number">131</div><br/>
-<div class="line-number">132</div><br/>
-<div class="line-number">133</div><br/>
-<div class="line-number">134</div><br/>
-<div class="line-number">135</div><br/>
-<div class="line-number">136</div><br/>
-<div class="line-number">137</div><br/>
-<div class="line-number">138</div><br/>
-<div class="line-number">139</div><br/>
-<div class="line-number">140</div><br/>
-<div class="line-number">141</div><br/>
-<div class="line-number">142</div><br/>
-<div class="line-number">143</div><br/>
-<div class="line-number">144</div><br/>
-<div class="line-number">145</div><br/>
-<div class="line-number">146</div><br/>
-<div class="line-number">147</div><br/>
-<div class="line-number">148</div><br/>
-<div class="line-number">149</div><br/>
-<div class="line-number">150</div><br/>
-<div class="line-number">151</div><br/>
-<div class="line-number">152</div><br/>
-<div class="line-number">153</div><br/>
-<div class="line-number">154</div><br/>
-<div class="line-number">155</div><br/>
-<div class="line-number">156</div><br/>
-<div class="line-number">157</div><br/>
-<div class="line-number">158</div><br/>
-<div class="line-number">159</div><br/>
-<div class="line-number">160</div><br/>
-<div class="line-number">161</div><br/>
-<div class="line-number">162</div><br/>
-<div class="line-number">163</div><br/>
-<div class="line-number">164</div><br/>
-<div class="line-number">165</div><br/>
-<div class="line-number">166</div><br/>
-<div class="line-number">167</div><br/>
-<div class="line-number">168</div><br/>
-<div class="line-number">169</div><br/>
-<div class="line-number">170</div><br/>
-<div class="line-number">171</div><br/>
-<div class="line-number">172</div><br/>
-<div class="line-number">173</div><br/>
-<div class="line-number">174</div><br/>
-<div class="line-number">175</div><br/>
-<div class="line-number">176</div><br/>
-<div class="line-number">177</div><br/>
-<div class="line-number">178</div><br/>
-<div class="line-number">179</div><br/>
-<div class="line-number">180</div><br/>
-<div class="line-number">181</div><br/>
-<div class="line-number">182</div><br/>
-<div class="line-number">183</div><br/>
-<div class="line-number">184</div><br/>
-<div class="line-number">185</div><br/>
-<div class="line-number">186</div><br/>
-<div class="line-number">187</div><br/>
-<div class="line-number">188</div><br/>
-<div class="line-number">189</div><br/>
-<div class="line-number">190</div><br/>
-<div class="line-number">191</div><br/>
-<div class="line-number">192</div><br/>
-<div class="line-number">193</div><br/>
-<div class="line-number">194</div><br/>
-<div class="line-number">195</div><br/>
-<div class="line-number">196</div><br/>
-<div class="line-number">197</div><br/>
-<div class="line-number">198</div><br/>
-<div class="line-number">199</div><br/>
-<div class="line-number">200</div><br/>
-<div class="line-number">201</div><br/>
-<div class="line-number">202</div><br/>
-<div class="line-number">203</div><br/>
-<div class="line-number">204</div><br/>
-<div class="line-number">205</div><br/>
-<div class="line-number">206</div><br/>
-<div class="line-number">207</div><br/>
-<div class="line-number">208</div><br/>
-</div>
-    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;btree.cpp</div><br/><div class="comment">&nbsp;*&nbsp;Implementation&nbsp;of&nbsp;a&nbsp;B-tree&nbsp;class&nbsp;which&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;generic&nbsp;dictionary</div><br/><div class="comment">&nbsp;*&nbsp;(insert-only).&nbsp;Designed&nbsp;to&nbsp;take&nbsp;advantage&nbsp;of&nbsp;caching&nbsp;to&nbsp;be&nbsp;faster&nbsp;than</div><br/><div class="comment">&nbsp;*&nbsp;standard&nbsp;balanced&nbsp;binary&nbsp;search&nbsp;trees.</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Matt&nbsp;Joras</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;Winter&nbsp;2013</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"btree.h"</div> <br><div class="definition">#include&nbsp;&lt;cassert></div> <br><div class="highlight">using</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">vector</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Finds&nbsp;the&nbsp;value&nbsp;associated&nbsp;with&nbsp;a&nbsp;given&nbsp;key.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;look&nbsp;up.</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;The&nbsp;value&nbsp;(if&nbsp;found),&nbsp;the&nbsp;default&nbsp;V&nbsp;if&nbsp;not.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">V</div><div class="word">&nbsp;</div><div class="word">BTree</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="symbol">:</div><div class="symbol">:</div><div class="word">find</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">root</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">nullptr</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">find</div><div class="symbol2">(</div><div class="word">root</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Private&nbsp;recursive&nbsp;version&nbsp;of&nbsp;the&nbsp;find&nbsp;function.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;subroot&nbsp;A&nbsp;reference&nbsp;of&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;current&nbsp;BTreeNode.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;we&nbsp;are&nbsp;looking&nbsp;up.</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;The&nbsp;value&nbsp;(if&nbsp;found),&nbsp;the&nbsp;default&nbsp;V&nbsp;if&nbsp;not.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="word">V</div><div class="word">&nbsp;</div><div class="word">BTree</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="symbol">:</div><div class="symbol">:</div><div class="word">find</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">first_larger_idx</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">insertion_idx</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">first_larger_idx</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">order</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">value</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">is_leaf</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">find</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;If&nbsp;first_larger_idx&nbsp;is&nbsp;a&nbsp;valid&nbsp;index&nbsp;and&nbsp;the&nbsp;key&nbsp;there&nbsp;is&nbsp;the&nbsp;key&nbsp;we</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;are&nbsp;looking&nbsp;for,&nbsp;we&nbsp;are&nbsp;done.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Otherwise,&nbsp;we&nbsp;need&nbsp;to&nbsp;figure&nbsp;out&nbsp;which&nbsp;child&nbsp;to&nbsp;explore.&nbsp;For&nbsp;this&nbsp;we</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;can&nbsp;actually&nbsp;just&nbsp;use&nbsp;first_larger_idx&nbsp;directly.&nbsp;E.g.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;1&nbsp;|&nbsp;5&nbsp;|&nbsp;7&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Suppose&nbsp;we&nbsp;are&nbsp;looking&nbsp;for&nbsp;6.&nbsp;first_larger_idx&nbsp;is&nbsp;2.&nbsp;This&nbsp;means&nbsp;we&nbsp;want&nbsp;to</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;explore&nbsp;the&nbsp;child&nbsp;between&nbsp;5&nbsp;and&nbsp;7.&nbsp;The&nbsp;children&nbsp;vector&nbsp;has&nbsp;a&nbsp;pointer&nbsp;for</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;each&nbsp;of&nbsp;the&nbsp;horizontal&nbsp;bars.&nbsp;The&nbsp;index&nbsp;of&nbsp;the&nbsp;horizontal&nbsp;bar&nbsp;we&nbsp;want&nbsp;is</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;2,&nbsp;which&nbsp;is&nbsp;conveniently&nbsp;the&nbsp;same&nbsp;as&nbsp;first_larger_idx.&nbsp;If&nbsp;the&nbsp;subroot&nbsp;is</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;a&nbsp;leaf&nbsp;and&nbsp;we&nbsp;didn't&nbsp;find&nbsp;the&nbsp;key&nbsp;in&nbsp;it,&nbsp;then&nbsp;we&nbsp;have&nbsp;failed&nbsp;to&nbsp;find&nbsp;it</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;anywhere&nbsp;in&nbsp;the&nbsp;tree&nbsp;and&nbsp;return&nbsp;the&nbsp;default&nbsp;V.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Inserts&nbsp;a&nbsp;key&nbsp;and&nbsp;value&nbsp;into&nbsp;the&nbsp;BTree.&nbsp;If&nbsp;the&nbsp;key&nbsp;is&nbsp;already&nbsp;in&nbsp;the</div><br/><div class="comment">&nbsp;*&nbsp;tree&nbsp;do&nbsp;nothing.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;insert.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;value&nbsp;The&nbsp;value&nbsp;to&nbsp;insert.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">BTree</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="symbol">:</div><div class="symbol">:</div><div class="word">insert</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Make&nbsp;the&nbsp;root&nbsp;node&nbsp;if&nbsp;the&nbsp;tree&nbsp;is&nbsp;empty.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">root</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">nullptr</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">root</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">new</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol2">(</div><div class="highlight">true</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">root</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">DataPair</div><div class="symbol2">(</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Increase&nbsp;height&nbsp;by&nbsp;one&nbsp;by&nbsp;tossing&nbsp;up&nbsp;one&nbsp;element&nbsp;from&nbsp;the&nbsp;old</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;root&nbsp;node.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">root</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">new_root</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">new</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol2">(</div><div class="highlight">false</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">new_root</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">root</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">split_child</div><div class="symbol2">(</div><div class="word">new_root</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">root</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">new_root</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Splits&nbsp;a&nbsp;child&nbsp;node&nbsp;of&nbsp;a&nbsp;BTreeNode.&nbsp;Called&nbsp;if&nbsp;the&nbsp;child&nbsp;became&nbsp;too</div><br/><div class="comment">&nbsp;*&nbsp;large.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;parent&nbsp;The&nbsp;parent&nbsp;whose&nbsp;child&nbsp;we&nbsp;are&nbsp;trying&nbsp;to&nbsp;split.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;child_idx&nbsp;The&nbsp;index&nbsp;of&nbsp;the&nbsp;child&nbsp;in&nbsp;its&nbsp;parent's&nbsp;children</div><br/><div class="comment">&nbsp;*&nbsp;vector.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">BTree</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="symbol">:</div><div class="symbol">:</div><div class="word">split_child</div><div class="symbol2">(</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">child_idx</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Assume&nbsp;we&nbsp;are&nbsp;splitting&nbsp;the&nbsp;3&nbsp;6&nbsp;8&nbsp;child.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;We&nbsp;want&nbsp;the&nbsp;following&nbsp;to&nbsp;happen.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;1&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;|&nbsp;6&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Insert&nbsp;a&nbsp;pointer&nbsp;into&nbsp;parent's&nbsp;children&nbsp;which&nbsp;will&nbsp;point&nbsp;to&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;new&nbsp;right&nbsp;node.&nbsp;The&nbsp;new&nbsp;right&nbsp;node&nbsp;is&nbsp;empty&nbsp;at&nbsp;this&nbsp;point.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2&nbsp;|&nbsp;&nbsp;&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;1&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;|&nbsp;6&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Insert&nbsp;the&nbsp;mid&nbsp;element&nbsp;from&nbsp;the&nbsp;child&nbsp;into&nbsp;its&nbsp;new&nbsp;position&nbsp;in&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;parent's&nbsp;elements.&nbsp;At&nbsp;this&nbsp;point&nbsp;the&nbsp;median&nbsp;is&nbsp;still&nbsp;in&nbsp;the&nbsp;child.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2&nbsp;|&nbsp;6&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;1&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;|&nbsp;6&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Now&nbsp;we&nbsp;want&nbsp;to&nbsp;copy&nbsp;over&nbsp;the&nbsp;elements&nbsp;(and&nbsp;children)&nbsp;to&nbsp;the&nbsp;right</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;of&nbsp;the&nbsp;child&nbsp;median&nbsp;into&nbsp;the&nbsp;new&nbsp;right&nbsp;node,&nbsp;and&nbsp;make&nbsp;sure&nbsp;the&nbsp;left</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node&nbsp;only&nbsp;has&nbsp;the&nbsp;elements&nbsp;(and&nbsp;children)&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;child</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;median.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2&nbsp;|&nbsp;6&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;1&nbsp;|&nbsp;|&nbsp;3&nbsp;|&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;The&nbsp;child&nbsp;we&nbsp;want&nbsp;to&nbsp;split.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">child</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol2">[</div><div class="word">child_idx</div><div class="symbol2">]</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;The&nbsp;"left"&nbsp;node&nbsp;is&nbsp;the&nbsp;old&nbsp;child,&nbsp;the&nbsp;right&nbsp;child&nbsp;is&nbsp;a&nbsp;new&nbsp;node.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">new_left</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">new_right</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">new</div><div class="word">&nbsp;</div><div class="word">BTreeNode</div><div class="symbol2">(</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">is_leaf</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;E.g.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;3&nbsp;|&nbsp;6&nbsp;|&nbsp;8&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Mid&nbsp;element&nbsp;is&nbsp;at&nbsp;index&nbsp;(3&nbsp;-&nbsp;1)&nbsp;/&nbsp;2&nbsp;=&nbsp;1&nbsp;.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Mid&nbsp;child&nbsp;(bar)&nbsp;is&nbsp;at&nbsp;index&nbsp;4&nbsp;/&nbsp;2&nbsp;=&nbsp;2&nbsp;.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;E.g.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;|&nbsp;2&nbsp;|&nbsp;4&nbsp;|</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Mid&nbsp;element&nbsp;is&nbsp;at&nbsp;index&nbsp;(2&nbsp;-&nbsp;1)&nbsp;/&nbsp;2&nbsp;=&nbsp;0&nbsp;.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Mid&nbsp;child&nbsp;(bar)&nbsp;is&nbsp;at&nbsp;index&nbsp;2&nbsp;/&nbsp;2&nbsp;=&nbsp;1&nbsp;.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;definition&nbsp;is&nbsp;to&nbsp;make&nbsp;this&nbsp;BTree&nbsp;act&nbsp;like&nbsp;the&nbsp;visualization</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;at</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;https://www.cs.usfca.edu/~galles/visualization/BTree.html</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">mid_elem_idx</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">2</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">mid_child_idx</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="number">2</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//std::cout&nbsp;&lt;&lt;&nbsp;child->elements.size()&nbsp;&lt;&lt;&nbsp;'&nbsp;'&nbsp;&lt;&lt;&nbsp;child->children.size()&nbsp;&lt;&lt;&nbsp;'&nbsp;'&nbsp;&lt;&lt;&nbsp;mid_elem_idx&nbsp;&lt;&lt;&nbsp;'&nbsp;'&nbsp;&lt;&lt;&nbsp;mid_child_idx&nbsp;&lt;&lt;&nbsp;std::endl;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Iterator&nbsp;for&nbsp;where&nbsp;we&nbsp;want&nbsp;to&nbsp;insert&nbsp;the&nbsp;new&nbsp;child.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">child_itr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">child_idx</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Iterator&nbsp;for&nbsp;where&nbsp;we&nbsp;want&nbsp;to&nbsp;insert&nbsp;the&nbsp;new&nbsp;element.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">elem_itr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">child_idx</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Iterator&nbsp;for&nbsp;the&nbsp;middle&nbsp;element.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">mid_elem_itr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">mid_elem_idx</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;Iterator&nbsp;for&nbsp;the&nbsp;middle&nbsp;child.&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">mid_child_itr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="word">mid_child_idx</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;insert&nbsp;new&nbsp;right&nbsp;into&nbsp;the&nbsp;parent&nbsp;node</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">child_itr</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">new_right</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">parent</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">elem_itr</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">mid_elem_itr</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;add&nbsp;new&nbsp;elem&nbsp;and&nbsp;child&nbsp;into&nbsp;new&nbsp;child.</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">mid_elem_itr</div><div class="symbol">+</div><div class="number">1</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">end</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">new_right</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="symbol">*</div><div class="word">i</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">mid_child_itr</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">child</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">end</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">new_right</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="symbol">*</div><div class="word">i</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;remove&nbsp;new_left&nbsp;node</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">new_left</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">mid_child_idx</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">new_left</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">pop_back</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">new_left</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">mid_elem_idx</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">new_left</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">pop_back</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Private&nbsp;recursive&nbsp;version&nbsp;of&nbsp;the&nbsp;insert&nbsp;function.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;subroot&nbsp;A&nbsp;reference&nbsp;of&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;current&nbsp;BTreeNode.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;pair&nbsp;The&nbsp;DataPair&nbsp;to&nbsp;be&nbsp;inserted.</div><br/><div class="comment">&nbsp;*&nbsp;Note:&nbsp;Original&nbsp;solution&nbsp;used&nbsp;std::lower_bound,&nbsp;but&nbsp;making&nbsp;the&nbsp;students</div><br/><div class="comment">&nbsp;*&nbsp;write&nbsp;an&nbsp;equivalent&nbsp;seemed&nbsp;more&nbsp;instructive.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">BTree</div><div class="symbol">&lt;</div><div class="word">K</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">V</div><div class="symbol">></div><div class="symbol">:</div><div class="symbol">:</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">BTreeNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">DataPair</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;There&nbsp;are&nbsp;two&nbsp;cases&nbsp;to&nbsp;consider.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;If&nbsp;the&nbsp;subroot&nbsp;is&nbsp;a&nbsp;leaf&nbsp;node&nbsp;and&nbsp;the&nbsp;key&nbsp;doesn't&nbsp;exist&nbsp;subroot,&nbsp;we</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;should&nbsp;simply&nbsp;insert&nbsp;the&nbsp;pair&nbsp;into&nbsp;subroot.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Otherwise&nbsp;(subroot&nbsp;is&nbsp;not&nbsp;a&nbsp;leaf&nbsp;and&nbsp;the&nbsp;key&nbsp;doesn't&nbsp;exist&nbsp;in&nbsp;subroot)</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;we&nbsp;need&nbsp;to&nbsp;figure&nbsp;out&nbsp;which&nbsp;child&nbsp;to&nbsp;insert&nbsp;into&nbsp;and&nbsp;call&nbsp;insert&nbsp;on&nbsp;it.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;After&nbsp;this&nbsp;call&nbsp;returns&nbsp;we&nbsp;need&nbsp;to&nbsp;check&nbsp;if&nbsp;the&nbsp;child&nbsp;became&nbsp;too&nbsp;large</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;thus&nbsp;needs&nbsp;to&nbsp;be&nbsp;split&nbsp;to&nbsp;maintain&nbsp;order.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">first_larger_idx</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">insertion_idx</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">first_larger_idx</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">is_leaf</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">nullptr</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">+</div><div class="word">first_larger_idx</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">nullptr</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">pair</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">-</div><div class="symbol">></div><div class="word">children</div><div class="symbol2">[</div><div class="word">first_larger_idx</div><div class="symbol2">]</div><div class="symbol">-</div><div class="symbol">></div><div class="word">elements</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">order</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">split_child</div><div class="symbol2">(</div><div class="word">subroot</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">first_larger_idx</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//assert(subroot->children[first_larger_idx]->elements.size()&nbsp;&lt;=&nbsp;order);</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;TODO&nbsp;Your&nbsp;code&nbsp;goes&nbsp;here!&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/lab_btree/btree.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

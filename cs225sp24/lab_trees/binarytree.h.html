@@ -1,345 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_trees/binarytree.h </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-<div class="line-number">97</div><br/>
-<div class="line-number">98</div><br/>
-<div class="line-number">99</div><br/>
-<div class="line-number">100</div><br/>
-<div class="line-number">101</div><br/>
-<div class="line-number">102</div><br/>
-<div class="line-number">103</div><br/>
-<div class="line-number">104</div><br/>
-<div class="line-number">105</div><br/>
-<div class="line-number">106</div><br/>
-<div class="line-number">107</div><br/>
-<div class="line-number">108</div><br/>
-<div class="line-number">109</div><br/>
-<div class="line-number">110</div><br/>
-<div class="line-number">111</div><br/>
-<div class="line-number">112</div><br/>
-<div class="line-number">113</div><br/>
-<div class="line-number">114</div><br/>
-<div class="line-number">115</div><br/>
-<div class="line-number">116</div><br/>
-<div class="line-number">117</div><br/>
-<div class="line-number">118</div><br/>
-<div class="line-number">119</div><br/>
-<div class="line-number">120</div><br/>
-<div class="line-number">121</div><br/>
-<div class="line-number">122</div><br/>
-<div class="line-number">123</div><br/>
-<div class="line-number">124</div><br/>
-<div class="line-number">125</div><br/>
-<div class="line-number">126</div><br/>
-<div class="line-number">127</div><br/>
-<div class="line-number">128</div><br/>
-<div class="line-number">129</div><br/>
-<div class="line-number">130</div><br/>
-<div class="line-number">131</div><br/>
-<div class="line-number">132</div><br/>
-<div class="line-number">133</div><br/>
-<div class="line-number">134</div><br/>
-<div class="line-number">135</div><br/>
-<div class="line-number">136</div><br/>
-<div class="line-number">137</div><br/>
-<div class="line-number">138</div><br/>
-<div class="line-number">139</div><br/>
-<div class="line-number">140</div><br/>
-<div class="line-number">141</div><br/>
-<div class="line-number">142</div><br/>
-<div class="line-number">143</div><br/>
-<div class="line-number">144</div><br/>
-<div class="line-number">145</div><br/>
-<div class="line-number">146</div><br/>
-<div class="line-number">147</div><br/>
-<div class="line-number">148</div><br/>
-<div class="line-number">149</div><br/>
-<div class="line-number">150</div><br/>
-<div class="line-number">151</div><br/>
-<div class="line-number">152</div><br/>
-<div class="line-number">153</div><br/>
-<div class="line-number">154</div><br/>
-<div class="line-number">155</div><br/>
-<div class="line-number">156</div><br/>
-<div class="line-number">157</div><br/>
-<div class="line-number">158</div><br/>
-<div class="line-number">159</div><br/>
-<div class="line-number">160</div><br/>
-<div class="line-number">161</div><br/>
-<div class="line-number">162</div><br/>
-<div class="line-number">163</div><br/>
-<div class="line-number">164</div><br/>
-<div class="line-number">165</div><br/>
-<div class="line-number">166</div><br/>
-<div class="line-number">167</div><br/>
-<div class="line-number">168</div><br/>
-<div class="line-number">169</div><br/>
-<div class="line-number">170</div><br/>
-<div class="line-number">171</div><br/>
-<div class="line-number">172</div><br/>
-<div class="line-number">173</div><br/>
-<div class="line-number">174</div><br/>
-<div class="line-number">175</div><br/>
-<div class="line-number">176</div><br/>
-<div class="line-number">177</div><br/>
-<div class="line-number">178</div><br/>
-<div class="line-number">179</div><br/>
-<div class="line-number">180</div><br/>
-<div class="line-number">181</div><br/>
-<div class="line-number">182</div><br/>
-<div class="line-number">183</div><br/>
-<div class="line-number">184</div><br/>
-<div class="line-number">185</div><br/>
-<div class="line-number">186</div><br/>
-<div class="line-number">187</div><br/>
-<div class="line-number">188</div><br/>
-<div class="line-number">189</div><br/>
-<div class="line-number">190</div><br/>
-<div class="line-number">191</div><br/>
-<div class="line-number">192</div><br/>
-<div class="line-number">193</div><br/>
-<div class="line-number">194</div><br/>
-<div class="line-number">195</div><br/>
-<div class="line-number">196</div><br/>
-<div class="line-number">197</div><br/>
-<div class="line-number">198</div><br/>
-<div class="line-number">199</div><br/>
-<div class="line-number">200</div><br/>
-<div class="line-number">201</div><br/>
-<div class="line-number">202</div><br/>
-<div class="line-number">203</div><br/>
-<div class="line-number">204</div><br/>
-<div class="line-number">205</div><br/>
-<div class="line-number">206</div><br/>
-</div>
-    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;binarytree.h</div><br/><div class="comment">&nbsp;*&nbsp;Declaraction&nbsp;of&nbsp;the&nbsp;BinaryTree&nbsp;class.&nbsp;You&nbsp;will&nbsp;probably&nbsp;need&nbsp;to&nbsp;modify&nbsp;this</div><br/><div class="comment">&nbsp;*&nbsp;&nbsp;file&nbsp;to&nbsp;add&nbsp;helper&nbsp;functions.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#ifndef&nbsp;BINARYTREE_H</div> <br><div class="definition">#define&nbsp;BINARYTREE_H</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;&lt;iostream></div> <br><div class="definition">#include&nbsp;&lt;string></div> <br><div class="definition">#include&nbsp;&lt;vector></div> <br><div class="definition">#include&nbsp;&lt;sstream></div> <br><div class="definition">#include&nbsp;"random.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;BinaryTree&nbsp;class&nbsp;represents&nbsp;a&nbsp;templated&nbsp;linked-memory&nbsp;tree&nbsp;data</div><br/><div class="comment">&nbsp;*&nbsp;structure.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">template</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">typename</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">></div><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">class</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Represents&nbsp;a&nbsp;tree&nbsp;node;&nbsp;that&nbsp;is,&nbsp;an&nbsp;element&nbsp;in&nbsp;a&nbsp;BinaryTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;has&nbsp;a&nbsp;data&nbsp;element&nbsp;and&nbsp;pointers&nbsp;to&nbsp;its&nbsp;left&nbsp;and&nbsp;right&nbsp;children.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">struct</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">T</div><div class="word">&nbsp;</div><div class="word">elem</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Node&nbsp;element&nbsp;constructor;&nbsp;sets&nbsp;children&nbsp;to&nbsp;point&nbsp;to&nbsp;NULL.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;element&nbsp;The&nbsp;templated&nbsp;data&nbsp;element&nbsp;that&nbsp;the&nbsp;constructed</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;node&nbsp;will&nbsp;hold.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">element</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">elem</div><div class="symbol2">(</div><div class="word">element</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">left</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">right</div><div class="symbol2">(</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="word">&nbsp;</div><div class="comment">/*&nbsp;nothing&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">public</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor&nbsp;to&nbsp;create&nbsp;an&nbsp;empty&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Copy&nbsp;constructor.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Destructor;&nbsp;frees&nbsp;all&nbsp;nodes&nbsp;associated&nbsp;by&nbsp;this&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">~</div><div class="word">BinaryTree</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Assignment&nbsp;operator.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;rhs&nbsp;The&nbsp;tree&nbsp;to&nbsp;make&nbsp;a&nbsp;copy&nbsp;of</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;A&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;tree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="highlight">operator</div><div class="symbol">=</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">BinaryTree</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">rhs</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Frees&nbsp;all&nbsp;nodes&nbsp;associated&nbsp;with&nbsp;this&nbsp;tree&nbsp;and&nbsp;sets&nbsp;it&nbsp;to&nbsp;be&nbsp;empty.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Inserts&nbsp;into&nbsp;the&nbsp;BinaryTree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;elem&nbsp;The&nbsp;element&nbsp;to&nbsp;insert</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;sorted&nbsp;By&nbsp;default,&nbsp;this&nbsp;parameter&nbsp;is&nbsp;false.&nbsp;That&nbsp;means&nbsp;that&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;element&nbsp;takes&nbsp;a&nbsp;pseudo-random&nbsp;path&nbsp;to&nbsp;a&nbsp;leaf&nbsp;where&nbsp;it&nbsp;is&nbsp;inserted.&nbsp;If</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;true,&nbsp;the&nbsp;insert&nbsp;function&nbsp;will&nbsp;act&nbsp;like&nbsp;it&nbsp;does&nbsp;in&nbsp;a&nbsp;BST.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">elem</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">sorted</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">false</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;tree&nbsp;to&nbsp;stdout.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">print</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;lab&nbsp;deals&nbsp;with&nbsp;the&nbsp;following&nbsp;six&nbsp;helper&nbsp;functions:</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;height&nbsp;of&nbsp;the&nbsp;binary&nbsp;tree.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;height&nbsp;of&nbsp;a&nbsp;binary</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;tree&nbsp;is&nbsp;just&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;longest&nbsp;path&nbsp;from&nbsp;the&nbsp;root&nbsp;to&nbsp;a&nbsp;leaf,&nbsp;and</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;that&nbsp;the&nbsp;height&nbsp;of&nbsp;an&nbsp;empty&nbsp;tree&nbsp;is&nbsp;-1.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Prints&nbsp;out&nbsp;the&nbsp;values&nbsp;of&nbsp;the&nbsp;nodes&nbsp;of&nbsp;a&nbsp;binary&nbsp;tree&nbsp;in&nbsp;order.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;That&nbsp;is,&nbsp;everything&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;a&nbsp;node&nbsp;will&nbsp;be&nbsp;printed&nbsp;out&nbsp;before&nbsp;that</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node&nbsp;itself,&nbsp;and&nbsp;everything&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;a&nbsp;node&nbsp;will&nbsp;be&nbsp;printed&nbsp;out</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;after&nbsp;that&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printLeftToRight</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Flips&nbsp;the&nbsp;tree&nbsp;over&nbsp;a&nbsp;vertical&nbsp;axis,&nbsp;modifying&nbsp;the&nbsp;tree&nbsp;itself</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;(not&nbsp;creating&nbsp;a&nbsp;flipped&nbsp;copy).</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">mirror</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;True&nbsp;if&nbsp;an&nbsp;in-order&nbsp;traversal&nbsp;of&nbsp;the&nbsp;tree&nbsp;would&nbsp;produce&nbsp;a</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;nondecreasing&nbsp;list&nbsp;output&nbsp;values,&nbsp;and&nbsp;false&nbsp;otherwise.&nbsp;This&nbsp;is&nbsp;also&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;criterion&nbsp;for&nbsp;a&nbsp;binary&nbsp;tree&nbsp;to&nbsp;be&nbsp;a&nbsp;binary&nbsp;search&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">isOrdered</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;creates&nbsp;vectors&nbsp;of&nbsp;all&nbsp;the&nbsp;possible&nbsp;paths&nbsp;from&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;tree&nbsp;to&nbsp;any&nbsp;leaf</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node&nbsp;and&nbsp;adds&nbsp;it&nbsp;to&nbsp;another&nbsp;vector.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Path&nbsp;is,&nbsp;all&nbsp;sequences&nbsp;starting&nbsp;at&nbsp;the&nbsp;root&nbsp;node&nbsp;and&nbsp;continuing</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;downwards,&nbsp;ending&nbsp;at&nbsp;a&nbsp;leaf&nbsp;node.&nbsp;Paths&nbsp;ending&nbsp;in&nbsp;a&nbsp;left&nbsp;node&nbsp;should&nbsp;be</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;before&nbsp;paths&nbsp;ending&nbsp;in&nbsp;a&nbsp;node&nbsp;further&nbsp;to&nbsp;the&nbsp;right.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;paths&nbsp;vector&nbsp;of&nbsp;vectors&nbsp;that&nbsp;contains&nbsp;path&nbsp;of&nbsp;nodes</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printPaths</div><div class="symbol2">(</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">paths</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Each&nbsp;node&nbsp;in&nbsp;a&nbsp;tree&nbsp;has&nbsp;a&nbsp;distance&nbsp;from&nbsp;the&nbsp;root&nbsp;node&nbsp;-&nbsp;the&nbsp;depth&nbsp;of&nbsp;that</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node,&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;edges&nbsp;along&nbsp;the&nbsp;path&nbsp;from&nbsp;that&nbsp;node&nbsp;to&nbsp;the&nbsp;root.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;returns&nbsp;the&nbsp;sum&nbsp;of&nbsp;the&nbsp;distances&nbsp;of&nbsp;all&nbsp;nodes&nbsp;to&nbsp;the&nbsp;root</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node&nbsp;(the&nbsp;sum&nbsp;of&nbsp;the&nbsp;depths&nbsp;of&nbsp;all&nbsp;the&nbsp;nodes).&nbsp;Your&nbsp;solution&nbsp;should&nbsp;take</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;O(n)&nbsp;time,&nbsp;where&nbsp;n&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;nodes&nbsp;in&nbsp;the&nbsp;tree.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;sum&nbsp;of&nbsp;the&nbsp;distances&nbsp;of&nbsp;all&nbsp;nodes&nbsp;to&nbsp;the&nbsp;root</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">sumDistances</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;Uses&nbsp;vector&nbsp;to&nbsp;store&nbsp;values&nbsp;of&nbsp;the&nbsp;nodes&nbsp;of&nbsp;a&nbsp;binary&nbsp;tree&nbsp;in&nbsp;order.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;That&nbsp;is,&nbsp;everything&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;a&nbsp;node&nbsp;will&nbsp;be&nbsp;pushed&nbsp;before&nbsp;that</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;node&nbsp;itself,&nbsp;and&nbsp;everything&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;a&nbsp;node&nbsp;will&nbsp;be&nbsp;pushed</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;after&nbsp;that&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;treeVector&nbsp;stores&nbsp;nodes&nbsp;in&nbsp;order</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">inOrder</div><div class="symbol2">(</div><div class="word">vector</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">treeVector</div><div class="word">&nbsp;</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">private</div><div class="symbol">:</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">root</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Put&nbsp;your&nbsp;own&nbsp;private&nbsp;helper&nbsp;functions&nbsp;here.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Look&nbsp;at&nbsp;the&nbsp;private&nbsp;helpers&nbsp;for&nbsp;height&nbsp;and&nbsp;printLeftToRight</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;as&nbsp;examples.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;height&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;The&nbsp;height&nbsp;of&nbsp;the&nbsp;subtree</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;printLeftToRight&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">printLeftToRight</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;insert&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;elem&nbsp;The&nbsp;element&nbsp;to&nbsp;insert</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;sorted&nbsp;By&nbsp;default,&nbsp;this&nbsp;parameter&nbsp;is&nbsp;false.&nbsp;That&nbsp;means&nbsp;that&nbsp;the</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;element&nbsp;takes&nbsp;a&nbsp;pseudo-random&nbsp;path&nbsp;to&nbsp;a&nbsp;leaf&nbsp;where&nbsp;it&nbsp;is&nbsp;inserted.&nbsp;If</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;true,&nbsp;the&nbsp;insert&nbsp;function&nbsp;will&nbsp;act&nbsp;like&nbsp;it&nbsp;does&nbsp;in&nbsp;a&nbsp;BST.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">T</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">elem</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">bool</div><div class="word">&nbsp;</div><div class="word">sorted</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Helper&nbsp;function&nbsp;for&nbsp;operator=&nbsp;and&nbsp;cctor.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">copy</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;clear&nbsp;that&nbsp;clears&nbsp;beneath&nbsp;the&nbsp;parameter&nbsp;node.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">subRoot</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">/**</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Private&nbsp;helper&nbsp;function&nbsp;for&nbsp;the&nbsp;public&nbsp;inOrder&nbsp;function.</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;subRoot&nbsp;The&nbsp;current&nbsp;node&nbsp;in&nbsp;the&nbsp;recursion</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;treeVector&nbsp;stores&nbsp;nodes&nbsp;in&nbsp;order</div><br/><div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">inOrder</div><div class="symbol2">(</div><div class="word">Node</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">subRoot</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">treeVector</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">helper_printPaths</div><div class="symbol2">(</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">paths</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">T</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">path</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">now</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">helper_sumDistances</div><div class="symbol2">(</div><div class="word">Node</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">now</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">depth</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"binarytree_given.cpp"</div> <br><div class="definition">#include&nbsp;"binarytree.cpp"</div> <br><div class="definition">#endif</div> <br></div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/lab_trees/binarytree.h"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>

@@ -1,717 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/line-number.css">
-    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/code.css">
+
+<style>    
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('https://dgklr.github.io/cs225sp24/cmuntt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('https://dgklr.github.io/cs225sp24/SourceCodePro-Regular.ttf') format('truetype');
+}
+    pre code {
+        font-family: 'Source Code Pro';
+    }
+    pre code.hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 1em
+    }
+ 
+    code.hljs {
+      padding: 3px 5px
+    }
+ 
+    /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        body {
+        background: #0d1117
+    }
+    .hljs {
+      color: #c9d1d9;
+      background: #0d1117
+    }
+ 
+    .hljs-doctag,
+    .hljs-keyword,
+    .hljs-meta .hljs-keyword,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-type,
+    .hljs-variable.language_ {
+      /* prettylights-syntax-keyword */
+      color: #ff7b72
+    }
+ 
+    .hljs-title,
+    .hljs-title.class_,
+    .hljs-title.class_.inherited__,
+    .hljs-title.function_ {
+      /* prettylights-syntax-entity */
+      color: #d2a8ff
+    }
+ 
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-literal,
+    .hljs-meta,
+    .hljs-number,
+    .hljs-operator,
+    .hljs-variable,
+    .hljs-selector-attr,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      /* prettylights-syntax-constant */
+      color: #79c0ff
+    }
+ 
+    .hljs-regexp,
+    .hljs-string,
+    .hljs-meta .hljs-string {
+      /* prettylights-syntax-string */
+      color: #a5d6ff
+    }
+ 
+    .hljs-built_in,
+    .hljs-symbol {
+      /* prettylights-syntax-variable */
+      color: #ffa657
+    }
+ 
+    .hljs-comment,
+    .hljs-code,
+    .hljs-formula {
+      /* prettylights-syntax-comment */
+      color: #8b949e
+    }
+ 
+    .hljs-name,
+    .hljs-quote,
+    .hljs-selector-tag,
+    .hljs-selector-pseudo {
+      /* prettylights-syntax-entity-tag */
+      color: #7ee787
+    }
+ 
+    .hljs-subst {
+      /* prettylights-syntax-storage-modifier-import */
+      color: #c9d1d9
+    }
+ 
+    .hljs-section {
+      /* prettylights-syntax-markup-heading */
+      color: #1f6feb;
+      font-weight: bold
+    }
+ 
+    .hljs-bullet {
+      /* prettylights-syntax-markup-list */
+      color: #f2cc60
+    }
+ 
+    .hljs-emphasis {
+      /* prettylights-syntax-markup-italic */
+      color: #c9d1d9;
+      font-style: italic
+    }
+ 
+    .hljs-strong {
+      /* prettylights-syntax-markup-bold */
+      color: #c9d1d9;
+      font-weight: bold
+    }
+ 
+    .hljs-addition {
+      /* prettylights-syntax-markup-inserted */
+      color: #aff5b4;
+      background-color: #033a16
+    }
+ 
+    .hljs-deletion {
+      /* prettylights-syntax-markup-deleted */
+      color: #ffdcd7;
+      background-color: #67060c
+    }
+ 
+    .hljs-char.escape_,
+    .hljs-link,
+    .hljs-params,
+    .hljs-property,
+    .hljs-punctuation,
+    .hljs-tag {
+      /* purposely ignored */
+    }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
+    <pre><code id="code"></code></pre>
 
- <div class="file"> FILE:C:\Users\dgklr\dgklr_blog\public\cs225sp24\lab_gdb2/skipList_given.cpp </div><br/><br/>
- <div class="code-container">
-    <div class="line-numbers">
-<div class="line-number">1</div><br/>
-<div class="line-number">2</div><br/>
-<div class="line-number">3</div><br/>
-<div class="line-number">4</div><br/>
-<div class="line-number">5</div><br/>
-<div class="line-number">6</div><br/>
-<div class="line-number">7</div><br/>
-<div class="line-number">8</div><br/>
-<div class="line-number">9</div><br/>
-<div class="line-number">10</div><br/>
-<div class="line-number">11</div><br/>
-<div class="line-number">12</div><br/>
-<div class="line-number">13</div><br/>
-<div class="line-number">14</div><br/>
-<div class="line-number">15</div><br/>
-<div class="line-number">16</div><br/>
-<div class="line-number">17</div><br/>
-<div class="line-number">18</div><br/>
-<div class="line-number">19</div><br/>
-<div class="line-number">20</div><br/>
-<div class="line-number">21</div><br/>
-<div class="line-number">22</div><br/>
-<div class="line-number">23</div><br/>
-<div class="line-number">24</div><br/>
-<div class="line-number">25</div><br/>
-<div class="line-number">26</div><br/>
-<div class="line-number">27</div><br/>
-<div class="line-number">28</div><br/>
-<div class="line-number">29</div><br/>
-<div class="line-number">30</div><br/>
-<div class="line-number">31</div><br/>
-<div class="line-number">32</div><br/>
-<div class="line-number">33</div><br/>
-<div class="line-number">34</div><br/>
-<div class="line-number">35</div><br/>
-<div class="line-number">36</div><br/>
-<div class="line-number">37</div><br/>
-<div class="line-number">38</div><br/>
-<div class="line-number">39</div><br/>
-<div class="line-number">40</div><br/>
-<div class="line-number">41</div><br/>
-<div class="line-number">42</div><br/>
-<div class="line-number">43</div><br/>
-<div class="line-number">44</div><br/>
-<div class="line-number">45</div><br/>
-<div class="line-number">46</div><br/>
-<div class="line-number">47</div><br/>
-<div class="line-number">48</div><br/>
-<div class="line-number">49</div><br/>
-<div class="line-number">50</div><br/>
-<div class="line-number">51</div><br/>
-<div class="line-number">52</div><br/>
-<div class="line-number">53</div><br/>
-<div class="line-number">54</div><br/>
-<div class="line-number">55</div><br/>
-<div class="line-number">56</div><br/>
-<div class="line-number">57</div><br/>
-<div class="line-number">58</div><br/>
-<div class="line-number">59</div><br/>
-<div class="line-number">60</div><br/>
-<div class="line-number">61</div><br/>
-<div class="line-number">62</div><br/>
-<div class="line-number">63</div><br/>
-<div class="line-number">64</div><br/>
-<div class="line-number">65</div><br/>
-<div class="line-number">66</div><br/>
-<div class="line-number">67</div><br/>
-<div class="line-number">68</div><br/>
-<div class="line-number">69</div><br/>
-<div class="line-number">70</div><br/>
-<div class="line-number">71</div><br/>
-<div class="line-number">72</div><br/>
-<div class="line-number">73</div><br/>
-<div class="line-number">74</div><br/>
-<div class="line-number">75</div><br/>
-<div class="line-number">76</div><br/>
-<div class="line-number">77</div><br/>
-<div class="line-number">78</div><br/>
-<div class="line-number">79</div><br/>
-<div class="line-number">80</div><br/>
-<div class="line-number">81</div><br/>
-<div class="line-number">82</div><br/>
-<div class="line-number">83</div><br/>
-<div class="line-number">84</div><br/>
-<div class="line-number">85</div><br/>
-<div class="line-number">86</div><br/>
-<div class="line-number">87</div><br/>
-<div class="line-number">88</div><br/>
-<div class="line-number">89</div><br/>
-<div class="line-number">90</div><br/>
-<div class="line-number">91</div><br/>
-<div class="line-number">92</div><br/>
-<div class="line-number">93</div><br/>
-<div class="line-number">94</div><br/>
-<div class="line-number">95</div><br/>
-<div class="line-number">96</div><br/>
-<div class="line-number">97</div><br/>
-<div class="line-number">98</div><br/>
-<div class="line-number">99</div><br/>
-<div class="line-number">100</div><br/>
-<div class="line-number">101</div><br/>
-<div class="line-number">102</div><br/>
-<div class="line-number">103</div><br/>
-<div class="line-number">104</div><br/>
-<div class="line-number">105</div><br/>
-<div class="line-number">106</div><br/>
-<div class="line-number">107</div><br/>
-<div class="line-number">108</div><br/>
-<div class="line-number">109</div><br/>
-<div class="line-number">110</div><br/>
-<div class="line-number">111</div><br/>
-<div class="line-number">112</div><br/>
-<div class="line-number">113</div><br/>
-<div class="line-number">114</div><br/>
-<div class="line-number">115</div><br/>
-<div class="line-number">116</div><br/>
-<div class="line-number">117</div><br/>
-<div class="line-number">118</div><br/>
-<div class="line-number">119</div><br/>
-<div class="line-number">120</div><br/>
-<div class="line-number">121</div><br/>
-<div class="line-number">122</div><br/>
-<div class="line-number">123</div><br/>
-<div class="line-number">124</div><br/>
-<div class="line-number">125</div><br/>
-<div class="line-number">126</div><br/>
-<div class="line-number">127</div><br/>
-<div class="line-number">128</div><br/>
-<div class="line-number">129</div><br/>
-<div class="line-number">130</div><br/>
-<div class="line-number">131</div><br/>
-<div class="line-number">132</div><br/>
-<div class="line-number">133</div><br/>
-<div class="line-number">134</div><br/>
-<div class="line-number">135</div><br/>
-<div class="line-number">136</div><br/>
-<div class="line-number">137</div><br/>
-<div class="line-number">138</div><br/>
-<div class="line-number">139</div><br/>
-<div class="line-number">140</div><br/>
-<div class="line-number">141</div><br/>
-<div class="line-number">142</div><br/>
-<div class="line-number">143</div><br/>
-<div class="line-number">144</div><br/>
-<div class="line-number">145</div><br/>
-<div class="line-number">146</div><br/>
-<div class="line-number">147</div><br/>
-<div class="line-number">148</div><br/>
-<div class="line-number">149</div><br/>
-<div class="line-number">150</div><br/>
-<div class="line-number">151</div><br/>
-<div class="line-number">152</div><br/>
-<div class="line-number">153</div><br/>
-<div class="line-number">154</div><br/>
-<div class="line-number">155</div><br/>
-<div class="line-number">156</div><br/>
-<div class="line-number">157</div><br/>
-<div class="line-number">158</div><br/>
-<div class="line-number">159</div><br/>
-<div class="line-number">160</div><br/>
-<div class="line-number">161</div><br/>
-<div class="line-number">162</div><br/>
-<div class="line-number">163</div><br/>
-<div class="line-number">164</div><br/>
-<div class="line-number">165</div><br/>
-<div class="line-number">166</div><br/>
-<div class="line-number">167</div><br/>
-<div class="line-number">168</div><br/>
-<div class="line-number">169</div><br/>
-<div class="line-number">170</div><br/>
-<div class="line-number">171</div><br/>
-<div class="line-number">172</div><br/>
-<div class="line-number">173</div><br/>
-<div class="line-number">174</div><br/>
-<div class="line-number">175</div><br/>
-<div class="line-number">176</div><br/>
-<div class="line-number">177</div><br/>
-<div class="line-number">178</div><br/>
-<div class="line-number">179</div><br/>
-<div class="line-number">180</div><br/>
-<div class="line-number">181</div><br/>
-<div class="line-number">182</div><br/>
-<div class="line-number">183</div><br/>
-<div class="line-number">184</div><br/>
-<div class="line-number">185</div><br/>
-<div class="line-number">186</div><br/>
-<div class="line-number">187</div><br/>
-<div class="line-number">188</div><br/>
-<div class="line-number">189</div><br/>
-<div class="line-number">190</div><br/>
-<div class="line-number">191</div><br/>
-<div class="line-number">192</div><br/>
-<div class="line-number">193</div><br/>
-<div class="line-number">194</div><br/>
-<div class="line-number">195</div><br/>
-<div class="line-number">196</div><br/>
-<div class="line-number">197</div><br/>
-<div class="line-number">198</div><br/>
-<div class="line-number">199</div><br/>
-<div class="line-number">200</div><br/>
-<div class="line-number">201</div><br/>
-<div class="line-number">202</div><br/>
-<div class="line-number">203</div><br/>
-<div class="line-number">204</div><br/>
-<div class="line-number">205</div><br/>
-<div class="line-number">206</div><br/>
-<div class="line-number">207</div><br/>
-<div class="line-number">208</div><br/>
-<div class="line-number">209</div><br/>
-<div class="line-number">210</div><br/>
-<div class="line-number">211</div><br/>
-<div class="line-number">212</div><br/>
-<div class="line-number">213</div><br/>
-<div class="line-number">214</div><br/>
-<div class="line-number">215</div><br/>
-<div class="line-number">216</div><br/>
-<div class="line-number">217</div><br/>
-<div class="line-number">218</div><br/>
-<div class="line-number">219</div><br/>
-<div class="line-number">220</div><br/>
-<div class="line-number">221</div><br/>
-<div class="line-number">222</div><br/>
-<div class="line-number">223</div><br/>
-<div class="line-number">224</div><br/>
-<div class="line-number">225</div><br/>
-<div class="line-number">226</div><br/>
-<div class="line-number">227</div><br/>
-<div class="line-number">228</div><br/>
-<div class="line-number">229</div><br/>
-<div class="line-number">230</div><br/>
-<div class="line-number">231</div><br/>
-<div class="line-number">232</div><br/>
-<div class="line-number">233</div><br/>
-<div class="line-number">234</div><br/>
-<div class="line-number">235</div><br/>
-<div class="line-number">236</div><br/>
-<div class="line-number">237</div><br/>
-<div class="line-number">238</div><br/>
-<div class="line-number">239</div><br/>
-<div class="line-number">240</div><br/>
-<div class="line-number">241</div><br/>
-<div class="line-number">242</div><br/>
-<div class="line-number">243</div><br/>
-<div class="line-number">244</div><br/>
-<div class="line-number">245</div><br/>
-<div class="line-number">246</div><br/>
-<div class="line-number">247</div><br/>
-<div class="line-number">248</div><br/>
-<div class="line-number">249</div><br/>
-<div class="line-number">250</div><br/>
-<div class="line-number">251</div><br/>
-<div class="line-number">252</div><br/>
-<div class="line-number">253</div><br/>
-<div class="line-number">254</div><br/>
-<div class="line-number">255</div><br/>
-<div class="line-number">256</div><br/>
-<div class="line-number">257</div><br/>
-<div class="line-number">258</div><br/>
-<div class="line-number">259</div><br/>
-<div class="line-number">260</div><br/>
-<div class="line-number">261</div><br/>
-<div class="line-number">262</div><br/>
-<div class="line-number">263</div><br/>
-<div class="line-number">264</div><br/>
-<div class="line-number">265</div><br/>
-<div class="line-number">266</div><br/>
-<div class="line-number">267</div><br/>
-<div class="line-number">268</div><br/>
-<div class="line-number">269</div><br/>
-<div class="line-number">270</div><br/>
-<div class="line-number">271</div><br/>
-<div class="line-number">272</div><br/>
-<div class="line-number">273</div><br/>
-<div class="line-number">274</div><br/>
-<div class="line-number">275</div><br/>
-<div class="line-number">276</div><br/>
-<div class="line-number">277</div><br/>
-<div class="line-number">278</div><br/>
-<div class="line-number">279</div><br/>
-<div class="line-number">280</div><br/>
-<div class="line-number">281</div><br/>
-<div class="line-number">282</div><br/>
-<div class="line-number">283</div><br/>
-<div class="line-number">284</div><br/>
-<div class="line-number">285</div><br/>
-<div class="line-number">286</div><br/>
-<div class="line-number">287</div><br/>
-<div class="line-number">288</div><br/>
-<div class="line-number">289</div><br/>
-<div class="line-number">290</div><br/>
-<div class="line-number">291</div><br/>
-<div class="line-number">292</div><br/>
-<div class="line-number">293</div><br/>
-<div class="line-number">294</div><br/>
-<div class="line-number">295</div><br/>
-<div class="line-number">296</div><br/>
-<div class="line-number">297</div><br/>
-<div class="line-number">298</div><br/>
-<div class="line-number">299</div><br/>
-<div class="line-number">300</div><br/>
-<div class="line-number">301</div><br/>
-<div class="line-number">302</div><br/>
-<div class="line-number">303</div><br/>
-<div class="line-number">304</div><br/>
-<div class="line-number">305</div><br/>
-<div class="line-number">306</div><br/>
-<div class="line-number">307</div><br/>
-<div class="line-number">308</div><br/>
-<div class="line-number">309</div><br/>
-<div class="line-number">310</div><br/>
-<div class="line-number">311</div><br/>
-<div class="line-number">312</div><br/>
-<div class="line-number">313</div><br/>
-<div class="line-number">314</div><br/>
-<div class="line-number">315</div><br/>
-<div class="line-number">316</div><br/>
-<div class="line-number">317</div><br/>
-<div class="line-number">318</div><br/>
-<div class="line-number">319</div><br/>
-<div class="line-number">320</div><br/>
-<div class="line-number">321</div><br/>
-<div class="line-number">322</div><br/>
-<div class="line-number">323</div><br/>
-<div class="line-number">324</div><br/>
-<div class="line-number">325</div><br/>
-<div class="line-number">326</div><br/>
-<div class="line-number">327</div><br/>
-<div class="line-number">328</div><br/>
-<div class="line-number">329</div><br/>
-<div class="line-number">330</div><br/>
-<div class="line-number">331</div><br/>
-<div class="line-number">332</div><br/>
-<div class="line-number">333</div><br/>
-<div class="line-number">334</div><br/>
-<div class="line-number">335</div><br/>
-<div class="line-number">336</div><br/>
-<div class="line-number">337</div><br/>
-<div class="line-number">338</div><br/>
-<div class="line-number">339</div><br/>
-<div class="line-number">340</div><br/>
-<div class="line-number">341</div><br/>
-<div class="line-number">342</div><br/>
-<div class="line-number">343</div><br/>
-<div class="line-number">344</div><br/>
-<div class="line-number">345</div><br/>
-<div class="line-number">346</div><br/>
-<div class="line-number">347</div><br/>
-<div class="line-number">348</div><br/>
-<div class="line-number">349</div><br/>
-<div class="line-number">350</div><br/>
-<div class="line-number">351</div><br/>
-<div class="line-number">352</div><br/>
-<div class="line-number">353</div><br/>
-<div class="line-number">354</div><br/>
-<div class="line-number">355</div><br/>
-<div class="line-number">356</div><br/>
-<div class="line-number">357</div><br/>
-<div class="line-number">358</div><br/>
-<div class="line-number">359</div><br/>
-<div class="line-number">360</div><br/>
-<div class="line-number">361</div><br/>
-<div class="line-number">362</div><br/>
-<div class="line-number">363</div><br/>
-<div class="line-number">364</div><br/>
-<div class="line-number">365</div><br/>
-<div class="line-number">366</div><br/>
-<div class="line-number">367</div><br/>
-<div class="line-number">368</div><br/>
-<div class="line-number">369</div><br/>
-<div class="line-number">370</div><br/>
-<div class="line-number">371</div><br/>
-<div class="line-number">372</div><br/>
-<div class="line-number">373</div><br/>
-<div class="line-number">374</div><br/>
-<div class="line-number">375</div><br/>
-<div class="line-number">376</div><br/>
-<div class="line-number">377</div><br/>
-<div class="line-number">378</div><br/>
-<div class="line-number">379</div><br/>
-<div class="line-number">380</div><br/>
-<div class="line-number">381</div><br/>
-<div class="line-number">382</div><br/>
-<div class="line-number">383</div><br/>
-<div class="line-number">384</div><br/>
-<div class="line-number">385</div><br/>
-<div class="line-number">386</div><br/>
-</div>
-    <div class="code-content"><div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;@file&nbsp;skipList_given.cpp</div><br/><div class="comment">&nbsp;*&nbsp;Doubly&nbsp;Linked&nbsp;Skip&nbsp;List&nbsp;(lab_gdb2),&nbsp;given&nbsp;functions</div><br/><div class="comment">&nbsp;*</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Arman&nbsp;Tajback&nbsp;-&nbsp;Created</div><br/><div class="comment">&nbsp;*&nbsp;@author&nbsp;Jordi&nbsp;Paris&nbsp;Ferrer&nbsp;&&nbsp;Arman&nbsp;Tajback&nbsp;-&nbsp;Modified</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;(created)&nbsp;Fall&nbsp;2016</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;(modified)&nbsp;Spring&nbsp;2017</div><br/><div class="comment">&nbsp;*&nbsp;@date&nbsp;(modified)&nbsp;Fall&nbsp;2017</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">//&nbsp;You&nbsp;shouldn't&nbsp;modify&nbsp;this&nbsp;file</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="definition">#include&nbsp;"skipList.h"</div> <br><div class="placeholder">&nbsp;</div><br>
-<div class="highlight">using</div><div class="word">&nbsp;</div><div class="highlight">namespace</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Constructs&nbsp;an&nbsp;empty&nbsp;list&nbsp;with&nbsp;the&nbsp;specified&nbsp;probability&nbsp;and&nbsp;maxlevel.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;probability&nbsp;The&nbsp;probability&nbsp;of&nbsp;increasing&nbsp;the&nbsp;height&nbsp;of&nbsp;a&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;maxlevel&nbsp;The&nbsp;maximum&nbsp;allowable&nbsp;height&nbsp;of&nbsp;the&nbsp;skiplist</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">probability</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">maxlevel</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">this</div><div class="symbol">-</div><div class="symbol">></div><div class="word">probability</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">probability</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">this</div><div class="symbol">-</div><div class="symbol">></div><div class="word">maxLevel</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">maxlevel</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Constructs&nbsp;the&nbsp;SkipList&nbsp;with&nbsp;one&nbsp;initial&nbsp;node,&nbsp;which&nbsp;is&nbsp;constructed&nbsp;with&nbsp;the&nbsp;provided&nbsp;values.</div><br/><div class="comment">&nbsp;*&nbsp;Also&nbsp;sets&nbsp;probability&nbsp;and&nbsp;maxlevel&nbsp;of&nbsp;the&nbsp;skiplist</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;associate&nbsp;with&nbsp;the&nbsp;initial&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;value&nbsp;The&nbsp;pixel&nbsp;to&nbsp;associate&nbsp;with&nbsp;the&nbsp;initial&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;probability&nbsp;The&nbsp;probability&nbsp;of&nbsp;increasing&nbsp;the&nbsp;height&nbsp;of&nbsp;a&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;maxlevel&nbsp;The&nbsp;maximum&nbsp;allowable&nbsp;height&nbsp;of&nbsp;the&nbsp;skiplist</div><br/><div class="comment"></div><br/><div class="comment">*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">probability</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">maxlevel</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="word">probability</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">maxlevel</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Constructs&nbsp;the&nbsp;SkipList&nbsp;with&nbsp;one&nbsp;initial&nbsp;node,&nbsp;which&nbsp;is&nbsp;constructed&nbsp;with&nbsp;the&nbsp;provided&nbsp;values.</div><br/><div class="comment">&nbsp;*&nbsp;</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;key&nbsp;The&nbsp;key&nbsp;to&nbsp;associate&nbsp;with&nbsp;the&nbsp;initial&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;value&nbsp;The&nbsp;pixel&nbsp;to&nbsp;associate&nbsp;with&nbsp;the&nbsp;initial&nbsp;node</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">insert</div><div class="symbol2">(</div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">value</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Copy&nbsp;constructs&nbsp;the&nbsp;current&nbsp;SkipList.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;other&nbsp;The&nbsp;SkipList&nbsp;to&nbsp;copy</div><br/><div class="comment">&nbsp;*&nbsp;@see&nbsp;copy()</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">copy</div><div class="symbol2">(</div><div class="word">other</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;copy()&nbsp;helper&nbsp;method&nbsp;-&nbsp;used&nbsp;in&nbsp;the&nbsp;copy&nbsp;constructor&nbsp;and&nbsp;assignment=&nbsp;operator.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;other&nbsp;The&nbsp;SkipList&nbsp;to&nbsp;copy&nbsp;into&nbsp;ourselves</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">copy</div><div class="symbol2">(</div><div class="highlight">const</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">head</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">listHeight</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">length</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol">.</div><div class="word">length</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">std</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">map</div><div class="symbol">&lt;</div><div class="word">SkipNode</div><div class="symbol">*</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="symbol">*</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">pointerMap</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">pointerMap</div><div class="symbol2">[</div><div class="word">NULL</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol">.</div><div class="word">head</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;populate&nbsp;our&nbsp;map&nbsp;of&nbsp;old&nbsp;pointers&nbsp;to&nbsp;new&nbsp;pointers</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="symbol2">(</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">currCopy</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">new</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="symbol2">(</div><div class="symbol">*</div><div class="word">curr</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">pointerMap</div><div class="symbol2">[</div><div class="word">curr</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">currCopy</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">head</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">head</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">currCopy</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">currCopy</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;change&nbsp;all&nbsp;old&nbsp;pointers&nbsp;to&nbsp;new&nbsp;pointers</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="symbol2">(</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="symbol2">(</div><div class="highlight">auto</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">p</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">p</div><div class="symbol">.</div><div class="word">next</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">pointerMap</div><div class="symbol2">[</div><div class="word">p</div><div class="symbol">.</div><div class="word">next</div><div class="symbol2">]</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">p</div><div class="symbol">.</div><div class="word">prev</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">pointerMap</div><div class="symbol2">[</div><div class="word">p</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol2">]</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">listHeight</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">other</div><div class="symbol">.</div><div class="word">listHeight</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;destructor&nbsp;for&nbsp;SkipList.</div><br/><div class="comment">&nbsp;*&nbsp;@see&nbsp;clear()</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="symbol2">~</div><div class="word">SkipList</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">clear</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Clears&nbsp;up&nbsp;all&nbsp;memory&nbsp;associated&nbsp;with&nbsp;this&nbsp;SkipList</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">clear</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">prev</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">prev</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">delete</div><div class="word">&nbsp;</div><div class="word">prev</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Returns&nbsp;the&nbsp;height&nbsp;to&nbsp;use&nbsp;for&nbsp;the&nbsp;next&nbsp;node.</div><br/><div class="comment">&nbsp;*&nbsp;Is&nbsp;based&nbsp;on&nbsp;the&nbsp;probability&nbsp;and&nbsp;maxLevels&nbsp;global&nbsp;variables</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;The&nbsp;height&nbsp;to&nbsp;use&nbsp;for&nbsp;the&nbsp;next&nbsp;node</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">levelGenerator</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">retLevel</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">rand</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">%</div><div class="word">&nbsp;</div><div class="number">1</div><div class="number">0</div><div class="number">0</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">probability</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">retLevel</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">maxLevel</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">retLevel</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">retLevel</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;Makes&nbsp;and&nbsp;returns&nbsp;an&nbsp;image&nbsp;showing&nbsp;how&nbsp;degenerate&nbsp;the&nbsp;list&nbsp;is.</div><br/><div class="comment">&nbsp;*&nbsp;The&nbsp;less&nbsp;degenerate&nbsp;the&nbsp;faster&nbsp;and&nbsp;more&nbsp;efficient&nbsp;the&nbsp;skip&nbsp;list&nbsp;will&nbsp;be.</div><br/><div class="comment">&nbsp;*&nbsp;More&nbsp;black&nbsp;pixels&nbsp;in&nbsp;the&nbsp;image&nbsp;==&nbsp;more&nbsp;degenerate</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;imgSize&nbsp;How&nbsp;large&nbsp;to&nbsp;make&nbsp;each&nbsp;side&nbsp;of&nbsp;the&nbsp;image</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;fg&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;foreground,&nbsp;or&nbsp;degenerate&nbsp;pixels&nbsp;in&nbsp;this&nbsp;case</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;bg&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;background,&nbsp;or&nbsp;normal&nbsp;pixels&nbsp;in&nbsp;this&nbsp;case</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;A&nbsp;pointer&nbsp;to&nbsp;a&nbsp;PNG&nbsp;representing&nbsp;how&nbsp;degenerate&nbsp;the&nbsp;list&nbsp;is</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">makeImage</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">fg</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">bg</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">absolutelyNotDegenerate</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;This&nbsp;value&nbsp;represents&nbsp;how&nbsp;many&nbsp;nodes*height&nbsp;we'd&nbsp;have&nbsp;in&nbsp;a&nbsp;perfect&nbsp;skip&nbsp;list</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">absolutelyNotDegenerate</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="number">2</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">counter</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">counter</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">temp</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">counter</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">abs</div><div class="symbol2">(</div><div class="word">absolutelyNotDegenerate</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">counter</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">colors</div><div class="symbol2">(</div><div class="word">imgSize</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="word">pair</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="highlight">int</div><div class="symbol">,</div><div class="highlight">int</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">j</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">j</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">imgSize</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">j</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">colors</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">j</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">bg</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">make_pair</div><div class="symbol2">(</div><div class="word">i</div><div class="symbol">,</div><div class="word">j</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">random_shuffle</div><div class="symbol2">(</div><div class="word">coordinates</div><div class="symbol">.</div><div class="word">begin</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol">.</div><div class="word">end</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">=</div><div class="number">0</div><div class="symbol">,</div><div class="word">y</div><div class="symbol">=</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;&nbsp;&nbsp;</div><div class="symbol2">	</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">counter</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="symbol2">(</div><div class="word">size_t</div><div class="symbol2">)</div><div class="word">counter</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol2">[</div><div class="word">counter</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">first</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">coordinates</div><div class="symbol2">[</div><div class="word">counter</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">second</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">colors</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">fg</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">counter</div><div class="symbol">-</div><div class="symbol">-</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">colors</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;prints&nbsp;the&nbsp;keys&nbsp;of&nbsp;the&nbsp;list&nbsp;using&nbsp;only&nbsp;next&nbsp;pointers.</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">printKeys</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">listPrintingTraverser</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">"&lt;&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">listPrintingTraverser</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">t</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">listPrintingTraverser</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">listPrintingTraverser</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">t</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="string">"&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="string">",&nbsp;"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">listPrintingTraverser</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">listPrintingTraverser</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">">"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;prints&nbsp;the&nbsp;keys&nbsp;in&nbsp;the&nbsp;list&nbsp;using&nbsp;only&nbsp;prev&nbsp;pointers</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">printKeysReverse</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">"&lt;&nbsp;"</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">printKeysReverse</div><div class="symbol2">(</div><div class="word">tail</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="string">">"</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;helper&nbsp;function&nbsp;for&nbsp;printKeysReverse().</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;curr&nbsp;The&nbsp;current&nbsp;node&nbsp;we&nbsp;are&nbsp;printing</div><br/><div class="comment">&nbsp;*&nbsp;@see&nbsp;printKeysReverse()</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">printKeysReverse</div><div class="symbol2">(</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;print&nbsp;out&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;list</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">printKeysReverse</div><div class="symbol2">(</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">t</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;then&nbsp;print&nbsp;us,&nbsp;so&nbsp;that&nbsp;it&nbsp;looks&nbsp;the&nbsp;same&nbsp;as&nbsp;a&nbsp;normal&nbsp;forward&nbsp;print</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">t</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">tail</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="string">"&nbsp;"</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="string">",&nbsp;"</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;returns&nbsp;the&nbsp;keys&nbsp;of&nbsp;the&nbsp;list&nbsp;in&nbsp;a&nbsp;vector,&nbsp;using&nbsp;only&nbsp;prev&nbsp;pointers.</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;a&nbsp;vector&nbsp;containing&nbsp;the&nbsp;keys&nbsp;from&nbsp;head&nbsp;to&nbsp;tail,&nbsp;including&nbsp;the&nbsp;sentinel&nbsp;values</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">int</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">traverseReverse</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">int</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">traverseReverse</div><div class="symbol2">(</div><div class="word">tail</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;helper&nbsp;function&nbsp;for&nbsp;traverseReverse()</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;curr&nbsp;The&nbsp;current&nbsp;node</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;out&nbsp;The&nbsp;vector&nbsp;we&nbsp;are&nbsp;adding&nbsp;to</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">traverseReverse</div><div class="symbol2">(</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">vector</div><div class="symbol">&lt;</div><div class="highlight">int</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">out</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;add&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;list&nbsp;first</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">traverseReverse</div><div class="symbol2">(</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">out</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;add&nbsp;us,&nbsp;so&nbsp;that&nbsp;the&nbsp;order&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;a&nbsp;normal&nbsp;forwards&nbsp;traversal</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">out</div><div class="symbol">.</div><div class="word">push_back</div><div class="symbol2">(</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;returns&nbsp;a&nbsp;PNG&nbsp;showing&nbsp;the&nbsp;structure&nbsp;of&nbsp;the&nbsp;current&nbsp;list</div><br/><div class="comment">&nbsp;*&nbsp;NOTE:&nbsp;This&nbsp;draws&nbsp;the&nbsp;sentinel&nbsp;nodes&nbsp;as&nbsp;well</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;maxHeight&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;PNG;&nbsp;scales&nbsp;heights&nbsp;into&nbsp;the&nbsp;range&nbsp;[0,&nbsp;maxHeight)</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;fg&nbsp;The&nbsp;color&nbsp;to&nbsp;draw&nbsp;the&nbsp;nodes</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;bg&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;background</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;a&nbsp;new&nbsp;PNG&nbsp;object&nbsp;representing&nbsp;the&nbsp;current&nbsp;list</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">toPNG</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">fg</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">HSLAPixel</div><div class="word">&nbsp;</div><div class="word">bg</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">PNG</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol2">(</div><div class="word">length</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;the&nbsp;length&nbsp;doesn't&nbsp;include&nbsp;the&nbsp;sentinels</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">SkipNode</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">head</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">x</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">while</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">curr</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">height</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">double</div><div class="symbol2">)</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">/</div><div class="word">&nbsp;</div><div class="word">maxLevel</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;fill&nbsp;in&nbsp;our&nbsp;height</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">ret</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">fg</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">height</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">y</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">ret</div><div class="symbol">.</div><div class="word">getPixel</div><div class="symbol2">(</div><div class="word">x</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">maxHeight</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="word">y</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">bg</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">curr</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="number">0</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">x</div><div class="symbol">+</div><div class="symbol">+</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;will&nbsp;return&nbsp;the&nbsp;index-th&nbsp;SkipPointer&nbsp;from&nbsp;node.</div><br/><div class="comment">&nbsp;*&nbsp;Used&nbsp;because&nbsp;STL&nbsp;containers&nbsp;don't&nbsp;play&nbsp;well&nbsp;with&nbsp;gdb</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;consider</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;index&nbsp;The&nbsp;level&nbsp;of&nbsp;the&nbsp;node&nbsp;to&nbsp;get&nbsp;a&nbsp;SkipPointer&nbsp;for</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;A&nbsp;copy&nbsp;of&nbsp;the&nbsp;SkipPointer&nbsp;in&nbsp;node's&nbsp;index-th&nbsp;level</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">SkipPointer</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">gdbGetPointer</div><div class="symbol2">(</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">size_t</div><div class="word">&nbsp;</div><div class="word">index</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="word">index</div><div class="symbol2">]</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;will&nbsp;print&nbsp;out&nbsp;the&nbsp;current&nbsp;node's&nbsp;next&nbsp;and&nbsp;previous&nbsp;node's&nbsp;keys&nbsp;at&nbsp;each&nbsp;level</div><br/><div class="comment">&nbsp;*&nbsp;Used&nbsp;because&nbsp;STL&nbsp;containers&nbsp;don't&nbsp;play&nbsp;well&nbsp;with&nbsp;gdb.</div><br/><div class="comment">&nbsp;*&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;work&nbsp;well&nbsp;if&nbsp;you&nbsp;are&nbsp;using&nbsp;layour&nbsp;src</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;print&nbsp;out</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="highlight">void</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">gdbPrintNode</div><div class="symbol2">(</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">cout</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">gdbGetNode</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">&lt;</div><div class="symbol">&lt;</div><div class="word">&nbsp;</div><div class="word">endl</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="comment">/**</div><br/><div class="comment">&nbsp;*&nbsp;A&nbsp;function&nbsp;that&nbsp;will&nbsp;get&nbsp;the&nbsp;current&nbsp;node's&nbsp;next&nbsp;and&nbsp;previous&nbsp;node's&nbsp;keys&nbsp;at&nbsp;each&nbsp;level</div><br/><div class="comment">&nbsp;*&nbsp;Used&nbsp;because&nbsp;STL&nbsp;containers&nbsp;don't&nbsp;play&nbsp;well&nbsp;with&nbsp;gdb.</div><br/><div class="comment">&nbsp;*&nbsp;@param&nbsp;node&nbsp;The&nbsp;node&nbsp;to&nbsp;get&nbsp;out</div><br/><div class="comment">&nbsp;*&nbsp;@return&nbsp;A&nbsp;string&nbsp;representing&nbsp;the&nbsp;node</div><br/><div class="comment">&nbsp;*/</div>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">string</div><div class="word">&nbsp;</div><div class="word">SkipList</div><div class="symbol">:</div><div class="symbol">:</div><div class="word">gdbGetNode</div><div class="symbol2">(</div><div class="word">SkipNode</div><div class="word">&nbsp;</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="highlight">const</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;first&nbsp;calculate&nbsp;how&nbsp;wide&nbsp;each&nbsp;number&nbsp;needs&nbsp;to&nbsp;be</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">width</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="symbol2">(</div><div class="word">SkipPointer</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">p</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">next</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">size_t</div><div class="symbol2">)</div><div class="word">width</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">width</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">prev</div><div class="word">&nbsp;</div><div class="symbol">!</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">NULL</div><div class="word">&nbsp;</div><div class="symbol">&</div><div class="symbol">&</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">size_t</div><div class="symbol2">)</div><div class="word">width</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">width</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">p</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">if</div><div class="symbol2">(</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="word">size_t</div><div class="symbol2">)</div><div class="word">width</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">width</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="symbol">*</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="highlight">new</div><div class="word">&nbsp;</div><div class="highlight">char</div><div class="symbol2">[</div><div class="symbol2">(</div><div class="number">9</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="word">&nbsp;</div><div class="number">2</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol2">]</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;allocate&nbsp;enough&nbsp;memory&nbsp;for&nbsp;9&nbsp;chars&nbsp;+&nbsp;2&nbsp;11digit&nbsp;large&nbsp;numbers</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">for</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">-</div><div class="word">&nbsp;</div><div class="number">1</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="word">&nbsp;</div><div class="symbol">></div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="number">0</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">i</div><div class="symbol">-</div><div class="symbol">-</div><div class="symbol2">)</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">{</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">n</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="word">i</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="word">i</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">next</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="string">"NULL"</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">string</div><div class="word">&nbsp;</div><div class="word">p</div><div class="word">&nbsp;</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="word">i</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">prev</div><div class="word">&nbsp;</div><div class="symbol">?</div><div class="word">&nbsp;</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">nodePointers</div><div class="symbol2">[</div><div class="word">i</div><div class="symbol2">]</div><div class="symbol">.</div><div class="word">prev</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="word">&nbsp;</div><div class="symbol">:</div><div class="word">&nbsp;</div><div class="string">"NULL"</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">sprintf</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"[&nbsp;%*s&nbsp;|&nbsp;%*s&nbsp;]\n"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">p</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">n</div><div class="symbol">.</div><div class="word">c_str</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="comment">//&nbsp;need&nbsp;that&nbsp;formatting</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">sprintf</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"|&nbsp;%*s&nbsp;|&nbsp;%*s&nbsp;|\n"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">""</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">width</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">""</div><div class="symbol2">)</div><div class="symbol">;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">sprintf</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">"|&nbsp;%*s&nbsp;%d&nbsp;%*s&nbsp;|\n"</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">width</div><div class="symbol">-</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">/</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">""</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="symbol2">(</div><div class="highlight">int</div><div class="symbol2">)</div><div class="symbol2">(</div><div class="word">width</div><div class="symbol">-</div><div class="symbol2">(</div><div class="word">to_string</div><div class="symbol2">(</div><div class="word">node</div><div class="symbol">-</div><div class="symbol">></div><div class="word">key</div><div class="symbol2">)</div><div class="symbol">.</div><div class="word">size</div><div class="symbol2">(</div><div class="symbol2">)</div><div class="symbol">-</div><div class="number">1</div><div class="symbol2">)</div><div class="symbol">/</div><div class="number">2</div><div class="symbol2">)</div><div class="symbol">,</div><div class="word">&nbsp;</div><div class="string">""</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="word">&nbsp;</div><div class="symbol">+</div><div class="symbol">=</div><div class="word">&nbsp;</div><div class="word">string</div><div class="symbol2">(</div><div class="word">s</div><div class="symbol2">)</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">delete</div><div class="word">&nbsp;</div><div class="symbol2">[</div><div class="symbol2">]</div><div class="word">&nbsp;</div><div class="word">s</div><div class="word">&nbsp;</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-<div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="word">&nbsp;</div><div class="highlight">return</div><div class="word">&nbsp;</div><div class="word">ret</div><div class="symbol">;</div><div class="placeholder">&nbsp;</div><br>
-<div class="symbol2">}</div><div class="placeholder">&nbsp;</div><br>
-<div class="placeholder">&nbsp;</div><br>
-</div></div></body>
+    <script>
+        // Function to fetch and display the file content
+        async function fetchAndHighlight() {
+            const url = "https://dgklr.github.io/cs225sp24/lab_gdb2/skipList_given.cpp"; // URL of the file
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const codeBlock = document.getElementById('code');
+                codeBlock.textContent = text;
+                hljs.highlightElement(codeBlock);
+            } catch (error) {
+                console.error('Error fetching file:', error);
+            }
+        }
+
+        // Call the function on page load
+        fetchAndHighlight();
+    </script>
+</body>
+</html>
