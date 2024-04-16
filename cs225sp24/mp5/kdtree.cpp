@@ -89,6 +89,7 @@ void KDTree<Dim>::buildKDTree(KDTreeNode*& now, T begin, T end, size_t dim)
     if (len == 1) {
         now = new KDTreeNode(*begin);
         now->left = now->right = nullptr;
+        return;
     }
     T mid = begin + (len - 1) / 2;
     getKthElem(begin, end, (len - 1) / 2, dim);
