@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/lab_hash/data</title>
+    <link rel="stylesheet" href="https://dgklr.github.io/cs225sp24/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('.file-block').forEach(block => {
+                block.addEventListener('click', () => {
+                    window.location.href = block.getAttribute('data-href'); // 为整个文件区块设置跳转
+                });
+            });
+
+            document.querySelectorAll('.source-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // 阻止冒泡到文件区块的点击事件
+                    window.location.href = link.getAttribute('data-source-href'); // 为"源文件"设置特定的跳转
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>/lab_hash/data</h2>
+        <a href="https://dgklr.github.io/cs225sp24/lab_hash" class="back-button">返回上一页</a>
+    </div>
+    <div class="file-manager">
+        <div class="folders">
+            <h3>文件夹</h3>
+
+        </div>
+        <div class="files">
+            <h3>文件</h3>            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/aliceinwonderland.txt" class="folder-link">aliceinwonderland.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/art_of_war.txt" class="folder-link">art_of_war.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/dracula.txt" class="folder-link">dracula.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/grimmfairytales.txt" class="folder-link">grimmfairytales.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/log.txt" class="folder-link">log.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/log2.txt" class="folder-link">log2.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/metamorphoses.txt" class="folder-link">metamorphoses.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/odyssey.txt" class="folder-link">odyssey.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/old-man-and-the-sea.txt" class="folder-link">old-man-and-the-sea.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/sherlock_holmes.txt" class="folder-link">sherlock_holmes.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/war-and-peace.txt" class="folder-link">war-and-peace.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/waroftheworlds.txt" class="folder-link">waroftheworlds.txt</a>
+            <a href="https://dgklr.github.io/cs225sp24/lab_hash/data/words.txt" class="folder-link">words.txt</a>
+
+        </div>
+    </div>
+</body>
+</html>
