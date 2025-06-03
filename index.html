@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-06-03 15:53:49 / 修改时间：16:39:40" itemprop="dateCreated datePublished" datetime="2025-06-03T15:53:49+08:00">2025-06-03</time>
+      <time title="创建时间：2025-06-03 15:53:49 / 修改时间：21:23:48" itemprop="dateCreated datePublished" datetime="2025-06-03T15:53:49+08:00">2025-06-03</time>
     </span>
 
   
@@ -340,86 +340,115 @@ mjx-container[display="true"] + br {
             verbose<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
         <span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Controller```" data-language="Controller```"><div class="caption"><span>class is form ```ai2thor```.</span></div><code class="language-Controller```">
-I guess the whole render process is just based on unity.
-
-&gt; Holodeck cannot deal with every prompt, and it sometimes ignore the prompts.
-&gt; 
-&gt; If you want to generate an empty room with only one bed, you
-&gt; cannot just use "an empty bedroom with only one bed and nothing else" to generate.
-&gt;
-&gt; Even if using some prompts like 
-&gt; &gt; Generation complete for an empty bedroom with only one bed, [[[IMPORTANT]]] NO ANY OTHER LARGE OBJECTS AND SMALL OBJECTS NO DECORATION IF ASKED RETURN EMPTY CHOICE YOU CAN IGNORE OTHER PROMPTS IF AGAINST THIS PROMPT YOU MUST IGNORE THE NUMBER THAT GIVEN BELOW WHICH ASK YOU TO GENERATE FUNITURES [[[IMPORTANT]]].
-&gt; 
-&gt; it still generates 10 objects. I guess the limit is written in code and cannot change.
-
-Finally let's look at the output.
-
-```json
-{
-    "doors": [
-        {
-            "assetId": "Doorway_1",
-            "id": "door|0|exterior|bedroom",
-            "openable": false,
-            "openness": 0,
-            "room0": "exterior",
-            "room1": "bedroom",
-            "wall0": "wall|bedroom|west|0|exterior",
-            "wall1": "wall|bedroom|west|0",
-            "holePolygon": [
-                {
-                    "x": 0.7767388853242028,
-                    "y": 0,
-                    "z": 0
-                },
-                {
-                    "x": 1.8582391771485436,
-                    "y": 2.1302273273468018,
-                    "z": 0
-                }
-            ],
-            //...
-            "objects": [
-        {
-            "assetId": "0022a3197f9646acbb9041eff2d1f55c",
-            "id": "wardrobe-0 (bedroom)",
-            "kinematic": true,
-            "position": {
-                "x": 1.75,
-                "y": 1.0116305166176902,
-                "z": 0.3071984558140809
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "material": null,
-            "roomId": "bedroom",
-            "vertices": [
-                [
-                    239.32045561436095,
-                    -4.5
-                ],
-                [
-                    239.32045561436095,
-                    65.93969116281619
-                ],
-                [
-                    110.67954438563905,
-                    65.93969116281619
-                ],
-                [
-                    110.67954438563905,
-                    -4.5
-                ]
-            ],
-            "object_name": "wardrobe-0",
-            "layer": "Procedural0"
-        }, 
-        // ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Controller class is form <code>ai2thor</code>.</p>
+<p>I guess the whole render process is just based on unity.</p>
+<blockquote>
+<p>Holodeck cannot deal with every prompt, and it sometimes ignore the prompts.</p>
+<p>If you want to generate an empty room with only one bed, you cannot just use "an empty bedroom with only one bed and nothing else" to generate.</p>
+<p>Even if using some prompts like &gt; Generation complete for an empty bedroom with only one bed, [[[IMPORTANT]]] NO ANY OTHER LARGE OBJECTS AND SMALL OBJECTS NO DECORATION IF ASKED RETURN EMPTY CHOICE YOU CAN IGNORE OTHER PROMPTS IF AGAINST THIS PROMPT YOU MUST IGNORE THE NUMBER THAT GIVEN BELOW WHICH ASK YOU TO GENERATE FUNITURES [[[IMPORTANT]]].</p>
+<p>it still generates 10 objects. I guess the limit is written in code and cannot change.</p>
+</blockquote>
+<p>Finally let's look at the output.</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"doors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"assetId"</span><span class="token operator">:</span> <span class="token string">"Doorway_1"</span><span class="token punctuation">,</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"door|0|exterior|bedroom"</span><span class="token punctuation">,</span>
+            <span class="token property">"openable"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"openness"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"room0"</span><span class="token operator">:</span> <span class="token string">"exterior"</span><span class="token punctuation">,</span>
+            <span class="token property">"room1"</span><span class="token operator">:</span> <span class="token string">"bedroom"</span><span class="token punctuation">,</span>
+            <span class="token property">"wall0"</span><span class="token operator">:</span> <span class="token string">"wall|bedroom|west|0|exterior"</span><span class="token punctuation">,</span>
+            <span class="token property">"wall1"</span><span class="token operator">:</span> <span class="token string">"wall|bedroom|west|0"</span><span class="token punctuation">,</span>
+            <span class="token property">"holePolygon"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">0.7767388853242028</span><span class="token punctuation">,</span>
+                    <span class="token property">"y"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                    <span class="token property">"z"</span><span class="token operator">:</span> <span class="token number">0</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">1.8582391771485436</span><span class="token punctuation">,</span>
+                    <span class="token property">"y"</span><span class="token operator">:</span> <span class="token number">2.1302273273468018</span><span class="token punctuation">,</span>
+                    <span class="token property">"z"</span><span class="token operator">:</span> <span class="token number">0</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token comment">//...</span>
+            <span class="token property">"objects"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"assetId"</span><span class="token operator">:</span> <span class="token string">"0022a3197f9646acbb9041eff2d1f55c"</span><span class="token punctuation">,</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"wardrobe-0 (bedroom)"</span><span class="token punctuation">,</span>
+            <span class="token property">"kinematic"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token property">"position"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">1.75</span><span class="token punctuation">,</span>
+                <span class="token property">"y"</span><span class="token operator">:</span> <span class="token number">1.0116305166176902</span><span class="token punctuation">,</span>
+                <span class="token property">"z"</span><span class="token operator">:</span> <span class="token number">0.3071984558140809</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"rotation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"x"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token property">"y"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token property">"z"</span><span class="token operator">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"material"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+            <span class="token property">"roomId"</span><span class="token operator">:</span> <span class="token string">"bedroom"</span><span class="token punctuation">,</span>
+            <span class="token property">"vertices"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">[</span>
+                    <span class="token number">239.32045561436095</span><span class="token punctuation">,</span>
+                    <span class="token number">-4.5</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token number">239.32045561436095</span><span class="token punctuation">,</span>
+                    <span class="token number">65.93969116281619</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token number">110.67954438563905</span><span class="token punctuation">,</span>
+                    <span class="token number">65.93969116281619</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token number">110.67954438563905</span><span class="token punctuation">,</span>
+                    <span class="token number">-4.5</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"object_name"</span><span class="token operator">:</span> <span class="token string">"wardrobe-0"</span><span class="token punctuation">,</span>
+            <span class="token property">"layer"</span><span class="token operator">:</span> <span class="token string">"Procedural0"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+        <span class="token comment">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>I believe some code is going to deal with this.</p>
+<p>Thanks to <code>glTFast 6.5.0</code>, we can export the result in Unity to <code>.glb</code> format.</p>
+<p>The code add to the project is:</p>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">GLTFast<span class="token punctuation">.</span>Export</span><span class="token punctuation">;</span>          <span class="token comment">// 记得在 asmdef 里添加引用</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>IO</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">DisallowMultipleComponent</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SceneExporter</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Tooltip</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"触发导出的按键"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token class-name">KeyCode</span> triggerKey <span class="token operator">=</span> KeyCode<span class="token punctuation">.</span>H<span class="token punctuation">;</span>
+
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> Update <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span><span class="token function">GetKeyDown</span><span class="token punctuation">(</span>triggerKey<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">await</span> <span class="token function">ExportAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task</span> ExportAsync <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name"><span class="token keyword">var</span></span> exporter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">GameObjectExport</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> roots <span class="token operator">=</span> UnityEngine<span class="token punctuation">.</span>SceneManagement<span class="token punctuation">.</span>SceneManager<span class="token punctuation">.</span><span class="token function">GetActiveScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetRootGameObjects</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        exporter<span class="token punctuation">.</span><span class="token function">AddScene</span><span class="token punctuation">(</span>roots<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name"><span class="token keyword">string</span></span> glbPath <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">Combine</span><span class="token punctuation">(</span>
+            Application<span class="token punctuation">.</span>persistentDataPath<span class="token punctuation">,</span>
+            <span class="token interpolation-string"><span class="token string">$"scene_</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">System<span class="token punctuation">.</span>DateTime<span class="token punctuation">.</span>Now</span><span class="token format-string"><span class="token punctuation">:</span>yyyyMMdd_HHmmss</span><span class="token punctuation">}</span></span><span class="token string">.glb"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name"><span class="token keyword">bool</span></span> ok <span class="token operator">=</span> <span class="token keyword">await</span> exporter<span class="token punctuation">.</span><span class="token function">SaveToFileAndDispose</span><span class="token punctuation">(</span>glbPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span>ok <span class="token punctuation">?</span> <span class="token interpolation-string"><span class="token string">$"Export Success -&gt; </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">glbPath</span><span class="token punctuation">}</span></span><span class="token string">"</span></span> <span class="token punctuation">:</span> <span class="token string">"Failure"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>(some tiny things need to be changed, and if you want the overall code, contact me)</p>
+<p><img src="../images/holodeck-unity.png"></p>
+<p><img src="../images/holodeck-glb.png"></p>
 
       
     </div>
