@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Based on prismjs  Do you want to highlight the code lines? Use colorful comments! Examples: import std; &#x2F;&#x2F; * use cpp20 int main() { &#x2F;&#x2F; $ basic main func     std::cout&lt;&lt;&quot;Comments!&quot;&lt;&lt;std::e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="colorful comment">
+<meta property="og:url" content="http://example.com/2025/06/05/colorful-comment/index.html">
+<meta property="og:site_name" content="dgklr&#39;s blog">
+<meta property="og:description" content="Based on prismjs  Do you want to highlight the code lines? Use colorful comments! Examples: import std; &#x2F;&#x2F; * use cpp20 int main() { &#x2F;&#x2F; $ basic main func     std::cout&lt;&lt;&quot;Comments!&quot;&lt;&lt;std::e">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-05T07:05:17.000Z">
+<meta property="article:modified_time" content="2025-06-05T07:36:57.856Z">
+<meta property="article:author" content="dgklr">
+<meta property="article:tag" content="js &amp; css">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/06/05/colorful-comment/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/06/05/colorful-comment/","path":"2025/06/05/colorful-comment/","title":"colorful comment"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>colorful comment | dgklr's blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/css/highlight-comment.css">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">dgklr's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#examples"><span class="nav-number">1.</span> <span class="nav-text">Examples:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#codes"><span class="nav-number">2.</span> <span class="nav-text">Codes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#installation"><span class="nav-number">2.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usage"><span class="nav-number">2.2.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#customization"><span class="nav-number">2.3.</span> <span class="nav-text">Customization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#troubleshooting"><span class="nav-number">2.4.</span> <span class="nav-text">Troubleshooting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#license"><span class="nav-number">2.5.</span> <span class="nav-text">License</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">dgklr</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/05/colorful-comment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dgklr">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dgklr's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="colorful comment | dgklr's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          colorful comment
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-06-05 15:05:17 / 修改时间：15:36:57" itemprop="dateCreated datePublished" datetime="2025-06-05T15:05:17+08:00">2025-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>Based on prismjs</p>
+</blockquote>
+<p>Do you want to highlight the code lines? Use colorful comments!</p>
+<h1 id="examples">Examples:</h1>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">import</span> <span class="token module">std</span><span class="token punctuation">;</span> <span class="token comment">// * use cpp20</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// $ basic main func</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"Comments!"</span><span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span> <span class="token comment">// ^ without include!</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os <span class="token comment"># *</span>
+
+<span class="token comment"># $ sadly, multiple line comment is not currently supported, but it can support longgggg comments</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Comments!"</span><span class="token punctuation">)</span> <span class="token comment"># ^ different colors!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="codes">Codes</h1>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// prism-highlight-comment.js</span>
+<span class="token comment">// * You should add &lt;script src="{{ url_for('/js/prism-highlight-comment.js') }}"&gt;&lt;/script&gt;</span>
+<span class="token comment">// to footer.</span>
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> codeBlocks <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'pre &gt; code[class*="language-"]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  codeBlocks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">codeElem</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> htmlLines <span class="token operator">=</span> codeElem<span class="token punctuation">.</span>innerHTML<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> newLines <span class="token operator">=</span> htmlLines<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">lineHtml</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token operator">+</span><span class="token string">'/ *'</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token operator">+</span><span class="token string">' *'</span><span class="token punctuation">)</span>  <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'%'</span><span class="token operator">+</span><span class="token string">' *'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;span class="hl-star"&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lineHtml<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token operator">+</span><span class="token string">'/ $'</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token operator">+</span><span class="token string">' $'</span><span class="token punctuation">)</span>  <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'%'</span><span class="token operator">+</span><span class="token string">' $'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;span class="hl-dollar"&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lineHtml<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token operator">+</span><span class="token string">'/ ^'</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token operator">+</span><span class="token string">' ^'</span><span class="token punctuation">)</span>  <span class="token operator">||</span>
+        lineHtml<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'%'</span><span class="token operator">+</span><span class="token string">' ^'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;span class="hl-caret"&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lineHtml<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span&gt;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> lineHtml<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> result <span class="token operator">=</span> newLines<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    codeElem<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> result<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* prism-highlight.css */</span>
+<span class="token comment">/* # * You should add &lt;link rel="stylesheet" href="{{ url_for('/css/highlight-comment.css') }}"&gt; */</span>
+<span class="token comment">/* to header */</span>
+<span class="token selector">.hl-star</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> pre<span class="token punctuation">;</span>
+  <span class="token property">min-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span> 
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 249<span class="token punctuation">,</span> 196<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #FBC02D<span class="token punctuation">;</span> 
+  <span class="token property">padding-left</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span> 
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token selector">.hl-dollar</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> pre<span class="token punctuation">;</span>
+  <span class="token property">min-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>225<span class="token punctuation">,</span> 190<span class="token punctuation">,</span> 231<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #8E24AA<span class="token punctuation">;</span> 
+  <span class="token property">padding-left</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.hl-caret</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> pre<span class="token punctuation">;</span>
+  <span class="token property">min-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>187<span class="token punctuation">,</span> 222<span class="token punctuation">,</span> 251<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #1976D2<span class="token punctuation">;</span> 
+  <span class="token property">padding-left</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="installation">Installation</h2>
+<ol type="1">
+<li><strong>复制文件</strong>
+<ul>
+<li><code>prism-highlight-comment.js</code> → <code>source/js/</code><br>
+</li>
+<li><code>prism-highlight.css</code> → <code>source/css/</code></li>
+</ul>
+目录示例<br>
+<pre class="line-numbers language-none"><code class="language-none">your-hexo-project/
+├─ source/
+│ ├─ css/
+│ │ └─ prism-highlight.css
+│ └─ js/
+│ └─ prism-highlight-comment.js
+└─ themes/
+└─ your-theme/
+└─ layout/_partial/(head.njk, footer.njk, …)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>在 <code>head.njk</code> 引入 CSS</strong><br>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;link rel="stylesheet" href="{{ url_for('/css/prism-highlight.css') }}"&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p></li>
+<li><p><strong>在 <code>footer.njk</code> 引入脚本</strong><br>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;script src="{{ url_for('/js/prism-highlight-comment.js') }}"&gt;&lt;/script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p></li>
+<li><p><strong>生成与预览</strong><br>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
+hexo g
+hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p></li>
+</ol>
+<hr>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>C-like：<code>// *</code> <code>// $</code> <code>// ^</code><br>
+</li>
+<li>Python / Shell：<code># *</code> <code># $</code> <code># ^</code><br>
+</li>
+<li>TeX / LaTeX：<code>% *</code> <code>% $</code> <code>% ^</code></li>
+</ul>
+<p>对应类与配色</p>
+<table>
+<thead>
+<tr class="header">
+<th>标记</th>
+<th>类名</th>
+<th>背景</th>
+<th>左侧色条</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>*</td>
+<td>hl-star</td>
+<td>浅黄</td>
+<td>#FBC02D</td>
+</tr>
+<tr class="even">
+<td>$</td>
+<td>hl-dollar</td>
+<td>淡紫</td>
+<td>#8E24AA</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td>hl-caret</td>
+<td>浅蓝</td>
+<td>#1976D2</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="customization">Customization</h2>
+<ol type="1">
+<li><strong>添加新标记</strong>：在 JS 中增 <code>includes()</code> 判断，返回新类；再在 CSS 中写新类样式。<br>
+</li>
+<li><strong>改配色</strong>：调整 <code>.hl-*</code> 的 <code>background-color</code> 与 <code>border-left</code>。<br>
+</li>
+<li><strong>改边距</strong>：同步修改 <code>padding-left</code> / <code>margin-left</code> 数值。</li>
+</ol>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>看不到颜色</strong>：确认 CSS/JS 文件路径与模板引用一致；检查浏览器开发者工具。<br>
+</li>
+<li><strong>高亮行未铺满</strong>：确保 <code>.hl-*</code> 使用 <code>inline-block</code> + <code>min-width:100%</code>。<br>
+</li>
+<li><strong>行内多行注释不支持</strong>：脚本仅匹配行注释；多行注释需自行扩展逻辑。</li>
+</ul>
+<hr>
+<h2 id="license">License</h2>
+<p>This demo is built on top of PrismJS.<br>
+Feel free to adapt it for personal or educational use.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js-css/" rel="tag"># js & css</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/06/03/holodeck-input-and-output/" rel="prev" title="holodeck input and output">
+                  <i class="fa fa-angle-left"></i> holodeck input and output
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">dgklr</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+  <script src="/js/prism-highlight-comment.js"></script>
+</body>
+</html>
