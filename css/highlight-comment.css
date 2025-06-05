@@ -11,7 +11,7 @@
   background-color: rgba(255, 249, 196, 0.5); /* 浅黄色半透明背景 */
   border-left: 3px solid #FBC02D; /* 橙黄色色条 */
   padding-left: 8px;          /* 让代码内容和色条之间留出空隙 */
-  margin-left: -8px;          /* 抹平这 8px 的左移 */
+  margin-left: -11px;         /* 抹平这 8px 的左移 */
 }
 
 /* ==== 2. 对应“美元符号($)”的高亮：紫色背景 + 左侧深紫色色条 ==== */
@@ -24,7 +24,7 @@
   background-color: rgba(225, 190, 231, 0.5); /* 淡紫色半透明 */
   border-left: 3px solid #8E24AA; /* 深紫色色条 */
   padding-left: 8px;
-  margin-left: -8px;
+  margin-left: -11px;
 }
 
 /* ==== 3. 对应“脱字符(^)”的高亮：浅蓝色背景 + 左侧蓝色色条 ==== */
@@ -37,5 +37,5 @@
   background-color: rgba(187, 222, 251, 0.5); /* 浅蓝色半透明 */
   border-left: 3px solid #1976D2; /* 深蓝色色条 */
   padding-left: 8px;
-  margin-left: -8px;
+  margin-left: -11px;
 }
